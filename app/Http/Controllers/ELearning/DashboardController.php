@@ -10,7 +10,7 @@ class DashboardController extends Controller
     public function index()
     {
         return view('e-learning.dashboard', [
-            'title' => 'Dashboard E-learning - ' . auth()->user()->role,
+            'title' => 'Dashboard E-Learning',
         ]);
     }
 }

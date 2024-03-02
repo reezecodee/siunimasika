@@ -17,8 +17,7 @@
                     <span class="hide-menu">Home</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('e-learning/dashboard*') ? 'active' : '' }}"
-                        href="{{ route('e-learn.dashboard') }}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('e-learn.dashboard') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-layout-dashboard"></i>
                         </span>
@@ -30,33 +29,33 @@
                     <span class="hide-menu">Universitas</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/data-kampus" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-article"></i>
+                    <a class="sidebar-link" href="{{ route('data-kampus.index') }}" aria-expanded="false">
+                        <span class="me-3" style="width: 3px">
+                            <i class="fas fa-university fs-4"></i>
                         </span>
                         <span class="hide-menu">Data kampus</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/data-fakultas" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-alert-circle"></i>
+                    <a class="sidebar-link" href="{{ route('data-fakultas.index') }}" aria-expanded="false">
+                        <span class="me-3" style="width: 3px">
+                            <i class="fas fa-vihara fs-4"></i>
                         </span>
                         <span class="hide-menu">Data fakultas</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/data-prodi" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-alert-circle"></i>
+                    <a class="sidebar-link" href="{{ route('data-prodi.index') }}" aria-expanded="false">
+                        <span class="me-3" style="width: 3px">
+                            <i class="fas fa-graduation-cap fs-4"></i>
                         </span>
                         <span class="hide-menu">Data prodi</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/data-kelas" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-alert-circle"></i>
+                    <a class="sidebar-link" href="{{ route('data-kelas.index') }}" aria-expanded="false">
+                        <span class="me-3" style="width: 3px">
+                            <i class="fas fa-house-user fs-4"></i>
                         </span>
                         <span class="hide-menu">Data kelas</span>
                     </a>
@@ -67,26 +66,26 @@
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin-pusat" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-article"></i>
+                        <span class="me-3" style="width: 3px">
+                            <i class="fas fa-users-cog fs-4"></i>
                         </span>
                         <span class="hide-menu">Admin pusat</span>
                     </a>
                     <a class="sidebar-link" href="/admin-kampus" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-article"></i>
+                        <span class="me-3" style="width: 3px">
+                            <i class="fas fa-users-cog fs-4"></i>
                         </span>
                         <span class="hide-menu">Admin kampus</span>
                     </a>
                     <a class="sidebar-link" href="/dosen" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-article"></i>
+                        <span class="me-3" style="width: 3px">
+                            <i class="fas fa-user-graduate fs-4"></i>
                         </span>
                         <span class="hide-menu">Dosen</span>
                     </a>
                     <a class="sidebar-link" href="/mahasiswa" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-article"></i>
+                        <span class="me-3" style="width: 3px">
+                            <i class="fas fa-users fs-4"></i>
                         </span>
                         <span class="hide-menu">Mahasiswa</span>
                     </a>

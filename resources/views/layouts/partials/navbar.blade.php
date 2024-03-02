@@ -17,8 +17,8 @@
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                 <a href="/profile" class="text-dark">{{ $dataUser['nama'] }}</a>
                 <li class="nav-item dropdown">
-                    <a class="nav-link nav-icon-hover" href="" id="drop2"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link nav-icon-hover" href="" id="drop2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         <img src="/main-assets/images/profile/user-1.jpg" alt="" width="35" height="35"
                             class="rounded-circle">
                     </a>
