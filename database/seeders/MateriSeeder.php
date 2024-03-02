@@ -17,7 +17,7 @@ class MateriSeeder extends Seeder
             [
                 'id_matkul' => 1,
                 'id_prodi' => 1,
-                'id_dosen' => 3,
+                'id_dosen' => 1,
                 'judul' => 'Materi pembelajaran untuk pertemuan 1',
                 'deskripsi' => 'Pelajari saja',
                 'link_materi' => 'https://unimasika.ac.id/download/module/wp/pertemuan1',
@@ -28,7 +28,7 @@ class MateriSeeder extends Seeder
             [
                 'id_matkul' => 1,
                 'id_prodi' => 1,
-                'id_dosen' => 3,
+                'id_dosen' => 1,
                 'judul' => 'Materi tambahan untuk pertemuan 1',
                 'deskripsi' => 'Pelajari saja',
                 'link_materi' => 'https://unimasika.ac.id/download/module/wp/pertemuan1',

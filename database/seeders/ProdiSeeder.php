@@ -27,7 +27,7 @@ class ProdiSeeder extends Seeder
                 'kode_prodi' => 'SI2127',
                 'jenjang' => 'D3',
                 'nama_prodi' => 'Teknik Informatika',
-                'status' => 'Tidak aktif',
+                'status' => 'Tutup',
                 'logo_prodi' => 'https://unimasika.ac.id/logo-prodi'
             ],
         ]);

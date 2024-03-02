@@ -17,7 +17,7 @@ class MataKuliahSeeder extends Seeder
             [
                 'id_prodi' => 1,
                 'id_kelas' => 1,
-                'id_dosen' => 3,
+                'id_dosen' => 1,
                 'kode_mk' => 'WP12312',
                 'nama_mk' => 'Web Programming I',
                 'semester' => 'Semester 1'

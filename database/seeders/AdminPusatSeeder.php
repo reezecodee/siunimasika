@@ -16,7 +16,6 @@ class AdminPusatSeeder extends Seeder
         DB::table('admin_pusats')->insert([
             [
                 'id_user' => 1,
-                'id_kampus' => 1,
                 'nama' => 'Muhaimin Baswedan S.E',
                 'alamat' => 'Jl. Jalan berkah, Tasikmalaya, Jawa Barat',
                 'photo_profile' => 'default.jpg',
