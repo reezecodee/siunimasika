@@ -58,9 +58,15 @@
                             <li class="scroll-to-section"><a href="#partners">Partners</a></li>
                             <li class="scroll-to-section"><a href="#contact">Contact</a></li>
                             <li class="scroll-to-section"><a href="/blog">Blog</a></li>
-                            <li class="scroll-to-section">
-                                <div class="border-first-button"><a href="/login">Masuk</a></div>
-                            </li>
+                            @auth
+                                <li class="scroll-to-section">
+                                    <div class="border-first-button"><a href="/e-learning/dashboard">Kembali</a></div>
+                                </li>
+                            @else
+                                <li class="scroll-to-section">
+                                    <div class="border-first-button"><a href="/login">Masuk</a></div>
+                                </li>
+                            @endauth
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -90,9 +96,15 @@
                                             memastikan pengalaman akademik Anda berjalan dengan lancar dan sukses.</p>
                                     </div>
                                     <div class="col-lg-12">
-                                        <div class="border-first-button scroll-to-section">
-                                            <a href="/login">Mulai belajar</a>
-                                        </div>
+                                        @auth
+                                            <div class="border-first-button scroll-to-section">
+                                                <a href="/e-learning/dashboard">Kembali ke Dashboard</a>
+                                            </div>
+                                        @else
+                                            <div class="border-first-button scroll-to-section">
+                                                <a href="/login">Mulai belajar</a>
+                                            </div>
+                                        @endauth
                                     </div>
                                 </div>
                             </div>

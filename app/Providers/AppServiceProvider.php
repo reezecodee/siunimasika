@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('layouts.main-layout', function ($view) {
+        View::composer(['layouts.elearning-layout', 'e-learning.*', 'siakad.*'], function ($view) {
             // Memeriksa apakah pengguna telah terotentikasi
             if (Auth::check() && Auth::user()->role == "Admin Pusat") {
                 $view->with('dataUser', json_decode(Auth::user()->adminPusat, true)[0]);

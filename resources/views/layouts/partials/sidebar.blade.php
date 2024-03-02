@@ -2,7 +2,7 @@
     <!-- Sidebar scroll-->
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="./index.html" class="text-nowrap logo-img">
+            <a href="" class="text-nowrap logo-img">
                 <img src="/landingpage-assets/assets/images/image.png" width="170" alt="" />
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -17,8 +17,8 @@
                     <span class="hide-menu">Home</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('dashboard*') ? 'active' : '' }}" href="/dashboard"
-                        aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('e-learning/dashboard*') ? 'active' : '' }}"
+                        href="{{ route('e-learn.dashboard') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-layout-dashboard"></i>
                         </span>

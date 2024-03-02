@@ -25,9 +25,11 @@ Route::get('/', function () {
 / Auth Routes
 -----------------------------------------------------------------------------
 */
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [AuthController::class, 'index'])->name('auth.loginView');
+    Route::post('/login', [AuthController::class, 'loginHandler'])->name('auth.loginHandler');
+});
 
-Route::get('/login', [AuthController::class, 'index'])->name('auth.loginView');
-Route::post('/login', [AuthController::class, 'loginHandler'])->name('auth.loginHandler');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 
@@ -37,8 +39,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 / E-learning Routes
 -----------------------------------------------------------------------------
 */
-Route::prefix('/e-learning')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::prefix('/e-learning')->middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('e-learn.dashboard');
 });
 
 

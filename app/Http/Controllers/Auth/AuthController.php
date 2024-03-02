@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/e-learning/dashboard');
+            return redirect()->intended('/e-learning/dashboard')->with('success', 'Senang bisa melihat Anda kembali!');
         }
 
         return back()->with('failed', 'NIP/NIM atau password yang anda masukkan salah')->withInput();

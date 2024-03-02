@@ -19,7 +19,7 @@
                                         <label for="exampleInputNIPNIM" class="form-label">NIP Dosen / NIM
                                             Mahasiswa</label>
                                         <input type="text" class="form-control" id="exampleInputNIPNIM"
-                                            aria-describedby="emailHelp" placeholder="NIP/NIM" name="nip_nim" required autocomplete="off">
+                                            aria-describedby="emailHelp" placeholder="NIP/NIM" name="nip_nim" required autocomplete="off" autofocus>
                                     </div>
                                     <div class="mb-4">
                                         <label for="exampleInputPassword1" class="form-label">Password</label>
