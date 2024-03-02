@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminPusat\DashboardController;
+use App\Http\Controllers\ELearning\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AuthController;
@@ -31,10 +31,19 @@ Route::post('/login', [AuthController::class, 'loginHandler'])->name('auth.login
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 
+
 /* 
 -----------------------------------------------------------------------------
-/ Admin Pusat Routes
+/ E-learning Routes
 -----------------------------------------------------------------------------
 */
+Route::prefix('/e-learning')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('adminPusat.dashboard');
+
+/* 
+-----------------------------------------------------------------------------
+/ SIAKAD Routes
+-----------------------------------------------------------------------------
+*/

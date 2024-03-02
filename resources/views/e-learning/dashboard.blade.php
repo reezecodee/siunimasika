@@ -1,4 +1,4 @@
-@extends('layouts.main-layout')
+@extends('layouts.elearning-layout')
 @section('content')
     pppp
 @endsection
