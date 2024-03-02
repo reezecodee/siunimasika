@@ -19,12 +19,12 @@
                                         <label for="exampleInputNIPNIM" class="form-label">NIP Dosen / NIM
                                             Mahasiswa</label>
                                         <input type="text" class="form-control" id="exampleInputNIPNIM"
-                                            aria-describedby="emailHelp" placeholder="NIP/NIM">
+                                            aria-describedby="emailHelp" placeholder="NIP/NIM" name="nip_nim" required autocomplete="off">
                                     </div>
                                     <div class="mb-4">
                                         <label for="exampleInputPassword1" class="form-label">Password</label>
                                         <input type="password" class="form-control" id="exampleInputPassword1"
-                                            placeholder="Password">
+                                            placeholder="Password" name="password" required autocomplete="off">
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <a class="text-primary fw-bold" href="./index.html">Lupa Password ?</a>

@@ -20,28 +20,28 @@ class UserSeeder extends Seeder
                 'email' => 'test1@gmail.com',
                 'telp' => '081298897305',
                 'role' => 'Admin Pusat',
-                'password' => Hash::make('acumalaka')
+                'password' => bcrypt('acumalaka')
             ],
             [
                 'nip_nim' => '19230826',
                 'email' => 'test2@gmail.com',
                 'telp' => '081298897306',
                 'role' => 'Admin Kampus',
-                'password' => Hash::make('acumalaka')
+                'password' => bcrypt('acumalaka')
             ],
             [
                 'nip_nim' => '19230827',
                 'email' => 'test3@gmail.com',
                 'telp' => '081298897307',
                 'role' => 'Dosen',
-                'password' => Hash::make('acumalaka')
+                'password' => bcrypt('acumalaka')
             ],
             [
                 'nip_nim' => '19230828',
                 'email' => 'test4@gmail.com',
                 'telp' => '081298897308',
                 'role' => 'Mahasiswa',
-                'password' => Hash::make('acumalaka')
+                'password' => bcrypt('acumalaka')
             ],
         ]);
     }

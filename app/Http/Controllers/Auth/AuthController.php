@@ -12,13 +12,24 @@ class AuthController extends Controller
     public function index()
     {
         return view('auth.login', [
-            'title' => 'Login'
+            'title' => 'Login - Universitas Transformasi Informatika'
         ]);
     }
 
     // login handler
-    public function handleLogin()
+    public function loginHandler(Request $request)
     {
+        $credentials = $request->validate([
+            'nip_nim' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard');
+        }
+
+        return back()->with('failed', 'NIP/NIM atau password yang anda masukkan salah')->withInput();
     }
 
     // logout
