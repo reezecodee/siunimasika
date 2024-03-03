@@ -6,6 +6,9 @@
     </div>
     <div class="card">
         <div class="card-body">
+            <a class="d-flex justify-content-end mb-3" href="{{ route('data-kampus.create') }}">
+                <button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah kampus</button>
+            </a>
             <table id="datatable" class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -33,8 +36,7 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Tambah</a></li>
-                                        <li><a class="dropdown-item" href="#">Detail</a></li>
+                                        <li><a class="dropdown-item" href="">Detail</a></li>
                                         <li><a class="dropdown-item" href="#">Perbarui</a></li>
                                         <li><a class="dropdown-item text-danger" href="#">Hapus</a></li>
                                     </ul>

@@ -24,7 +24,9 @@ class KampusController extends Controller
      */
     public function create()
     {
-        //
+        return view('e-learning.data-universitas.create.create-kampus', [
+            'title' => 'Tambah Kampus Baru',
+        ]);
     }
 
     /**

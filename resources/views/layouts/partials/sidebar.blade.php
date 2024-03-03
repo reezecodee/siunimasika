@@ -29,7 +29,7 @@
                     <span class="hide-menu">Universitas</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('data-kampus.index') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-kampus*') ? 'active' : '' }}" href="{{ route('data-kampus.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
                             <i class="fas fa-university fs-4"></i>
                         </span>
@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('data-fakultas.index') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-fakultas*') ? 'active' : '' }}" href="{{ route('data-fakultas.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
                             <i class="fas fa-vihara fs-4"></i>
                         </span>
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('data-prodi.index') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-prodi*') ? 'active' : '' }}" href="{{ route('data-prodi.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
                             <i class="fas fa-graduation-cap fs-4"></i>
                         </span>
@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('data-kelas.index') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-kelas*') ? 'active' : '' }}" href="{{ route('data-kelas.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
                             <i class="fas fa-house-user fs-4"></i>
                         </span>
