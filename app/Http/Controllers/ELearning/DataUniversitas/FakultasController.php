@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
+use App\Models\Fakultas;
 use Illuminate\Http\Request;
 
 class FakultasController extends Controller
@@ -13,7 +14,8 @@ class FakultasController extends Controller
     public function index()
     {
         return view('e-learning.data-universitas.fakultas', [
-            'title' => 'Daftar Data Fakultas'
+            'title' => 'Daftar Data Fakultas',
+            'data_fakultas' => Fakultas::all()
         ]);
     }
 

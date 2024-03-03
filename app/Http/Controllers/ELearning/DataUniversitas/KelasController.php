@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -13,7 +14,8 @@ class KelasController extends Controller
     public function index()
     {
         return view('e-learning.data-universitas.kelas', [
-            'title' => 'Daftar Data Kelas'
+            'title' => 'Daftar Data Kelas',
+            'data_kelas' => Kelas::all()
         ]);
     }
 

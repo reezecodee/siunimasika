@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
+use App\Models\Prodi;
 use Illuminate\Http\Request;
 
 class ProdiController extends Controller
@@ -13,7 +14,8 @@ class ProdiController extends Controller
     public function index()
     {
         return view('e-learning.data-universitas.prodi', [
-            'title' => 'Daftar Data Prodi'
+            'title' => 'Daftar Data Prodi',
+            'data_prodi' => Prodi::all()
         ]);
     }
 
