@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('fakultas', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_kampus');
+            $table->uuid('id')->primary();
+            $table->uuid('id_kampus');
             $table->string('kode_fk')->unique();
             $table->string('nama_fk');
             $table->enum('status', ['Aktif', 'Tutup']);

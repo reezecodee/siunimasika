@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pengerjaans', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_tugas');
-            $table->unsignedBigInteger('id_mahasiswa');
+            $table->uuid('id')->primary();
+            $table->uuid('id_tugas');
+            $table->uuid('id_mahasiswa');
             $table->string('kode_pengerjaan')->unique();
             $table->string('link_tugas');
             $table->enum('status', ['Belum dikerjakan', 'Dikerjakan', 'Tidak dikerjakan'])->default('Belum dikerjakan');

@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Fakultas;
+use App\Models\Prodi;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Uuid;
 
 class ProdiSeeder extends Seeder
 {
@@ -13,9 +16,30 @@ class ProdiSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('prodis')->insert([
+        // DB::table('prodis')->insert([
+        //     [
+        //         'id' => Uuid::uuid4()->toString(),
+        //         'id_fk' => DB::table('fakultas')->select('id')->get()->all()[0],
+        //         'kode_prodi' => 'SI2123',
+        //         'jenjang' => 'S1',
+        //         'nama_prodi' => 'Sistem Informasi',
+        //         'status' => 'Aktif',
+        //         'logo_prodi' => 'https://unimasika.ac.id/logo-prodi'
+        //     ],
+        //     [
+        //         'id' => Uuid::uuid4()->toString(),
+        //         'id_fk' => DB::table('fakultas')->select('id')->get()->all()[0],
+        //         'kode_prodi' => 'SI2127',
+        //         'jenjang' => 'D3',
+        //         'nama_prodi' => 'Teknik Informatika',
+        //         'status' => 'Tutup',
+        //         'logo_prodi' => 'https://unimasika.ac.id/logo-prodi'
+        //     ],
+        // ]);
+
+        $items = [
             [
-                'id_fk' => 1,
+                'id_fk' => Fakultas::orderBy('id')->skip(0)->first()['id'],
                 'kode_prodi' => 'SI2123',
                 'jenjang' => 'S1',
                 'nama_prodi' => 'Sistem Informasi',
@@ -23,13 +47,19 @@ class ProdiSeeder extends Seeder
                 'logo_prodi' => 'https://unimasika.ac.id/logo-prodi'
             ],
             [
-                'id_fk' => 1,
+                'id_fk' => Fakultas::orderBy('id')->skip(0)->first()['id'],
                 'kode_prodi' => 'SI2127',
                 'jenjang' => 'D3',
                 'nama_prodi' => 'Teknik Informatika',
                 'status' => 'Tutup',
                 'logo_prodi' => 'https://unimasika.ac.id/logo-prodi'
             ],
-        ]);
+        ];
+
+        for ($i = 0; $i < count($items); $i++) {
+            Prodi::create($items[$i]);
+        }
+
+        echo 'Sukses menambahkan';
     }
 }

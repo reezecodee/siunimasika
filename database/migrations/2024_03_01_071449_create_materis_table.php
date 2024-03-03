@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('materis', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_matkul');
-            $table->unsignedBigInteger('id_prodi');
-            $table->unsignedBigInteger('id_dosen');
+            $table->uuid('id')->primary();
+            $table->uuid('id_matkul');
+            $table->uuid('id_prodi');
+            $table->uuid('id_dosen');
             $table->string('judul');
             $table->string('deskripsi');
             $table->string('link_materi');

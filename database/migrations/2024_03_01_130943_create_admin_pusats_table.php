@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('admin_pusats', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_user');
+            $table->uuid('id')->primary();
+            $table->uuid('id_user');
             $table->string('nama');
             $table->text('alamat');
             $table->string('photo_profile');

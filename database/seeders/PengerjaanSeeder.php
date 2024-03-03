@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Mahasiswa;
+use App\Models\Pengerjaan;
+use App\Models\Penugasan;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Uuid;
 
 class PengerjaanSeeder extends Seeder
 {
@@ -13,16 +17,35 @@ class PengerjaanSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('pengerjaans')->insert([
+        // DB::table('pengerjaans')->insert([
+        //     [
+        //         'id' => Uuid::uuid4()->toString(),
+        //         'id_tugas' => DB::table('penugasans')->select('id')->get()->all()[0],
+        //         'id_mahasiswa' => DB::table('mahasiswas')->select('id')->get()->all()[0],
+        //         'kode_pengerjaan' => '1239123',
+        //         'link_tugas' => 'https://unimasika.ac.id/ini-tugasnya',
+        //         'status' => 'Dikerjakan',
+        //         'nilai' => '100',
+        //         'komentar_dosen' => 'Kamu anak yang pintar',
+        //     ]
+        // ]);
+
+        $items = [
             [
-                'id_tugas' => 1,
-                'id_mahasiswa' => 1,
+                'id_tugas' => Penugasan::orderBy('id')->skip(0)->first()['id'],
+                'id_mahasiswa' => Mahasiswa::orderBy('id')->skip(0)->first()['id'],
                 'kode_pengerjaan' => '1239123',
                 'link_tugas' => 'https://unimasika.ac.id/ini-tugasnya',
                 'status' => 'Dikerjakan',
                 'nilai' => '100',
                 'komentar_dosen' => 'Kamu anak yang pintar',
             ]
-        ]);
+        ];
+
+        for ($i = 0; $i < count($items); $i++) {
+            Pengerjaan::create($items[$i]);
+        }
+
+        echo 'Sukses menambahkan';
     }
 }

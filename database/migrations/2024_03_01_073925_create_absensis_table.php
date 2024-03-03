@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('absensis', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_kelas');
-            $table->unsignedBigInteger('id_matkul');
+            $table->uuid('id')->primary();
+            $table->uuid('id_user');
+            $table->uuid('id_kelas');
+            $table->uuid('id_matkul');
             $table->enum('kehadiran', ['Hadir', 'Izin', 'Sakit', 'Tidak hadir'])->default('Tidak hadir');
             $table->string('komentar_mhs')->nullable();
             $table->string('bukti')->nullable();
