@@ -65,7 +65,5 @@ class ProdiSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             Prodi::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

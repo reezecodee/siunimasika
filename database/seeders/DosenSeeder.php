@@ -23,6 +23,7 @@ class DosenSeeder extends Seeder
                 'id_kampus' => Universitas::orderBy('id')->skip(0)->first()['id'],
                 'kode_dosen' => 'MAN9213',
                 'nama' => 'Prabowo Rakabuming S.Par',
+                'jk' => 'Laki-laki',
                 'alamat' => 'Jl. Jalan berkah, Tasikmalaya, Jawa Barat',
                 'photo_profile' => 'default.jpg',
                 'status' => 'Aktif'
@@ -32,7 +33,5 @@ class DosenSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             Dosen::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

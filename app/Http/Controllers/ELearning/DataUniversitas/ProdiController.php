@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
+use App\Models\Fakultas;
 use App\Models\Prodi;
+use App\Models\Universitas;
 use Illuminate\Http\Request;
 
 class ProdiController extends Controller
@@ -25,7 +27,9 @@ class ProdiController extends Controller
     public function create()
     {
         return view('e-learning.data-universitas.create.create-prodi', [
-            'title' => 'Tambah Program Studi Baru'
+            'title' => 'Tambah Program Studi Baru',
+            'fakultas' => Fakultas::all()->unique('nama_fk'),
+            'kampus' => Universitas::all()
         ]);
     }
 

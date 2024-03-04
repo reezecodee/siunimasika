@@ -38,6 +38,13 @@
             @include('layouts.partials.navbar')
             <!--  Header End -->
             <div class="container-fluid">
+                @session('success')
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        <i class="fas fa-check-circle"></i> Selamat datang, <strong>{{ $dataUser['nama'] }}, </strong>
+                        {{ $value }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endsession
                 @yield('content')
                 <div class="py-6 px-6 text-center">
                     <p class="mb-0 fs-4">&copy;Copyright by <a href="" target="_blank"

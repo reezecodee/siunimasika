@@ -32,7 +32,5 @@ class MataKuliahSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             MataKuliah::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

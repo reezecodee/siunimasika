@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dosen;
 use App\Models\Fakultas;
 use App\Models\Universitas;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class FakultasController extends Controller
     {
         return view('e-learning.data-universitas.create.create-fakultas', [
             'title' => 'Tambah Fakultas Baru',
-            'kampus' => Universitas::all()
+            'kampus' => Universitas::all(),
         ]);
     }
 

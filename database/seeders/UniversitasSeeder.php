@@ -54,7 +54,5 @@ class UniversitasSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             Universitas::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

@@ -32,7 +32,5 @@ class PengerjaanSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             Pengerjaan::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

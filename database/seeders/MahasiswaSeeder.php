@@ -26,6 +26,7 @@ class MahasiswaSeeder extends Seeder
                 'id_prodi' => Prodi::orderBy('id')->skip(0)->first()['id'],
                 'id_kelas' => Kelas::orderBy('id')->skip(0)->first()['id'],
                 'nama' => 'Budi Nur Madinah',
+                'jk' => 'Laki-laki',
                 'alamat' => 'Jl. Jalan berkah, Tasikmalaya, Jawa Barat',
                 'photo_profile' => 'default.jpg',
                 'status' => 'Aktif',
@@ -37,7 +38,5 @@ class MahasiswaSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             Mahasiswa::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

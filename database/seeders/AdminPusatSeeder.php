@@ -20,6 +20,7 @@ class AdminPusatSeeder extends Seeder
             [
                 'id_user' => User::orderBy('id')->skip(0)->first()['id'],
                 'nama' => 'Muhaimin Baswedan S.E',
+                'jk' => 'Laki-laki',
                 'alamat' => 'Jl. Jalan berkah, Tasikmalaya, Jawa Barat',
                 'photo_profile' => 'default.jpg',
                 'status' => 'Aktif'
@@ -29,7 +30,5 @@ class AdminPusatSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             AdminPusat::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

@@ -36,7 +36,5 @@ class PenugasanSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             Penugasan::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

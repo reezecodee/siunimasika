@@ -46,7 +46,5 @@ class MateriSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             Materi::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

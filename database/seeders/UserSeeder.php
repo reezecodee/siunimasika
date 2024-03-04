@@ -50,7 +50,5 @@ class UserSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             User::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

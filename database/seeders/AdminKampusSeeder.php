@@ -22,6 +22,7 @@ class AdminKampusSeeder extends Seeder
                 'id_user' => User::orderBy('id')->skip(1)->first()['id'],
                 'id_kampus' => Universitas::orderBy('id')->skip(0)->first()['id'],
                 'nama' => 'Mahmudin Amin S.kom',
+                'jk' => 'Laki-laki',
                 'alamat' => 'Jl. Jalan berkah, Tasikmalaya, Jawa Barat',
                 'photo_profile' => 'default.jpg',
                 'status' => 'Aktif'
@@ -31,7 +32,5 @@ class AdminKampusSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             AdminKampus::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

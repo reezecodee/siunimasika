@@ -1,7 +1,7 @@
 @extends('layouts.elearning-layout')
 @section('content')
     <div class="mb-3">
-        <h3>Daftar Data Prodi</h3>
+        <h3>Daftar Data Kelas</h3>
         <span>{{ Request::path() }}</span>
     </div>
     <div class="card">

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->uuid('id_prodi');
             $table->uuid('id_kelas');
             $table->string('nama');
+            $table->enum('jk', ['Laki-laki', 'Perempuan']);
             $table->text('alamat');
             $table->string('photo_profile');
             $table->enum('status', ['Aktif', 'Cuti', 'Tidak aktif']);

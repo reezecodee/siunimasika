@@ -31,7 +31,5 @@ class FakultasSeeder extends Seeder
         for ($i = 0; $i < count($items); $i++) {
             Fakultas::create($items[$i]);
         }
-
-        echo 'Sukses menambahkan';
     }
 }

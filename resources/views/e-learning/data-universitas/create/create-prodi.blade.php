@@ -35,8 +35,8 @@
                             </div>
                             <div class="col-md-6 mb-2">
                                 <label for="jenjang" class="mb-1">Jenjang</label>
-                                <input type="text" class="form form-control" name="jenjang" id="jenjang"
-                                    placeholder="" required>
+                                <input type="text" class="form form-control" name="jenjang" id="jenjang" placeholder=""
+                                    required>
                             </div>
                             <div class="col-md-6 mb-2">
                                 <label for="status-prodi" class="mb-1">Status</label>
@@ -46,16 +46,24 @@
                                     <option value="Tutup">Tutup</option>
                                 </select>
                             </div>
-                            {{-- <div class="col-md-6 mb-2">
-                                <label for="telepon-kampus" class="mb-1">Telepon kampus</label>
-                                <input type="text" class="form form-control" name="telepon" id="telepon-kampus"
-                                    placeholder="" required>
+                            <div class="col-md-6 mb-2">
+                                <label for="fakultas" class="mb-1">Fakultas</label>
+                                <select class="form form-select cursor-pointer" name="fakultas" id="fakultas" required>
+                                    <option selected>-- Pilih fakultas --</option>
+                                    @foreach ($fakultas as $item)
+                                        <option value="{{ $item->nama_fk }}">{{ $item->nama_fk }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-md-6 mb-2">
-                                <label for="email-kampus" class="mb-1">Email kampus</label>
-                                <input type="email" class="form form-control" name="email" id="email-kampus"
-                                    placeholder="" required>
-                            </div> --}}
+                                <label for="kampus" class="mb-1">Kampus</label>
+                                <select class="form form-select cursor-pointer" name="id_kampus" id="kampus" required>
+                                    <option selected>-- Pilih kampus --</option>
+                                    @foreach ($kampus as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_pt }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <div class="d-flex justify-content-end mt-4 gap-2">
                             <button type="reset" class="btn btn-danger"><i class="fas fa-power-off"></i> Reset
