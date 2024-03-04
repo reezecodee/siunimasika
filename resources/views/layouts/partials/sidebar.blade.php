@@ -18,7 +18,7 @@
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('e-learn.dashboard') }}" aria-expanded="false">
-                        <span>
+                        <span class="me-3" style="width: 3px">
                             <i class="ti ti-layout-dashboard"></i>
                         </span>
                         <span class="hide-menu">Dashboard</span>

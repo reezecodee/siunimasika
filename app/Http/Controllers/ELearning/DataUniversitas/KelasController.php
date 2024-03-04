@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dosen;
 use App\Models\Kelas;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,10 @@ class KelasController extends Controller
      */
     public function create()
     {
-        //
+        return view('e-learning.data-universitas.create.create-kelas', [
+            'title' => 'Tambah Kelas Baru',
+            'dosenPA' => Dosen::all()
+        ]);
     }
 
     /**

@@ -299,33 +299,6 @@
                             <div class="col-lg-7">
                                 <div class="fill-form">
                                     <div class="row">
-                                        <div class="col-lg-4">
-                                            <div class="info-post">
-                                                <div class="icon">
-                                                    <img src="/landingpage-assets/assets/images/phone-icon.png"
-                                                        alt="">
-                                                    <a href="#">+62 123 4567 8910</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="info-post">
-                                                <div class="icon">
-                                                    <img src="/landingpage-assets/assets/images/email-icon.png"
-                                                        alt="">
-                                                    <a href="#">support @unimasika.ac.id</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="info-post">
-                                                <div class="icon">
-                                                    <img src="/landingpage-assets/assets/images/location-icon.png"
-                                                        alt="">
-                                                    <a href="#">Jakarta Pusat, Indonesia</a>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="col-lg-6">
                                             <fieldset>
                                                 <input type="name" name="name" id="name"

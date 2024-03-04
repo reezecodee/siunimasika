@@ -12,6 +12,21 @@
                     <div class="notification bg-primary rounded-circle"></div>
                 </a>
             </li>
+            <li class="nav-item">
+                <div class="nav-link">
+                    <div class="fs-2">
+                        @if (auth()->user()->role == 'Admin Pusat')
+                            <button class="p-1 btn btn-primary">{{ auth()->user()->role }}</button>
+                        @elseif(auth()->user()->role == 'Admin Kampus')
+                            <button class="p-1 btn btn-warning">{{ auth()->user()->role }}</button>
+                        @elseif(auth()->user()->role == 'Dosen')
+                            <button class="p-1 btn btn-danger">{{ auth()->user()->role }}</button>
+                        @else
+                            <button class="p-1 btn btn-success">{{ auth()->user()->role }}</button>
+                        @endif
+                    </div>
+                </div>
+            </li>
         </ul>
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">

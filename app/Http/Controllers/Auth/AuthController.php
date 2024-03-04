@@ -29,7 +29,7 @@ class AuthController extends Controller
             return redirect()->intended('/e-learning/dashboard')->with('success', 'Senang bisa melihat Anda kembali!');
         }
 
-        return back()->with('failed', 'NIP/NIM atau password yang anda masukkan salah')->withInput();
+        return back()->with('failed', 'NIP/NIM atau password Anda salah')->withInput();
     }
 
     // logout

@@ -13,13 +13,21 @@
                                     <img src="/main-assets/images/logos/dark-logo.svg" width="180" alt="">
                                 </a>
                                 <p class="text-center">Selamat Datang, silahkan login terlebih dahulu</p>
+                                @session('failed')
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <i class="fas fa-times"></i> {{ $value }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @endsession
                                 <form action="" method="POST">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="exampleInputNIPNIM" class="form-label">NIP Dosen / NIM
                                             Mahasiswa</label>
                                         <input type="text" class="form-control" id="exampleInputNIPNIM"
-                                            aria-describedby="emailHelp" placeholder="NIP/NIM" name="nip_nim" required autocomplete="off" autofocus>
+                                            aria-describedby="emailHelp" placeholder="NIP/NIM" name="nip_nim" required
+                                            autocomplete="off" autofocus value="{{ old('nip_nim') }}">
                                     </div>
                                     <div class="mb-4">
                                         <label for="exampleInputPassword1" class="form-label">Password</label>

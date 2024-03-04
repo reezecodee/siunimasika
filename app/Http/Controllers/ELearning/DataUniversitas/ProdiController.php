@@ -24,7 +24,9 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        //
+        return view('e-learning.data-universitas.create.create-prodi', [
+            'title' => 'Tambah Program Studi Baru'
+        ]);
     }
 
     /**

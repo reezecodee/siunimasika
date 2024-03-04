@@ -6,6 +6,11 @@
     </div>
     <div class="card">
         <div class="card-body">
+            <div class="d-flex justify-content-end mb-3">
+                <a href="{{ route('data-fakultas.create') }}">
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah fakultas</button>
+                </a>
+            </div>
             <table id="datatable" class="table table-striped table-hover">
                 <thead>
                     <tr>
