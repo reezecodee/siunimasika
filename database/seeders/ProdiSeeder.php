@@ -48,7 +48,7 @@ class ProdiSeeder extends Seeder
                 'jenjang' => 'S1',
                 'nama_prodi' => 'Sistem Informasi',
                 'status' => 'Aktif',
-                'logo_prodi' => 'https://unimasika.ac.id/logo-prodi'
+                'picture' => 'https://unimasika.ac.id/logo-prodi'
             ],
             [
                 'id_kampus' => Universitas::orderBy('id')->skip(0)->first()['id'],
@@ -58,7 +58,7 @@ class ProdiSeeder extends Seeder
                 'jenjang' => 'D3',
                 'nama_prodi' => 'Teknik Informatika',
                 'status' => 'Tutup',
-                'logo_prodi' => 'https://unimasika.ac.id/logo-prodi'
+                'picture' => 'https://unimasika.ac.id/logo-prodi'
             ],
         ];
 

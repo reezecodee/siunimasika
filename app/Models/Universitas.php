@@ -11,7 +11,7 @@ class Universitas extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $fillable = ['kode_pt'];
+    protected $guarded = ['id'];
 
     public function fakultas(): HasMany
     {

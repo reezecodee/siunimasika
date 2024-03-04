@@ -12,6 +12,8 @@ class Prodi extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $guarded = ['id'];
+
     public function fakultas(): BelongsTo
     {
         return $this->belongsTo(Fakultas::class, 'id_fk');

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('kode_fk')->unique();
             $table->string('nama_fk');
             $table->enum('status', ['Aktif', 'Tutup']);
-            $table->string('logo_fk');
+            $table->string('picture')->default('unimasika.png');
             $table->timestamps();
 
             // Foreign Key

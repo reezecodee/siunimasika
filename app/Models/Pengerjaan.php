@@ -11,6 +11,8 @@ class Pengerjaan extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $guarded = ['id'];
+
     public function penugasan(): BelongsTo
     {
         return $this->belongsTo(Penugasan::class, 'id_tugas');

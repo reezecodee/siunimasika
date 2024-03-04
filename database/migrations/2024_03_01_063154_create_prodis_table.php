@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('jenjang');
             $table->string('nama_prodi');
             $table->enum('status', ['Aktif', 'Tutup']);
-            $table->string('logo_prodi');
+            $table->string('picture')->default('unimasika.png');
             $table->timestamps();
 
             // Foreign Key

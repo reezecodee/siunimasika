@@ -12,6 +12,8 @@ class Fakultas extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $guarded = ['id'];
+
     public function universitas(): BelongsTo
     {
         return $this->belongsTo(Universitas::class, 'id_kampus');

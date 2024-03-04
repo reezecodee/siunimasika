@@ -40,8 +40,13 @@
             <div class="container-fluid">
                 @session('success')
                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                        <i class="fas fa-check-circle"></i> Selamat datang, <strong>{{ $dataUser['nama'] }}, </strong>
-                        {{ $value }}
+                        <i class="fas fa-check-circle"></i> {!! $value !!}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endsession
+                @session('failed')
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="fas fa-exclamation-triangle"></i> {!! $value !!}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endsession

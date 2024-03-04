@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUnivRequest;
 use Illuminate\Http\Request;
 use App\Models\Universitas;
 
@@ -32,9 +33,19 @@ class KampusController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUnivRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        if ($request->file('picture')) {
+            $file = $request->file('picture');
+            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/img/logo-kampus', $fileName);
+            $validated['picture'] = $fileName;
+        }
+
+        Universitas::create($validated);
+        return redirect('/e-learning/data-kampus')->with('success', 'Berhasil menambahkan data kampus');
     }
 
     /**

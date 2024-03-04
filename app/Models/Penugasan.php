@@ -12,6 +12,8 @@ class Penugasan extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $guarded = ['id'];
+
     public function matkul(): BelongsTo
     {
         return $this->belongsTo(MataKuliah::class, 'id_matkul');

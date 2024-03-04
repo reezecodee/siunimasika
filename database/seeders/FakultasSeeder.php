@@ -24,7 +24,7 @@ class FakultasSeeder extends Seeder
                 'kode_fk' => 'TK12312',
                 'nama_fk' => 'Teknik',
                 'status' => 'Aktif',
-                'logo_fk' => 'https://unimasika.ac.id/logo-fk'
+                'picture' => 'https://unimasika.ac.id/logo-fk'
             ]
         ];
 
