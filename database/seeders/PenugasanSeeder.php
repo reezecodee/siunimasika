@@ -18,22 +18,6 @@ class PenugasanSeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('penugasans')->insert([
-        //     [
-        //         'id' => Uuid::uuid4()->toString(),
-        //         'id_matkul' => DB::table('mata_kuliahs')->select('id')->get()->all()[0],
-        //         'id_kelas' => DB::table('kelas')->select('id')->get()->all()[0],
-        //         'id_dosen' => DB::table('dosens')->select('id')->get()->all()[0],
-        //         'kode_tugas' => '1231431',
-        //         'judul' => 'Buat program perulangan menggunakan for statement',
-        //         'deskripsi' => 'Ini adalah deskripsinya',
-        //         'link_tugas' => 'https://unimasika.ac.id/ini-adalah-tugas',
-        //         'mulai' => '2 Maret 2024',
-        //         'deadline' => '11 April 2024',
-        //         'status' => 'Dibuka'
-        //     ]
-        // ]);
-
         $items = [
             [
                 'id_matkul' => MataKuliah::orderBy('id')->skip(0)->first()['id'],

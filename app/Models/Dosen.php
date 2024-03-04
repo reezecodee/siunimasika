@@ -42,4 +42,14 @@ class Dosen extends Model
     {
         return $this->hasMany(Penugasan::class, 'id_matkul');
     }
+
+    public function fakultas(): HasMany
+    {
+        return $this->hasMany(Fakultas::class, 'id_dekan');
+    }
+
+    public function prodi(): HasMany
+    {
+        return $this->hasMany(Prodi::class, 'id_kaprodi');
+    }
 }

@@ -32,4 +32,13 @@ class Universitas extends Model
     {
         return $this->hasMany(Mahasiswa::class, 'id_kampus');
     }
+
+    public function prodi(): HasMany
+    {
+        return $this->hasMany(Prodi::class, 'id_kampus');
+    }
+    public function kelas(): HasMany
+    {
+        return $this->hasMany(Kelas::class, 'id_kampus');
+    }
 }

@@ -17,19 +17,6 @@ class DosenSeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('dosens')->insert([
-        //     [
-        //         'id' => Uuid::uuid4()->toString(),
-        //         'id_user' => DB::table('users')->select('id')->get()->all()[2],
-        //         'id_kampus' => DB::table('universitas')->select('id')->get()->all()[0],
-        //         'kode_dosen' => 'MAN9213',
-        //         'nama' => 'Prabowo Rakabuming S.Par',
-        //         'alamat' => 'Jl. Jalan berkah, Tasikmalaya, Jawa Barat',
-        //         'photo_profile' => 'default.jpg',
-        //         'status' => 'Aktif'
-        //     ]
-        // ]);
-
         $items = [
             [
                 'id_user' => User::orderBy('id')->skip(2)->first()['id'],

@@ -16,17 +16,6 @@ class AdminPusatSeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('admin_pusats')->insert([
-        //     [
-        //         'id' => Uuid::uuid4()->toString(),
-        //         'id_user' => DB::table('users')->select('id')->get()->all()[0],
-        //         'nama' => 'Muhaimin Baswedan S.E',
-        //         'alamat' => 'Jl. Jalan berkah, Tasikmalaya, Jawa Barat',
-        //         'photo_profile' => 'default.jpg',
-        //         'status' => 'Aktif'
-        //     ]
-        // ]);
-
         $items = [
             [
                 'id_user' => User::orderBy('id')->skip(0)->first()['id'],

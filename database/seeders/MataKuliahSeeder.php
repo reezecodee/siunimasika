@@ -18,18 +18,6 @@ class MataKuliahSeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('mata_kuliahs')->insert([
-        //     [
-        //         'id' => Uuid::uuid4()->toString(),
-        //         'id_prodi' => DB::table('prodis')->select('id')->get()->all()[0],
-        //         'id_kelas' => DB::table('kelas')->select('id')->get()->all()[0],
-        //         'id_dosen' => DB::table('dosens')->select('id')->get()->all()[0],
-        //         'kode_mk' => 'WP12312',
-        //         'nama_mk' => 'Web Programming I',
-        //         'semester' => 'Semester 1'
-        //     ]
-        // ]);
-
         $items = [
             [
                 'id_prodi' => Prodi::orderBy('id')->skip(0)->first()['id'],

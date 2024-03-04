@@ -41,4 +41,9 @@ class Kelas extends Model
     {
         return $this->hasMany(Absensi::class, 'id_kelas');
     }
+
+    public function universitas(): BelongsTo
+    {
+        return $this->belongsTo(Kelas::class, 'id_kampus');
+    }
 }

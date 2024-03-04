@@ -15,45 +15,6 @@ class UniversitasSeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('universitas')->insert([
-        //     [
-        //         'id' => Uuid::uuid4()->toString(),
-        //         'kode_pt' => 'PTS10234892',
-        //         'nama_pt' => 'Universitas Transformasi Informatika',
-        //         'kategori' => 'Pusat',
-        //         'status' => 'Aktif',
-        //         'tanggal_berdiri' => '25 Mei 2005',
-        //         'telepon' => '+62 123 4567 8910',
-        //         'email' => 'unimasika.pusat@unimasika.ac.id',
-        //         'picture' => 'https://unimasika.ac.id/logo',
-        //         'alamat' => 'Jl. Jendral Soedirman, Semanggi, Kota Jakarta Pusat, Jakarta 46389'
-        //     ],
-        //     [
-        //         'id' => Uuid::uuid4()->toString(),
-        //         'kode_pt' => 'PTS10234893',
-        //         'nama_pt' => 'Universitas Transformasi Informatika PSDKU Kota Tasikmalaya',
-        //         'kategori' => 'PSDKU',
-        //         'status' => 'Aktif',
-        //         'tanggal_berdiri' => '25 Mei 2006',
-        //         'telepon' => '+62 123 4567 8911',
-        //         'email' => 'unimasika.tasik@unimasika.ac.id',
-        //         'picture' => 'https://unimasika.ac.id/logo',
-        //         'alamat' => 'Jl. Tanuwijaya, Tawang, Kota Tasikmalaya, Jawa Barat 46389'
-        //     ],
-        //     [
-        //         'id' => Uuid::uuid4()->toString(),
-        //         'kode_pt' => 'PTS10234894',
-        //         'nama_pt' => 'Universitas Transformasi Informatika PSDKU Kota Bandung',
-        //         'kategori' => 'PSDKU',
-        //         'status' => 'Tidak aktif',
-        //         'tanggal_berdiri' => '25 Mei 2007',
-        //         'telepon' => '+62 123 4567 8912',
-        //         'email' => 'unimasika.bandung@unimasika.ac.id',
-        //         'picture' => 'https://unimasika.ac.id/logo',
-        //         'alamat' => 'Jl. Ahmad yani, Bandung, Kota Bandung, Jawa Barat 46388'
-        //     ],
-        // ]);
-
         $items = [
             [
                 'kode_pt' => 'PTS10234892',

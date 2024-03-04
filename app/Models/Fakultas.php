@@ -16,9 +16,14 @@ class Fakultas extends Model
     {
         return $this->belongsTo(Universitas::class, 'id_kampus');
     }
-
+    
     public function prodi(): HasMany
     {
         return $this->hasMany(Prodi::class, 'id_fk');
+    }
+
+    public function dekan(): BelongsTo
+    {
+        return $this->belongsTo(Fakultas::class, 'id_dekan');
     }
 }

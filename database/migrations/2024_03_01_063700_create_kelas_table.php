@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('kelas', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('id_kampus');
+            $table->uuid('id_fk');
             $table->uuid('id_prodi');
             $table->uuid('id_dosen_pa');
             $table->string('kode_kelas')->unique();
@@ -22,6 +24,8 @@ return new class extends Migration
             $table->timestamps();
 
             // Foreign Key
+            $table->foreign('id_kampus')->references('id')->on('universitas')->onDelete('cascade');
+            $table->foreign('id_fk')->references('id')->on('fakultas')->onDelete('cascade');
             $table->foreign('id_prodi')->references('id')->on('prodis')->onDelete('cascade');
             $table->foreign('id_dosen_pa')->references('id')->on('dosens')->onDelete('no action');
         });

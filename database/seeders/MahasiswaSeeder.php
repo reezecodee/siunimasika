@@ -19,22 +19,6 @@ class MahasiswaSeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('mahasiswas')->insert([
-        //     [
-        //         'id' => Uuid::uuid4()->toString(),
-        //         'id_user' => DB::table('users')->select('id')->get()->all()[3],
-        //         'id_kampus' => DB::table('universitas')->select('id')->get()->all()[0],
-        //         'id_prodi' => DB::table('prodis')->select('id')->get()->all()[0],
-        //         'id_kelas' => DB::table('kelas')->select('id')->get()->all()[0],
-        //         'nama' => 'Budi Nur Madinah',
-        //         'alamat' => 'Jl. Jalan berkah, Tasikmalaya, Jawa Barat',
-        //         'photo_profile' => 'default.jpg',
-        //         'status' => 'Aktif',
-        //         'tahun_masuk' => '2023',
-        //         'semester' => 'Semester 2',
-        //     ]
-        // ]);
-
         $items = [
             [
                 'id_user' => User::orderBy('id')->skip(3)->first()['id'],

@@ -29,7 +29,8 @@
                     <span class="hide-menu">Universitas</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('e-learning/data-kampus*') ? 'active' : '' }}" href="{{ route('data-kampus.index') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-kampus*') ? 'active' : '' }}"
+                        href="{{ route('data-kampus.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
                             <i class="fas fa-university fs-4"></i>
                         </span>
@@ -37,7 +38,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('e-learning/data-fakultas*') ? 'active' : '' }}" href="{{ route('data-fakultas.index') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-fakultas*') ? 'active' : '' }}"
+                        href="{{ route('data-fakultas.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
                             <i class="fas fa-vihara fs-4"></i>
                         </span>
@@ -45,7 +47,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('e-learning/data-prodi*') ? 'active' : '' }}" href="{{ route('data-prodi.index') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-prodi*') ? 'active' : '' }}"
+                        href="{{ route('data-prodi.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
                             <i class="fas fa-graduation-cap fs-4"></i>
                         </span>
@@ -53,7 +56,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('e-learning/data-kelas*') ? 'active' : '' }}" href="{{ route('data-kelas.index') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-kelas*') ? 'active' : '' }}"
+                        href="{{ route('data-kelas.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
                             <i class="fas fa-house-user fs-4"></i>
                         </span>
@@ -88,6 +92,17 @@
                             <i class="fas fa-users fs-4"></i>
                         </span>
                         <span class="hide-menu">Mahasiswa</span>
+                    </a>
+                </li>
+                <hr>
+                <li class="sidebar-item">
+                    <a class="text-light" href="/logout" aria-expanded="false">
+                        <button class="btn btn-danger d-flex align-items-center">
+                            <span class="me-3" style="width: 3px">
+                                <i class="fas fa-sign-out-alt fs-4"></i>
+                            </span>
+                            <span class="hide-menu">Logout</span>
+                        </button>
                     </a>
                 </li>
         </nav>

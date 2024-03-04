@@ -31,4 +31,14 @@ class Prodi extends Model
     {
         return $this->hasMany(MataKuliah::class, 'id_prodi');
     }
+
+    public function universitas(): BelongsTo
+    {
+        return $this->belongsTo(Universitas::class, 'id_kampus');
+    }
+
+    public function kaprodi(): BelongsTo
+    {
+        return $this->belongsTo(Dosen::class, 'id_kaprodi');
+    }
 }

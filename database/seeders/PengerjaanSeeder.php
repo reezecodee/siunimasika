@@ -17,19 +17,6 @@ class PengerjaanSeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('pengerjaans')->insert([
-        //     [
-        //         'id' => Uuid::uuid4()->toString(),
-        //         'id_tugas' => DB::table('penugasans')->select('id')->get()->all()[0],
-        //         'id_mahasiswa' => DB::table('mahasiswas')->select('id')->get()->all()[0],
-        //         'kode_pengerjaan' => '1239123',
-        //         'link_tugas' => 'https://unimasika.ac.id/ini-tugasnya',
-        //         'status' => 'Dikerjakan',
-        //         'nilai' => '100',
-        //         'komentar_dosen' => 'Kamu anak yang pintar',
-        //     ]
-        // ]);
-
         $items = [
             [
                 'id_tugas' => Penugasan::orderBy('id')->skip(0)->first()['id'],

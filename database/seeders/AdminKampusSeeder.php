@@ -17,18 +17,6 @@ class AdminKampusSeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('admin_kampuses')->insert([
-        //     [
-        //         'id' => Uuid::uuid4()->toString(),
-        //         'id_user' => DB::table('users')->select('id')->get()->all()[1],
-        //         'id_kampus' => DB::table('universitas')->select('id')->get()->all()[0],
-        //         'nama' => 'Mahmudin Amin S.kom',
-        //         'alamat' => 'Jl. Jalan berkah, Tasikmalaya, Jawa Barat',
-        //         'photo_profile' => 'default.jpg',
-        //         'status' => 'Aktif'
-        //     ]
-        // ]);
-    
         $items = [
             [
                 'id_user' => User::orderBy('id')->skip(1)->first()['id'],
