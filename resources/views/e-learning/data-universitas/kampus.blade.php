@@ -38,7 +38,15 @@
                                                 href="{{ url()->current() }}/{{ $item->id }}">Detail</a>
                                         </li>
                                         <li><a class="dropdown-item" href="#">Perbarui</a></li>
-                                        <li><a class="dropdown-item text-danger" href="#">Hapus</a></li>
+                                        <li>
+                                            <form action="{{ route('data-kampus.destroy', $item->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="dropdown-item text-danger" href="#">
+                                                    Hapus
+                                                </button>
+                                            </form>
+                                        </li>
                                     </ul>
                                 </div>
                             </td>

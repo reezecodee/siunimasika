@@ -86,6 +86,7 @@ class KampusController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Universitas::destroy($id);
+        return redirect()->route('data-kampus.index')->with('success', 'Data universitas berhasil dihapus.');
     }
 }
