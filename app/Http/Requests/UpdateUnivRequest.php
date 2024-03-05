@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StoreUnivRequest extends FormRequest
+class UpdateUnivRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,18 +22,20 @@ class StoreUnivRequest extends FormRequest
      */
     public function rules(): array
     {
+        $univ = route('data-kampus.update');
         return [
-            'kode_pt' => 'required|min:5|max:20|unique:universitas',
-            'nama_pt' => 'required|max:255|unique:universitas',
+            'kode_pt' => 'required|min:5|max:20|unique:universitas,kode_pt,' . $univ,
+            'nama_pt' => 'required|max:255|unique:universitas,nama_pt,' . $univ,
             'kategori' => 'required',
             'status' => 'required',
             'tanggal_berdiri' => 'required',
-            'telepon' => 'required|unique:universitas',
-            'email' => 'required|unique:universitas',
+            'telepon' => 'required|unique:universitas,telepon,' . $univ,
+            'email' => 'required|email|unique:universitas,email,' . $univ,
             'picture' => 'image|mimes:jpeg,png,jpg|max:2048',
             'alamat' => 'required',
         ];
     }
+
 
     public function messages(): array
     {
@@ -50,6 +53,7 @@ class StoreUnivRequest extends FormRequest
             'telepon.required' => 'No telepon wajib di isi',
             'telepon.unique' => 'No telepon sudah pernah digunakan',
             'email.required' => 'Email wajib di isi',
+            'email.email' => 'Data bukan email',
             'email.unique' => 'Email sudah pernah digunakan',
             'picture.image' => 'File harus berupa gambar.',
             'picture.mimes' => 'Format ekstensi gambar yang didukung adalah jpeg, png, dan jpg',
@@ -60,6 +64,6 @@ class StoreUnivRequest extends FormRequest
 
     protected function failedValidation($validator)
     {
-        return redirect()->back()->with('failed', 'Gagal menambahkan data kampus')->withInput();
+        return redirect()->back()->with('failed', 'Gagal memperbarui data kampus')->withInput();
     }
 }

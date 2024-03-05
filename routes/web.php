@@ -56,6 +56,7 @@ Route::prefix('/e-learning')->middleware(['auth'])->group(function () {
     Route::resource('/data-fakultas', FakultasController::class);
     Route::resource('/data-prodi', ProdiController::class);
     Route::resource('/data-kelas', KelasController::class);
+    Route::put('/data-kampus/{id}', [KampusController::class, 'update']);
 });
 
 
