@@ -1,9 +1,5 @@
-@extends('layouts.elearning-layout')
-@section('content')
-    <div class="mb-3">
-        <h3>Tambah Kelas Baru</h3>
-        <span>{{ Request::path() }}</span>
-    </div>
+@extends('e-learning.template.index')
+@section('card-content')
     <div class="card">
         <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">

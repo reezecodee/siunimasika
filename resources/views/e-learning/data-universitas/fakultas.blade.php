@@ -1,9 +1,5 @@
-@extends('layouts.elearning-layout')
-@section('content')
-    <div class="mb-3">
-        <h3>Daftar Data Fakultas</h3>
-        <span>{{ Request::path() }}</span>
-    </div>
+@extends('e-learning.template.index')
+@section('card-content')
     <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-end mb-3">
@@ -27,11 +23,11 @@
                     @foreach ($data_fakultas as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item['kode_fk'] }}</td>
-                            <td>{{ $item['nama_fk'] }}</td>
-                            <td>{{ $item->universitas['nama_pt'] }}</td>
-                            <td>{{ $item->universitas['kategori'] }}</td>
-                            <td>{{ $item['status'] }}</td>
+                            <td>{{ $item->kode_fk }}</td>
+                            <td>{{ $item->nama_fk }}</td>
+                            <td>{{ $item->universitas->nama_pt }}</td>
+                            <td>{{ $item->universitas->kategori }}</td>
+                            <td>{{ $item->status }}</td>
                             <td>
                                 <div class="dropdown">
                                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button"

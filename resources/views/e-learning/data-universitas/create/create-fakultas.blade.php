@@ -1,9 +1,5 @@
-@extends('layouts.elearning-layout')
-@section('content')
-    <div class="mb-3">
-        <h3>Tambah Fakultas Baru</h3>
-        <span>{{ Request::path() }}</span>
-    </div>
+@extends('e-learning.template.index')
+@section('card-content')
     <div class="card">
         <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">
@@ -15,7 +11,8 @@
                             <div id="file-name" class="mb-2"></div>
                             <div class="d-flex justify-content-center">
                                 <div style="display: none" class="btn btn-danger" id="cancel-btn"><i
-                                        class="fas fa-times"></i> Batalkan</div>
+                                        class="fas fa-times"></i>
+                                    Batalkan</div>
                             </div>
                         </div>
                         <label for="picture" class="mb-1">Logo fakultas</label>

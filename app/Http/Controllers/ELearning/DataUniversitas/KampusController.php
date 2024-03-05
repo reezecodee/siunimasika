@@ -4,6 +4,9 @@ namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUnivRequest;
+use App\Models\Fakultas;
+use App\Models\Kelas;
+use App\Models\Prodi;
 use Illuminate\Http\Request;
 use App\Models\Universitas;
 
@@ -53,7 +56,13 @@ class KampusController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('e-learning.data-universitas.show.show-kampus', [
+            'title' => 'Detail Kampus',
+            'dataKampus' => Universitas::where('id', $id)->get()->first(),
+            'dataFakultas' => Fakultas::where('id_kampus', $id)->latest()->get(),
+            'dataProdi' => Prodi::where('id_kampus', $id)->latest()->get(),
+            'dataKelas' => Kelas::where('id_kampus', $id)->latest()->get(),
+        ]);
     }
 
     /**
