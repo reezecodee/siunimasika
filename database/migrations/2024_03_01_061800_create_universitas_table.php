@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('tanggal_berdiri');
             $table->string('telepon')->unique();
             $table->string('email')->unique();
-            $table->string('picture')->default('unimasika.png');
+            $table->string('picture')->nullable(true);
             $table->text('alamat');
             $table->timestamps();
         });

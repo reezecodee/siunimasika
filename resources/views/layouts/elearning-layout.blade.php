@@ -44,12 +44,12 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endsession
-                {{-- @session('failed')
+                @session('failed')
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <i class="fas fa-exclamation-triangle"></i> {!! $value !!}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                @endsession --}}
+                @endsession
                 @yield('content')
                 <div class="py-6 px-6 text-center">
                     <p class="mb-0 fs-4">&copy;Copyright by <a href="" target="_blank"

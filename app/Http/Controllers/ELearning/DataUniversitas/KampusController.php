@@ -96,7 +96,7 @@ class KampusController extends Controller
             'kode_pt.required' => 'Kode perguruan tinggi wajib di isi',
             'kode_pt.min' => 'Kode perguruan tinggi minimal berisi 5 digit',
             'kode_pt.max' => 'Kode perguruan tinggi maximal berisi 20 digit',
-            'kode_pt.unique' => 'Kode sudah pernah digunakan',
+            'kode_pt.unique' => 'Kode perguruan tinggi sudah pernah digunakan',
             'nama_pt.required' => 'Nama perguruan tinggi wajib di isi',
             'nama_pt.max' => 'Nama perguruan tinggi terlalu panjang',
             'nama_pt.unique' => 'Nama perguruan tinggi sudah pernah digunakan',
@@ -121,8 +121,8 @@ class KampusController extends Controller
             $validated['picture'] = $fileName;
         }
 
-        $univ = Universitas::find($id);
-        $univ->update($validated);
+        $universitas = Universitas::find($id);
+        $universitas->update($validated);
         return redirect('/e-learning/data-kampus')->with('success', 'Berhasil memperbarui data kampus');
     }
 
