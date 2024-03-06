@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ELearning\DashboardController;
+use App\Http\Controllers\ELearning\ProfileController;
 use App\Http\Controllers\ELearning\DataUniversitas\FakultasController;
 use App\Http\Controllers\ELearning\DataUniversitas\KampusController;
 use App\Http\Controllers\ELearning\DataUniversitas\KelasController;
@@ -48,10 +49,11 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 */
 
 Route::prefix('/e-learning')->middleware(['auth'])->group(function () {
-    // route get
+    // route get personal user
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('e-learn.dashboard');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('e-learn.profile');
 
-    // route resource
+    // route resource data universitas
     Route::resource('/data-kampus', KampusController::class);
     Route::resource('/data-fakultas', FakultasController::class);
     Route::resource('/data-prodi', ProdiController::class);

@@ -94,6 +94,19 @@
                         <span class="hide-menu">Mahasiswa</span>
                     </a>
                 </li>
+                <li class="nav-small-cap">
+                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                    <span class="hide-menu">Data pribadi</span>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link {{ Request::is('e-learning/profile*') ? 'active' : '' }}"
+                        href="{{ route('e-learn.profile') }}" aria-expanded="false">
+                        <span class="me-3" style="width: 3px">
+                            <i class="fas fa-user-circle fs-4"></i>
+                        </span>
+                        <span class="hide-menu">Profile saya</span>
+                    </a>
+                </li>
                 <hr>
                 <li class="sidebar-item">
                     <a class="text-light" href="/logout" aria-expanded="false">
