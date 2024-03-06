@@ -8,36 +8,45 @@
                 <div class="row align-items-center">
                     <div class="col-md-3 text-center">
                         <img src="https://avatars.githubusercontent.com/u/97270237?v=4" alt="" srcset=""
-                            class="w-100 rounded-circle mb-3">
+                            class="w-100 rounded-circle shadow mb-3">
                         <label for="photo_profile">
                             <button type="button" class="btn btn-outline-primary">Edit profile</button>
                         </label>
                         <input type="file" name="photo_profile" id="photo_profile" class="d-none">
                     </div>
                     <div class="col-md-9">
+                        <h5 class="mb-3">Overview</h5>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="w-full p-2 border border-primary rounded">
-                                    <span class="text-sm">Kelas yang Anda ambil</span>
-                                    <h4 class="mt-2">6 Kelas</h4>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Indeks prestasi kumulatif</h5>
+                                        <span class="text-primary">IPK: 4.00 (semester 1)</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="w-full p-2 border border-primary rounded">
-                                    <span class="text-sm">Kelas yang Anda ambil</span>
-                                    <h4 class="mt-2">6 Kelas</h4>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Satuan kredit semester</h5>
+                                        <span class="text-primary">18 SKS</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="w-full p-2 border border-primary rounded">
-                                    <span class="text-sm">Kelas yang Anda ambil</span>
-                                    <h4 class="mt-2">6 Kelas</h4>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Program Studi</h5>
+                                        <span class="text-primary">S1 Sistem Informasi</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="w-full p-2 border border-primary rounded">
-                                    <span class="text-sm">Kelas yang Anda ambil</span>
-                                    <h4 class="mt-2">6 Kelas</h4>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Kelas</h5>
+                                        <span class="text-primary">S1 Sistem Informasi 1A</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -61,32 +70,36 @@
                     <div class="col-md-4 mb-3">
                         <label for="nama"><strong>Nama lengkap</strong></label>
                         <input type="text" class="form form-control mt-2" id="nama" placeholder="Nama lengkap"
-                            disabled>
+                            value="{{ $dataUser['nama'] }}" disabled>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="nip"><strong>Nomor Induk Pegawai (NIP)</strong></label>
-                        <input type="text" class="form form-control mt-2" name="" id="nip"
-                            placeholder="Nomor Induk Pegawai" disabled>
+                        <label for="nip"><strong>Nomor Induk
+                                {{ auth()->user()->role == 'Mahasiswa' ? 'Mahasiswa' : 'Pegawai' }}</strong></label>
+                        <input type="text" class="form form-control mt-2" id="nip"
+                            placeholder="Nomor Induk Pegawai" value="{{ auth()->user()->nip_nim }}" disabled>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="jk"><strong>Jenis kelamin</strong></label>
-                        <input type="text" class="form form-control mt-2" name="" id="jk"
-                            placeholder="Jenis kelamin" disabled>
+                        <input type="text" class="form form-control mt-2" id="jk" placeholder="Jenis kelamin"
+                            value="{{ $dataUser['jk'] }}" disabled>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="email"><strong>Alamat email</strong></label>
-                        <input type="text" class="form form-control mt-2" name="email" id="email"
-                            placeholder="Email">
+                        <label for="email"><strong>Email</strong></label>
+                        <input type="text" class="form form-control mt-2" id="email" placeholder="Email"
+                            value="{{ auth()->user()->email }}" disabled>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="no-telp"><strong>Nomor telepon / WA</strong></label>
-                        <input type="number" class="form form-control mt-2" name="no_telp" id="no-telp"
-                            placeholder="No. Telp">
+                        <label for="no-telp"><strong>Nomor telepon</strong></label>
+                        <input type="number" class="form form-control mt-2" id="no-telp" placeholder="No. Telp"
+                            value="{{ auth()->user()->telepon }}" disabled>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="status"><strong>Status</strong></label>
-                        <input type="text" class="form form-control mt-2" name="" id="status"
-                            placeholder="Status" disabled>
+                        <input type="text" class="form form-control mt-2" id="status" placeholder="Status"
+                            value="{{ $dataUser['status'] }}" disabled>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <textarea class="form form-control" name="alamat" id="alamat" rows="4">{{ $dataUser['alamat'] }}</textarea>
                     </div>
                 </div>
                 <button class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
