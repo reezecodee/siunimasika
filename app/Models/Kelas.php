@@ -46,6 +46,11 @@ class Kelas extends Model
 
     public function universitas(): BelongsTo
     {
-        return $this->belongsTo(Kelas::class, 'id_kampus');
+        return $this->belongsTo(Universitas::class, 'id_kampus');
+    }
+
+    public function fakultas(): BelongsTo
+    {
+        return $this->belongsTo(Fakultas::class, 'id_fk');
     }
 }

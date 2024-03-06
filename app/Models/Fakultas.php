@@ -28,4 +28,9 @@ class Fakultas extends Model
     {
         return $this->belongsTo(Dosen::class, 'id_dekan');
     }
+
+    public function kelas(): HasMany
+    {
+        return $this->hasMany(Kelas::class, 'id_fk');
+    }
 }

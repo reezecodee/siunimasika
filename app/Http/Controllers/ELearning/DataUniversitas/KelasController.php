@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreKelasRequest;
 use App\Models\Dosen;
+use App\Models\Fakultas;
 use App\Models\Kelas;
+use App\Models\Mahasiswa;
+use App\Models\Prodi;
+use App\Models\Universitas;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -27,16 +32,21 @@ class KelasController extends Controller
     {
         return view('e-learning.data-universitas.create.create-kelas', [
             'title' => 'Tambah Kelas Baru',
-            'dosenPA' => Dosen::all()
+            'dosenPA' => Dosen::all(),
+            'dataKampus' => Universitas::all(),
+            'dataFakultas' => Fakultas::all(),
+            'dataProdi' => Prodi::all()
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreKelasRequest $request)
     {
-        //
+        $validated = $request->validated();
+        Kelas::create($validated);
+        return redirect('/e-learning/data-kelas')->with('success', 'Berhasil menambahkan data kelas');
     }
 
     /**
@@ -44,7 +54,11 @@ class KelasController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('e-learning.data-universitas.show.show-kelas', [
+            'title' => 'Detail Kelas',
+            'dataKelas' => Kelas::where('id', $id)->get()->first(),
+            'dataMahasiswa' => Mahasiswa::where('id_kelas', $id)->latest()->get(),
+        ]);
     }
 
     /**
@@ -52,7 +66,14 @@ class KelasController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('e-learning.data-universitas.edit.edit-kelas', [
+            'title' => 'Edit Data Kelas',
+            'dataKelas' => Kelas::where('id', $id)->get()->first(),
+            'dosenPA' => Dosen::all(),
+            'dataKampus' => Universitas::all(),
+            'dataFakultas' => Fakultas::all(),
+            'dataProdi' => Prodi::all()
+        ]);
     }
 
     /**
@@ -60,7 +81,36 @@ class KelasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'kode_kelas' => 'required|min:5|max:20|unique:kelas,kode_kelas,' . $id,
+            'nama_kelas' => 'required|max:255|unique:kelas,nama_kelas,' . $id,
+            'daya_tampung' => 'required|min:2|max:3',
+            'status' => 'required',
+            'id_fk' => 'required',
+            'id_prodi' => 'required',
+            'id_kampus' => 'required',
+            'id_dosen_pa' => 'required'
+        ], [
+            'kode_kelas.required' => 'Kode kelas wajib di isi',
+            'kode_kelas.min' => 'Kode kelas minimal berisi 5 digit',
+            'kode_kelas.max' => 'Kode kelas maximal berisi 20 digit',
+            'kode_kelas.unique' => 'Kode kelas sudah pernah digunakan',
+            'nama_kelas.required' => 'Nama kelas wajib di isi',
+            'nama_kelas.max' => 'Nama kelas terlalu panjang',
+            'nama_kelas.unique' => 'Nama kelas sudah pernah digunakan',
+            'daya_tampung.required' => 'Daya tampung kelas wajib di isi',
+            'daya_tampung.min' => 'Daya tampung minimal berisi 2 digit angka',
+            'daya_tampung.max' => 'Daya tampung maximal berisi 3 digit angka',
+            'status.required' => 'Status wajib di isi',
+            'id_fk.required' =>  'Fakultas wajib di pilih',
+            'id_prodi.required' =>  'Program studi wajib di pilih',
+            'id_kampus.required' => 'Kampus wajib di pilih',
+            'id_dosen_pa.required' => 'Dosen pembimbing akademik wajib di pilih'
+        ]);
+
+        $kelas = Kelas::find($id);
+        $kelas->update($validated);
+        return redirect('/e-learning/data-kelas')->with('success', 'Berhasil memperbarui data kelas');
     }
 
     /**
@@ -68,6 +118,7 @@ class KelasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Kelas::destroy($id);
+        return redirect()->route('data-kelas.index')->with('success', 'Data kelas berhasil dihapus.');
     }
 }
