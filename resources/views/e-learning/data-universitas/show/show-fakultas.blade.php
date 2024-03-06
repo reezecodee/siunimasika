@@ -14,9 +14,9 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-12 mb-2">
-                            <label for="nama-fakultas" class="mb-1">Nama kampus</label>
+                            <label for="nama-kampus" class="mb-1">Nama kampus</label>
                             <input type="text" class="form form-control"
-                                value="{{ $dataFakultas->universitas->nama_pt }}" readonly disabled id="nama-fakultas">
+                                value="{{ $dataFakultas->universitas->nama_pt }}" readonly disabled id="nama-kampus">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="kode-fakultas" class="mb-1">Kode fakultas</label>

@@ -106,7 +106,7 @@
                         <div class="d-flex justify-content-end mt-4 gap-2">
                             <button type="reset" class="btn btn-danger"><i class="fas fa-power-off"></i> Reset
                                 form</button>
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Simpan
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Perbarui
                                 data</button>
                         </div>
                     </div>

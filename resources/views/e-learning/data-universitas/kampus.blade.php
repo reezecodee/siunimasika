@@ -37,7 +37,9 @@
                                         <li><a class="dropdown-item"
                                                 href="{{ route('data-kampus.index') }}/{{ $item->id }}">Detail</a>
                                         </li>
-                                        <li><a class="dropdown-item" href="{{ route('data-kampus.index') }}/{{ $item->id }}/edit">Perbarui</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="{{ route('data-kampus.index') }}/{{ $item->id }}/edit">Perbarui</a>
+                                        </li>
                                         <li>
                                             <form action="{{ route('data-kampus.destroy', $item->id) }}" method="post">
                                                 @csrf
