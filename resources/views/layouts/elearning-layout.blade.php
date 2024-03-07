@@ -67,7 +67,7 @@
             $('#datatable').DataTable();
         });
     </script>
-    <script src="/js/preview.js"></script>
+    <script src="/js/custom.js"></script>
     <script src="/main-assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/main-assets/js/sidebarmenu.js"></script>
     <script src="/main-assets/js/app.min.js"></script>
