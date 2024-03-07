@@ -15,7 +15,7 @@ class MahasiswaController extends Controller
     {
         return view('e-learning.data-users.mahasiswa', [
             'title' => 'Daftar Data Mahasiswa',
-            'mahasiswa' => Mahasiswa::where('status', 'Aktif')->get()
+            'data_mahasiswa' => Mahasiswa::where('status', 'Aktif')->get()
         ]);
     }
 
