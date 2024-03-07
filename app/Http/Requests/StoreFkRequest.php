@@ -34,8 +34,8 @@ class StoreFkRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'id_kampus.required' => 'Tidak ada kampus yang di pilih, permintaan ditolak',
-            'id_dekan.required' => 'Tidak ada dekan yang di pilih, permintaan ditolak',
+            'id_kampus.required' => 'Kampus wajib di pilih',
+            'id_dekan.required' => 'Dekan wajib di pilih',
             'kode_fk.required' => 'Kode fakultas wajib di isi',
             'kode_fk.min' => 'Kode fakultas minimal berisi 5 digit',
             'kode_fk.max' => 'Kode fakultas maximal berisi 20 digit',

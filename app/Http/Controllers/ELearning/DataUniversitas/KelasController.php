@@ -32,10 +32,10 @@ class KelasController extends Controller
     {
         return view('e-learning.data-universitas.create.create-kelas', [
             'title' => 'Tambah Kelas Baru',
-            'dosenPA' => Dosen::all(),
-            'dataKampus' => Universitas::all(),
-            'dataFakultas' => Fakultas::all(),
-            'dataProdi' => Prodi::all()
+            'dosen_pa' => Dosen::all(),
+            'data_kampus' => Universitas::all(),
+            'data_fakultas' => Fakultas::all(),
+            'data_prodi' => Prodi::all()
         ]);
     }
 
@@ -46,7 +46,7 @@ class KelasController extends Controller
     {
         $validated = $request->validated();
         Kelas::create($validated);
-        return redirect('/e-learning/data-kelas')->with('success', 'Berhasil menambahkan data kelas');
+        return redirect()->route('data-kelas.index')->with('success', 'Berhasil menambahkan data kelas');
     }
 
     /**
@@ -56,8 +56,8 @@ class KelasController extends Controller
     {
         return view('e-learning.data-universitas.show.show-kelas', [
             'title' => 'Detail Kelas',
-            'dataKelas' => Kelas::where('id', $id)->get()->first(),
-            'dataMahasiswa' => Mahasiswa::where('id_kelas', $id)->latest()->get(),
+            'data_kelas' => Kelas::where('id', $id)->get()->first(),
+            'data_mahasiswa' => Mahasiswa::where('id_kelas', $id)->latest()->get(),
         ]);
     }
 
@@ -68,11 +68,11 @@ class KelasController extends Controller
     {
         return view('e-learning.data-universitas.edit.edit-kelas', [
             'title' => 'Edit Data Kelas',
-            'dataKelas' => Kelas::where('id', $id)->get()->first(),
-            'dosenPA' => Dosen::all(),
-            'dataKampus' => Universitas::all(),
-            'dataFakultas' => Fakultas::all(),
-            'dataProdi' => Prodi::all()
+            'data_kelas' => Kelas::where('id', $id)->get()->first(),
+            'dosen_pa' => Dosen::all(),
+            'data_kampus' => Universitas::all(),
+            'data_fakultas' => Fakultas::all(),
+            'data_prodi' => Prodi::all()
         ]);
     }
 
@@ -110,7 +110,7 @@ class KelasController extends Controller
 
         $kelas = Kelas::find($id);
         $kelas->update($validated);
-        return redirect('/e-learning/data-kelas')->with('success', 'Berhasil memperbarui data kelas');
+        return redirect()->route('data-kelas.index')->with('success', 'Berhasil memperbarui data kelas');
     }
 
     /**

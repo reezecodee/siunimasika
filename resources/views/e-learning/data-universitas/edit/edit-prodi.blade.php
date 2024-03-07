@@ -2,7 +2,7 @@
 @section('card-content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('data-prodi.update', $dataProdi->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('data-prodi.update', $data_prodi->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -19,7 +19,7 @@
                         <label for="picture" class="mb-1">Logo program studi</label>
                         <input type="file" name="picture" value="example.png" id="picture"
                             class="form form-control @error('picture') is-invalid @enderror"
-                            value="{{ $dataProdi->picture }}">
+                            value="{{ $data_prodi->picture }}">
                         @error('picture')
                             <div id="validationServer03Feedback" class="invalid-feedback">
                                 {{ $message }}
@@ -31,7 +31,7 @@
                             <div class="col-md-6 mb-2">
                                 <label for="kode-prodi" class="mb-1">Kode program studi</label>
                                 <input type="text" class="form form-control @error('kode_prodi') is-invalid @enderror"
-                                    name="kode_prodi" id="kode-prodi" placeholder="" value="{{ $dataProdi->kode_prodi }}"
+                                    name="kode_prodi" id="kode-prodi" placeholder="" value="{{ $data_prodi->kode_prodi }}"
                                     required>
                                 @error('kode_prodi')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
@@ -41,10 +41,10 @@
                             </div>
                             <div class="col-md-6 mb-2">
                                 <label for="nama-prodi" class="mb-1">Nama program studi</label>
-                                <input type="text" class="form form-control @error('prodi') is-invalid @enderror"
-                                    name="nama_prodi" id="nama-prodi" placeholder="" value="{{ $dataProdi->nama_prodi }}"
+                                <input type="text" class="form form-control @error('nama_prodi') is-invalid @enderror"
+                                    name="nama_prodi" id="nama-prodi" placeholder="" value="{{ $data_prodi->nama_prodi }}"
                                     required>
-                                @error('prodi')
+                                @error('nama_prodi')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -53,7 +53,8 @@
                             <div class="col-md-6 mb-2">
                                 <label for="jenjang" class="mb-1">Jenjang</label>
                                 <input type="text" class="form form-control @error('jenjang') is-invalid @enderror"
-                                    name="jenjang" id="jenjang" placeholder="" value="{{ $dataProdi->jenjang }}" required>
+                                    name="jenjang" id="jenjang" placeholder="" value="{{ $data_prodi->jenjang }}"
+                                    required>
                                 @error('jenjang')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
@@ -64,7 +65,7 @@
                                 <label for="status-prodi" class="mb-1">Status</label>
                                 <select class="form form-select cursor-pointer @error('status') is-invalid @enderror"
                                     name="status" id="status-prodi" required>
-                                    <option value="{{ $dataProdi->status }}" selected>{{ $dataProdi->status }}
+                                    <option value="{{ $data_prodi->status }}" selected>{{ $data_prodi->status }}
                                     </option>
                                     <option value="Aktif">Aktif</option>
                                     <option value="Tutup">Tutup</option>
@@ -75,30 +76,13 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="fakultas" class="mb-1">Fakultas</label>
-                                <select class="form form-select cursor-pointer @error('id_fk') is-invalid @enderror"
-                                    name="id_fk" id="fakultas" required>
-                                    <option value="{{ $dataProdi->id_fk }}" selected>
-                                        {{ $dataProdi->fakultas->nama_fk }}
-                                    </option>
-                                    @foreach ($daftarProdi as $item)
-                                        <option value="{{ $item->fakultas->id }}">{{ $item->fakultas->nama_fk }}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_fk')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-6 mb-2">
+                            <div class="col-md-12 mb-2">
                                 <label for="kampus" class="mb-1">Kampus</label>
                                 <select class="form form-select cursor-pointer @error('id_kampus') is-invalid @enderror"
                                     name="id_kampus" id="kampus" required>
-                                    <option value="{{ $dataProdi->universitas->id }}" selected>
-                                        {{ $dataProdi->universitas->nama_pt }}</option>
-                                    @foreach ($dataKampus as $item)
+                                    <option value="{{ $data_prodi->universitas->id }}" selected>
+                                        {{ $data_prodi->universitas->nama_pt }}</option>
+                                    @foreach ($data_kampus as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_pt }}</option>
                                     @endforeach
                                 </select>
@@ -109,12 +93,29 @@
                                 @enderror
                             </div>
                             <div class="col-md-6 mb-2">
+                                <label for="fakultas" class="mb-1">Fakultas</label>
+                                <select class="form form-select cursor-pointer @error('id_fk') is-invalid @enderror"
+                                    name="id_fk" id="fakultas" required>
+                                    <option value="{{ $data_prodi->id_fk }}" selected>
+                                        {{ $data_prodi->fakultas->nama_fk }}
+                                    </option>
+                                    @foreach ($daftar_prodi as $item)
+                                        <option value="{{ $item->fakultas->id }}">{{ $item->fakultas->nama_fk }}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_fk')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 mb-2">
                                 <label for="kaprodi" class="mb-1">Kaprodi</label>
                                 <select class="form form-select cursor-pointer @error('id_kaprodi') is-invalid @enderror"
                                     name="id_kaprodi" id="kaprodi" required>
-                                    <option value="{{ $dataProdi->kaprodi->id }}" selected>
-                                        {{ $dataProdi->kaprodi->nama }}</option>
-                                    @foreach ($dataKaprodi as $item)
+                                    <option value="{{ $data_prodi->kaprodi->id }}" selected>
+                                        {{ $data_prodi->kaprodi->nama }}</option>
+                                    @foreach ($data_kaprodi as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach
                                 </select>

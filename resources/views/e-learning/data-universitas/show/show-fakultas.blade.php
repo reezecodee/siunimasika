@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="text-center mb-4">
-                        <img src="{{ $dataFakultas->picture ? asset('/img/logo-fakultas/' . $dataFakultas->picture) : asset('/img/example.png') }}"
+                        <img src="{{ $data_fakultas->picture ? asset('/img/logo-fakultas/' . $data_fakultas->picture) : asset('/img/example.png') }}"
                             class="w-50 mb-2" id="preview" alt="logo fakultas" srcset="">
                     </div>
                 </div>
@@ -16,26 +16,26 @@
                         <div class="col-md-12 mb-2">
                             <label for="nama-kampus" class="mb-1">Nama kampus</label>
                             <input type="text" class="form form-control"
-                                value="{{ $dataFakultas->universitas->nama_pt }}" readonly disabled id="nama-kampus">
+                                value="{{ $data_fakultas->universitas->nama_pt }}" readonly disabled id="nama-kampus">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="kode-fakultas" class="mb-1">Kode fakultas</label>
-                            <input type="text" class="form form-control" value="{{ $dataFakultas->kode_fk }}" readonly
+                            <input type="text" class="form form-control" value="{{ $data_fakultas->kode_fk }}" readonly
                                 disabled id="kode-fakultas">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="nama-fakultas" class="mb-1">Nama fakultas</label>
-                            <input type="text" class="form form-control" value="{{ $dataFakultas->nama_fk }}" readonly
+                            <input type="text" class="form form-control" value="{{ $data_fakultas->nama_fk }}" readonly
                                 disabled id="nama-fakultas">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="status-fakultas" class="mb-1">Status fakultas</label>
-                            <input type="text" class="form form-control" value="{{ $dataFakultas->status }}" readonly
+                            <input type="text" class="form form-control" value="{{ $data_fakultas->status }}" readonly
                                 disabled id="status-fakultas">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="dekan-fakultas" class="mb-1">Dekan fakultas</label>
-                            <input type="text" class="form form-control" value="{{ $dataFakultas->dekan->nama }}"
+                            <input type="text" class="form form-control" value="{{ $data_fakultas->dekan->nama }}"
                                 readonly disabled id="dekan-fakultas">
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                 <div class="col-md-12">
                     <div class="d-flex justify-content-end align-items-center gap-2">
                         <span>Data program studi</span>
-                        <button class="btn btn-outline-primary">Total: {{ $dataProdi->count() }}</button>
+                        <button class="btn btn-outline-primary">Total: {{ $data_prodi->count() }}</button>
                     </div>
                     <table class="table table-striped">
                         <thead>
@@ -71,7 +71,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($dataProdi as $item)
+                            @foreach ($data_prodi as $item)
                                 <tr>
                                     <td>{{ $item->jenjang }}</td>
                                     <td>{{ $item->nama_prodi }}</td>

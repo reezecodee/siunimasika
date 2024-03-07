@@ -26,21 +26,21 @@
                     </div>
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-6 mb-2">
-                                <label for="kode-kampus" class="mb-1">Kode kampus</label>
-                                <input type="text" class="form form-control @error('kode_pt') is-invalid @enderror"
-                                    name="kode_pt" id="kode-kampus" value="{{ old('kode_pt') }}" placeholder="" required>
-                                @error('kode_pt')
+                            <div class="col-md-12 mb-2">
+                                <label for="nama-kampus" class="mb-1">Nama kampus</label>
+                                <input type="text" class="form form-control @error('nama_pt') is-invalid @enderror"
+                                    name="nama_pt" id="nama-kampus" value="{{ old('nama_pt') }}" placeholder="" required>
+                                @error('nama_pt')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="col-md-6 mb-2">
-                                <label for="nama-kampus" class="mb-1">Nama kampus</label>
-                                <input type="text" class="form form-control @error('nama_pt') is-invalid @enderror"
-                                    name="nama_pt" id="nama-kampus" value="{{ old('nama_pt') }}" placeholder="" required>
-                                @error('nama_pt')
+                                <label for="kode-kampus" class="mb-1">Kode kampus</label>
+                                <input type="text" class="form form-control @error('kode_pt') is-invalid @enderror"
+                                    name="kode_pt" id="kode-kampus" value="{{ old('kode_pt') }}" placeholder="" required>
+                                @error('kode_pt')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -61,14 +61,10 @@
                                 @enderror
                             </div>
                             <div class="col-md-6 mb-2">
-                                <label for="status-kampus" class="mb-1">Status</label>
-                                <select class="form form-select cursor-pointer @error('status') is-invalid @enderror"
-                                    name="status" id="status-kampus" required>
-                                    <option selected>-- Pilih status --</option>
-                                    <option value="Aktif">Aktif</option>
-                                    <option value="Tidak aktif">Tidak aktif</option>
-                                </select>
-                                @error('status')
+                                <label for="email-kampus" class="mb-1">Email kampus</label>
+                                <input type="email" class="form form-control @error('email') is-invalid @enderror"
+                                    name="email" id="email-kampus" value="{{ old('email') }}" placeholder="" required>
+                                @error('email')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -85,10 +81,18 @@
                                 @enderror
                             </div>
                             <div class="col-md-6 mb-2">
-                                <label for="email-kampus" class="mb-1">Email kampus</label>
-                                <input type="email" class="form form-control @error('email') is-invalid @enderror"
-                                    name="email" id="email-kampus" value="{{ old('email') }}" placeholder="" required>
-                                @error('email')
+                                <label for="status-kampus" class="mb-1">Status</label>
+                                <select class="form form-select cursor-pointer @error('status') is-invalid @enderror"
+                                    name="status" id="status-kampus" required>
+                                    @if (old('status'))
+                                        <option value="{{ old('status') }}" selected>{{ old('status') }}</option>
+                                    @else
+                                        <option selected>-- Pilih status --</option>
+                                    @endif
+                                    <option value="Aktif">Aktif</option>
+                                    <option value="Tidak aktif">Tidak aktif</option>
+                                </select>
+                                @error('status')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -96,9 +100,10 @@
                             </div>
                             <div class="col-md-6 mb-2">
                                 <label for="tanggal-berdiri-kampus" class="mb-1">Tanggal berdiri kampus</label>
-                                <input type="date"
+                                <input type="text"
                                     class="form form-control @error('tanggal_berdiri') is-invalid @enderror"
-                                    name="tanggal_berdiri" id="tanggal-berdiri-kampus" placeholder="" required>
+                                    name="tanggal_berdiri" id="tanggal-berdiri-kampus" placeholder="" required
+                                    value="{{ old('tanggal_berdiri') }}">
                                 @error('tanggal_berdiri')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}

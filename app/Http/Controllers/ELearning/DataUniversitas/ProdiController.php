@@ -31,9 +31,9 @@ class ProdiController extends Controller
     {
         return view('e-learning.data-universitas.create.create-prodi', [
             'title' => 'Tambah Program Studi Baru',
-            'fakultas' => Fakultas::all()->unique('nama_fk'),
-            'kampus' => Universitas::all(),
-            'dataKaprodi' => Dosen::all(),
+            'data_fakultas' => Fakultas::all()->unique('nama_fk'),
+            'data_kampus' => Universitas::all(),
+            'data_kaprodi' => Dosen::all(),
         ]);
     }
 
@@ -52,7 +52,7 @@ class ProdiController extends Controller
         }
 
         Prodi::create($validated);
-        return redirect('/e-learning/data-prodi')->with('success', 'Berhasil menambahkan data prgram studi');
+        return redirect()->route('data-prodi.index')->with('success', 'Berhasil menambahkan data prgram studi');
     }
 
     /**
@@ -62,8 +62,8 @@ class ProdiController extends Controller
     {
         return view('e-learning.data-universitas.show.show-prodi', [
             'title' => 'Detail Program Studi',
-            'dataProdi' => Prodi::where('id', $id)->get()->first(),
-            'dataKelas' => Kelas::where('id_prodi', $id)->latest()->get()
+            'data_prodi' => Prodi::where('id', $id)->get()->first(),
+            'data_kelas' => Kelas::where('id_prodi', $id)->latest()->get()
         ]);
     }
 
@@ -74,10 +74,10 @@ class ProdiController extends Controller
     {
         return view('e-learning.data-universitas.edit.edit-prodi', [
             'title' => 'Edit Data Prodi',
-            'dataKampus' => Universitas::all(),
-            'dataProdi' => Prodi::where('id', $id)->get()->first(),
-            'daftarProdi' => Prodi::where('id', $id)->get(),
-            'dataKaprodi' => Dosen::all(),
+            'data_kampus' => Universitas::all(),
+            'data_prodi' => Prodi::where('id', $id)->get()->first(),
+            'daftar_prodi' => Prodi::where('id', $id)->get(),
+            'data_kaprodi' => Dosen::all(),
         ]);
     }
 
@@ -123,7 +123,7 @@ class ProdiController extends Controller
 
         $prodi = Prodi::find($id);
         $prodi->update($validated);
-        return redirect('/e-learning/data-prodi')->with('success', 'Berhasil memperbarui data program studi');
+        return redirect()->route('data-prodi.index')->with('success', 'Berhasil memperbarui data program studi');
     }
 
     /**

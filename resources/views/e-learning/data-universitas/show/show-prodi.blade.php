@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="text-center mb-4">
-                        <img src="{{ $dataProdi->picture ? asset('/img/logo-fakultas/' . $dataProdi->picture) : asset('/img/example.png') }}"
+                        <img src="{{ $data_prodi->picture ? asset('/img/logo-fakultas/' . $data_prodi->picture) : asset('/img/example.png') }}"
                             class="w-50 mb-2" id="preview" alt="logo fakultas" srcset="">
                     </div>
                 </div>
@@ -15,37 +15,37 @@
                     <div class="row">
                         <div class="col-md-12 mb-2">
                             <label for="nama-kampus" class="mb-1">Nama kampus</label>
-                            <input type="text" class="form form-control" value="{{ $dataProdi->universitas->nama_pt }}"
+                            <input type="text" class="form form-control" value="{{ $data_prodi->universitas->nama_pt }}"
                                 readonly disabled id="nama-kampus">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="kode-prodi" class="mb-1">Kode program studi</label>
-                            <input type="text" class="form form-control" value="{{ $dataProdi->kode_prodi }}" readonly
+                            <input type="text" class="form form-control" value="{{ $data_prodi->kode_prodi }}" readonly
                                 disabled id="kode-prodi">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="nama-prodi" class="mb-1">Nama program studi</label>
-                            <input type="text" class="form form-control" value="{{ $dataProdi->nama_prodi }}" readonly
+                            <input type="text" class="form form-control" value="{{ $data_prodi->nama_prodi }}" readonly
                                 disabled id="nama-prodi">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="nama-fakultas" class="mb-1">Fakultas</label>
-                            <input type="text" class="form form-control" value="{{ $dataProdi->fakultas->nama_fk }}"
+                            <input type="text" class="form form-control" value="{{ $data_prodi->fakultas->nama_fk }}"
                                 readonly disabled id="nama-fakultas">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="status-prodi" class="mb-1">Status program prodi</label>
-                            <input type="text" class="form form-control" value="{{ $dataProdi->status }}" readonly
+                            <input type="text" class="form form-control" value="{{ $data_prodi->status }}" readonly
                                 disabled id="status-prodi">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="jenjang-prodi" class="mb-1">Jenjang</label>
-                            <input type="text" class="form form-control" value="{{ $dataProdi->jenjang }}" readonly
+                            <input type="text" class="form form-control" value="{{ $data_prodi->jenjang }}" readonly
                                 disabled id="jenjang-prodi">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="kaprodi" class="mb-1">Kaprodi</label>
-                            <input type="text" class="form form-control" value="{{ $dataProdi->kaprodi->nama }}" readonly
+                            <input type="text" class="form form-control" value="{{ $data_prodi->kaprodi->nama }}" readonly
                                 disabled id="kaprodi">
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                 <div class="col-md-12">
                     <div class="d-flex justify-content-end align-items-center gap-2">
                         <span>Data kelas</span>
-                        <button class="btn btn-outline-primary">Total: {{ $dataKelas->count() }}</button>
+                        <button class="btn btn-outline-primary">Total: {{ $data_kelas->count() }}</button>
                     </div>
                     <table class="table table-striped">
                         <thead>
@@ -79,7 +79,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($dataKelas as $item)
+                            @foreach ($data_kelas as $item)
                                 <tr>
                                     <td> {{ $item->nama_kelas }}</td>
                                     <td> {{ $item->daya_tampung }}</td>

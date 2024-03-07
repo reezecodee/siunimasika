@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFkRequest;
 use App\Models\Dosen;
 use App\Models\Fakultas;
-use App\Models\Kelas;
 use App\Models\Prodi;
 use App\Models\Universitas;
 use Illuminate\Http\Request;
@@ -31,8 +30,8 @@ class FakultasController extends Controller
     {
         return view('e-learning.data-universitas.create.create-fakultas', [
             'title' => 'Tambah Fakultas Baru',
-            'dataKampus' => Universitas::all(),
-            'dataDekan' => Dosen::all()
+            'data_kampus' => Universitas::all(),
+            'data_dekan' => Dosen::all()
         ]);
     }
 
@@ -51,7 +50,7 @@ class FakultasController extends Controller
         }
 
         Fakultas::create($validated);
-        return redirect('/e-learning/data-fakultas')->with('success', 'Berhasil menambahkan data fakultas');
+        return redirect()->route('data-kampus.index')->with('success', 'Berhasil menambahkan data fakultas');
     }
 
     /**
@@ -61,8 +60,8 @@ class FakultasController extends Controller
     {
         return view('e-learning.data-universitas.show.show-fakultas', [
             'title' => 'Detail Fakultas',
-            'dataFakultas' => Fakultas::where('id', $id)->latest()->get()->first(),
-            'dataProdi' => Prodi::where('id_fk', $id)->latest()->get(),
+            'data_fakultas' => Fakultas::where('id', $id)->latest()->get()->first(),
+            'data_prodi' => Prodi::where('id_fk', $id)->latest()->get(),
         ]);
     }
 
@@ -73,9 +72,9 @@ class FakultasController extends Controller
     {
         return view('e-learning.data-universitas.edit.edit-fakultas', [
             'title' => 'Edit Data Fakultas',
-            'dataKampus' => Universitas::all(),
-            'dataFakultas' => Fakultas::where('id', $id)->get()->first(),
-            'dataDekan' => Dosen::all(),
+            'data_kampus' => Universitas::all(),
+            'data_fakultas' => Fakultas::where('id', $id)->get()->first(),
+            'data_dekan' => Dosen::all(),
         ]);
     }
 
@@ -116,7 +115,7 @@ class FakultasController extends Controller
 
         $fakultas = Fakultas::find($id);
         $fakultas->update($validated);
-        return redirect('/e-learning/data-fakultas')->with('success', 'Berhasil memperbarui data fakultas');
+        return redirect()->route('data-fakultas.index')->with('success', 'Berhasil memperbarui data fakultas');
     }
 
     /**

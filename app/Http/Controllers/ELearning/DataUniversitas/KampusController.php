@@ -49,7 +49,7 @@ class KampusController extends Controller
         }
 
         Universitas::create($validated);
-        return redirect('/e-learning/data-kampus')->with('success', 'Berhasil menambahkan data kampus');
+        return redirect()->route('data-kampus.index')->with('success', 'Berhasil menambahkan data kampus');
     }
 
     /**
@@ -59,10 +59,10 @@ class KampusController extends Controller
     {
         return view('e-learning.data-universitas.show.show-kampus', [
             'title' => 'Detail Kampus',
-            'dataKampus' => Universitas::where('id', $id)->get()->first(),
-            'dataFakultas' => Fakultas::where('id_kampus', $id)->latest()->get(),
-            'dataProdi' => Prodi::where('id_kampus', $id)->latest()->get(),
-            'dataKelas' => Kelas::where('id_kampus', $id)->latest()->get(),
+            'data_kampus' => Universitas::where('id', $id)->get()->first(),
+            'data_fakultas' => Fakultas::where('id_kampus', $id)->latest()->get(),
+            'data_prodi' => Prodi::where('id_kampus', $id)->latest()->get(),
+            'data_kelas' => Kelas::where('id_kampus', $id)->latest()->get(),
         ]);
     }
 
@@ -73,7 +73,7 @@ class KampusController extends Controller
     {
         return view('e-learning.data-universitas.edit.edit-kampus', [
             'title' => 'Edit Data Kampus',
-            'dataKampus' => Universitas::where('id', $id)->get()->first()
+            'data_kampus' => Universitas::where('id', $id)->get()->first()
         ]);
     }
 
@@ -123,7 +123,7 @@ class KampusController extends Controller
 
         $universitas = Universitas::find($id);
         $universitas->update($validated);
-        return redirect('/e-learning/data-kampus')->with('success', 'Berhasil memperbarui data kampus');
+        return redirect()->route('data-kampus.index')->with('success', 'Berhasil memperbarui data kampus');
     }
 
     /**

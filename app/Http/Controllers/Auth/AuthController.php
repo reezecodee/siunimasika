@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    // login view
     public function index()
     {
         return view('auth.login', [
@@ -20,7 +19,6 @@ class AuthController extends Controller
         ]);
     }
 
-    // login handler
     public function loginHandler(Request $request)
     {
         $credentials = $request->validate([
@@ -48,7 +46,6 @@ class AuthController extends Controller
         return back()->with('failed', 'NIP/NIM atau password Anda salah')->withInput();
     }
 
-    // logout
     public function logout(Request $request)
     {
         Auth::logout();
