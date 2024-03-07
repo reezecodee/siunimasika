@@ -66,28 +66,38 @@
                 </li>
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">Data Pengguna</span>
+                    <span class="hide-menu">Data Users</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/admin-pusat" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-admin-pusat*') ? 'active' : '' }}"
+                        href="{{ route('data-admin-pusat.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
                             <i class="fas fa-users-cog fs-4"></i>
                         </span>
                         <span class="hide-menu">Admin pusat</span>
                     </a>
-                    <a class="sidebar-link" href="/admin-kampus" aria-expanded="false">
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-admin-kampus*') ? 'active' : '' }}"
+                        href="{{ route('data-admin-kampus.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
-                            <i class="fas fa-users-cog fs-4"></i>
+                            <i class="fas fa-user-tag fs-4"></i>
                         </span>
                         <span class="hide-menu">Admin kampus</span>
                     </a>
-                    <a class="sidebar-link" href="/dosen" aria-expanded="false">
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-dosen*') ? 'active' : '' }}"
+                        href="{{ route('data-dosen.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
-                            <i class="fas fa-user-graduate fs-4"></i>
+                            <i class="fas fa-chalkboard-teacher fs-4"></i>
                         </span>
                         <span class="hide-menu">Dosen</span>
                     </a>
-                    <a class="sidebar-link" href="/mahasiswa" aria-expanded="false">
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link {{ Request::is('e-learning/data-mahasiswa*') ? 'active' : '' }}"
+                        href="{{ route('data-mahasiswa.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
                             <i class="fas fa-users fs-4"></i>
                         </span>

@@ -9,6 +9,10 @@ use App\Http\Controllers\ELearning\DataUniversitas\FakultasController;
 use App\Http\Controllers\ELearning\DataUniversitas\KampusController;
 use App\Http\Controllers\ELearning\DataUniversitas\KelasController;
 use App\Http\Controllers\ELearning\DataUniversitas\ProdiController;
+use App\Http\Controllers\ELearning\DataUsers\AdminKampusController;
+use App\Http\Controllers\ELearning\DataUsers\AdminPusatController;
+use App\Http\Controllers\ELearning\DataUsers\DosenController;
+use App\Http\Controllers\ELearning\DataUsers\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,18 +52,23 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 -----------------------------------------------------------------------------
 */
 
-Route::prefix('/e-learning')->middleware(['auth'])->group(function () {
-    // route get personal user
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('e-learn.dashboard');
-    Route::get('/profile', [ProfileController::class, 'index'])->name('e-learn.profile');
-    Route::put('/profile/{id}', [ProfileController::class, 'store'])->name('e-learn.update-profile');
-    Route::post('/profile', [ProfileController::class, 'changePassword'])->name('e-learn.changePassword');
+Route::prefix('e-learning')->middleware(['auth'])->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('e-learn.dashboard');
+    Route::get('profile', [ProfileController::class, 'index'])->name('e-learn.profile');
+    Route::put('profile/{id}', [ProfileController::class, 'store'])->name('e-learn.update-profile');
+    Route::post('profile', [ProfileController::class, 'changePassword'])->name('e-learn.changePassword');
 
     // route resource data universitas
-    Route::resource('/data-kampus', KampusController::class);
-    Route::resource('/data-fakultas', FakultasController::class);
-    Route::resource('/data-prodi', ProdiController::class);
-    Route::resource('/data-kelas', KelasController::class);
+    Route::resource('data-kampus', KampusController::class);
+    Route::resource('data-fakultas', FakultasController::class);
+    Route::resource('data-prodi', ProdiController::class);
+    Route::resource('data-kelas', KelasController::class);
+
+    // route resource data users
+    Route::resource('data-admin-pusat', AdminPusatController::class);
+    Route::resource('data-admin-kampus', AdminKampusController::class);
+    Route::resource('data-dosen', DosenController::class);
+    Route::resource('data-mahasiswa', MahasiswaController::class);
 });
 
 

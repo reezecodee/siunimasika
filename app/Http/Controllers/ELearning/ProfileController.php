@@ -56,16 +56,13 @@ class ProfileController extends Controller
         $request->validate([
             'current_password'       => 'required',
             'new_password'       => 'required',
-            'confirm_password' => 'required',
+            'confirm_password' => 'required|same:new_password',
         ],[
             'current_password.required' => 'Password saat ini wajib di isi',
             'new_password.required' => 'Password baru wajib di isi',
             'confirm_password.required' => 'Konfirmasi password wajib di isi',
+            'confirm_password.same' => 'Konfirmasi password harus sama dengan password baru'
         ]);
-
-        if($request->new_password !== $request->confirm_password){
-            return back()->with('failed', 'Konfirmasi password tidak cocok dengan password baru');
-        }
 
         if (!Hash::check($request->current_password, Auth::user()->password)) {
             return back()->with('failed', 'Password tidak cocok');
