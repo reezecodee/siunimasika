@@ -4,6 +4,7 @@ namespace App\Http\Controllers\ELearning\DataUsers;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdminPusat;
+use App\Models\Universitas;
 use Illuminate\Http\Request;
 
 class AdminPusatController extends Controller
@@ -24,7 +25,9 @@ class AdminPusatController extends Controller
      */
     public function create()
     {
-        //
+        return view('e-learning.data-users.create.create-admin-pusat', [
+            'title' => 'Tambah Admin Pusat',
+        ]);
     }
 
     /**

@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-end mb-3">
-                <a href="{{ route('data-admin-kampus.create') }}">
+                <a href="{{ route('data-admin-pusat.create') }}">
                     <button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah admin pusat</button>
                 </a>
             </div>

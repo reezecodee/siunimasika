@@ -4,6 +4,7 @@ namespace App\Http\Controllers\ELearning\DataUsers;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdminKampus;
+use App\Models\Universitas;
 use Illuminate\Http\Request;
 
 class AdminKampusController extends Controller
@@ -24,7 +25,10 @@ class AdminKampusController extends Controller
      */
     public function create()
     {
-        //
+        return view('e-learning.data-users.create.create-admin-kampus', [
+            'title' => 'Tambah Admin Kampus',
+            'data_kampus' => Universitas::all()
+        ]);
     }
 
     /**

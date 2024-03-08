@@ -24,7 +24,9 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('e-learning.data-users.create.create-mahasiswa', [
+            'title' => 'Tambah Mahasiswa',
+        ]);
     }
 
     /**

@@ -9,9 +9,6 @@
                     <div class="col-md-3 text-center">
                         <img src="https://avatars.githubusercontent.com/u/97270237?v=4" alt="" srcset=""
                             class="w-100 rounded-circle shadow mb-3" id="preview">
-                        {{-- <label for="photo-profile" id="edit-profile-button">
-                            <button type="button" class="btn btn-outline-primary">Edit profile</button>
-                        </label> --}}
                         <input type="file" name="photo_profile" id="picture" class="form-control">
                     </div>
                     <div class="col-md-9">

@@ -24,7 +24,9 @@ class DosenController extends Controller
      */
     public function create()
     {
-        //
+        return view('e-learning.data-users.create.create-dosen', [
+            'title' => 'Tambah Dosen',
+        ]);
     }
 
     /**

@@ -24,6 +24,7 @@ class DosenSeeder extends Seeder
                 'kode_dosen' => 'MAN9213',
                 'nama' => 'Prabowo Rakabuming S.Par',
                 'jk' => 'Laki-laki',
+                'jabatan_khusus' => 'Tidak ada',
                 'alamat' => 'Jl. Jalan berkah, Tasikmalaya, Jawa Barat',
                 'photo_profile' => 'default.jpg',
                 'status' => 'Aktif'

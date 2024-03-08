@@ -4,7 +4,7 @@
         <div class="card-body">
             <div class="d-flex justify-content-end mb-3">
                 <a href="{{ route('data-mahasiswa.create') }}">
-                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah dosen</button>
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah mahasiswa</button>
                 </a>
             </div>
             <table id="datatable" class="table table-striped table-hover">

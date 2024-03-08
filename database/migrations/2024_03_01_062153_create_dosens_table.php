@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('nama');
             $table->enum('jk', ['Laki-laki', 'Perempuan']);
             $table->text('alamat');
+            $table->enum('jabatan_khusus', ['Dekan', 'Kaprodi', 'Pembimbing akademik', 'Tidak ada'])->default('Tidak ada');
             $table->string('photo_profile');
             $table->enum('status', ['Aktif', 'Cuti', 'Tidak aktif']);
             $table->timestamps();
