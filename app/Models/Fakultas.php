@@ -14,11 +14,6 @@ class Fakultas extends Model
 
     protected $guarded = ['id'];
 
-    public function universitas(): BelongsTo
-    {
-        return $this->belongsTo(Universitas::class, 'id_kampus');
-    }
-
     public function prodi(): HasMany
     {
         return $this->hasMany(Prodi::class, 'id_fk');

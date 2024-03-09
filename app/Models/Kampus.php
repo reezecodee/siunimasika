@@ -7,16 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Universitas extends Model
+class Kampus extends Model
 {
     use HasFactory, HasUuids;
 
     protected $guarded = ['id'];
-
-    public function fakultas(): HasMany
-    {
-        return $this->hasMany(Fakultas::class, 'id_kampus');
-    }
 
     public function adminKampus(): HasMany
     {

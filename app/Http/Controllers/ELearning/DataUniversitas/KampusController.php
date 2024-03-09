@@ -4,12 +4,11 @@ namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUnivRequest;
-use App\Http\Requests\UpdateUnivRequest;
 use App\Models\Fakultas;
 use App\Models\Kelas;
 use App\Models\Prodi;
+use App\Models\Kampus;
 use Illuminate\Http\Request;
-use App\Models\Universitas;
 
 class KampusController extends Controller
 {
@@ -20,7 +19,7 @@ class KampusController extends Controller
     {
         return view('e-learning.data-universitas.kampus', [
             'title' => 'Daftar Data Kampus',
-            'data_kampus' => Universitas::all()
+            'data_kampus' => Kampus::all()
         ]);
     }
 
@@ -48,7 +47,7 @@ class KampusController extends Controller
             $validated['picture'] = $fileName;
         }
 
-        Universitas::create($validated);
+        Kampus::create($validated);
         return redirect()->route('data-kampus.index')->with('success', 'Berhasil menambahkan data kampus');
     }
 
@@ -59,7 +58,7 @@ class KampusController extends Controller
     {
         return view('e-learning.data-universitas.show.show-kampus', [
             'title' => 'Detail Kampus',
-            'data_kampus' => Universitas::where('id', $id)->get()->first(),
+            'data_kampus' => Kampus::where('id', $id)->get()->first(),
             'data_fakultas' => Fakultas::where('id_kampus', $id)->latest()->get(),
             'data_prodi' => Prodi::where('id_kampus', $id)->latest()->get(),
             'data_kelas' => Kelas::where('id_kampus', $id)->latest()->get(),
@@ -73,7 +72,7 @@ class KampusController extends Controller
     {
         return view('e-learning.data-universitas.edit.edit-kampus', [
             'title' => 'Edit Data Kampus',
-            'data_kampus' => Universitas::where('id', $id)->get()->first()
+            'data_kampus' => Kampus::where('id', $id)->get()->first()
         ]);
     }
 
@@ -121,7 +120,7 @@ class KampusController extends Controller
             $validated['picture'] = $fileName;
         }
 
-        $universitas = Universitas::find($id);
+        $universitas = Kampus::find($id);
         $universitas->update($validated);
         return redirect()->route('data-kampus.index')->with('success', 'Berhasil memperbarui data kampus');
     }
@@ -131,7 +130,7 @@ class KampusController extends Controller
      */
     public function destroy(string $id)
     {
-        Universitas::destroy($id);
+        Kampus::destroy($id);
         return redirect()->route('data-kampus.index')->with('success', 'Data universitas berhasil dihapus.');
     }
 }

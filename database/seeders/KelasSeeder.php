@@ -4,13 +4,11 @@ namespace Database\Seeders;
 
 use App\Models\Dosen;
 use App\Models\Fakultas;
+use App\Models\Kampus;
 use App\Models\Kelas;
 use App\Models\Prodi;
-use App\Models\Universitas;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Ramsey\Uuid\Uuid;
 
 class KelasSeeder extends Seeder
 {
@@ -21,7 +19,7 @@ class KelasSeeder extends Seeder
     {
         $items = [
             [
-                'id_kampus' => Universitas::orderBy('id')->skip(0)->first()['id'],
+                'id_kampus' => Kampus::orderBy('id')->skip(0)->first()['id'],
                 'id_fk' => Fakultas::orderBy('id')->skip(0)->first()['id'],
                 'id_prodi' => Prodi::orderBy('id')->skip(0)->first()['id'],
                 'id_dosen_pa' => Dosen::orderBy('id')->skip(0)->first()['id'],

@@ -9,7 +9,7 @@ use App\Models\Fakultas;
 use App\Models\Kelas;
 use App\Models\Mahasiswa;
 use App\Models\Prodi;
-use App\Models\Universitas;
+use App\Models\Kampus;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -33,7 +33,7 @@ class KelasController extends Controller
         return view('e-learning.data-universitas.create.create-kelas', [
             'title' => 'Tambah Kelas Baru',
             'dosen_pa' => Dosen::all(),
-            'data_kampus' => Universitas::all(),
+            'data_kampus' => Kampus::all(),
             'data_fakultas' => Fakultas::all(),
             'data_prodi' => Prodi::all()
         ]);
@@ -70,7 +70,7 @@ class KelasController extends Controller
             'title' => 'Edit Data Kelas',
             'data_kelas' => Kelas::where('id', $id)->get()->first(),
             'dosen_pa' => Dosen::all(),
-            'data_kampus' => Universitas::all(),
+            'data_kampus' => Kampus::all(),
             'data_fakultas' => Fakultas::all(),
             'data_prodi' => Prodi::all()
         ]);

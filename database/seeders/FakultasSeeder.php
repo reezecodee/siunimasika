@@ -4,11 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\Dosen;
 use App\Models\Fakultas;
-use App\Models\Universitas;
+use App\Models\Kampus;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Ramsey\Uuid\Uuid;
 
 class FakultasSeeder extends Seeder
 {
@@ -19,7 +17,6 @@ class FakultasSeeder extends Seeder
     {
         $items = [
             [
-                'id_kampus' => Universitas::orderBy('id')->skip(0)->first()['id'],
                 'id_dekan' => Dosen::orderBy('id')->skip(0)->first()['id'],
                 'kode_fk' => 'TK12312',
                 'nama_fk' => 'Teknik',

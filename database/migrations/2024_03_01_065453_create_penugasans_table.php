@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('link_tugas');
             $table->string('mulai');
             $table->string('deadline');
-            $table->enum('status', ['Dibuka', 'Ditutup']);
+            $table->enum('status', ['Dibuka', 'Ditutup'])->default('Dibuka');
             $table->timestamps();
 
             // Foreign Key

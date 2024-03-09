@@ -44,9 +44,9 @@ class Kelas extends Model
         return $this->hasMany(Absensi::class, 'id_kelas');
     }
 
-    public function universitas(): BelongsTo
+    public function kampus(): BelongsTo
     {
-        return $this->belongsTo(Universitas::class, 'id_kampus');
+        return $this->belongsTo(Kampus::class, 'id_kampus');
     }
 
     public function fakultas(): BelongsTo

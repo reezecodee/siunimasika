@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('link_materi');
             $table->string('pertemuan');
             $table->string('semester');
-            $table->enum('tipe_materi', ['Pertemuan', 'Tambahan']);
+            $table->enum('tipe_materi', ['Pertemuan', 'Tambahan'])->default('Pertemuan');
             $table->timestamps();
 
             // Foreign Key

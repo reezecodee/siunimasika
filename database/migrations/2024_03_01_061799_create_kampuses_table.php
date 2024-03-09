@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('universitas', function (Blueprint $table) {
+        Schema::create('kampuses', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('kode_pt')->unique();
-            $table->string('nama_pt');
-            $table->enum('kategori', ['Pusat', 'PSDKU']);
-            $table->enum('status', ['Aktif', 'Tidak aktif']);
-            $table->string('tanggal_berdiri');
+            $table->string('kode_kampus')->unique();
+            $table->string('nama_kampus')->unique();
+            $table->enum('kategori', ['Utama', 'PSDKU'])->default('PSDKU');
+            $table->enum('status', ['Aktif', 'Tidak aktif'])->default('Tidak aktif');
             $table->string('telepon')->unique();
             $table->string('email')->unique();
             $table->string('picture')->nullable(true);
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('universitas');
+        Schema::dropIfExists('kampuses');
     }
 };

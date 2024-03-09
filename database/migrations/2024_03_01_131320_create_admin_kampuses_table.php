@@ -18,12 +18,12 @@ return new class extends Migration
             $table->string('nama');
             $table->enum('jk', ['Laki-laki', 'Perempuan']);
             $table->text('alamat');
-            $table->string('photo_profile');
-            $table->enum('status', ['Aktif', 'Cuti', 'Tidak aktif']);
+            $table->string('photo_profile')->nullable(true);
+            $table->enum('status', ['Aktif', 'Cuti', 'Tidak aktif'])->default('Tidak aktif');
             $table->timestamps();
 
             // Foreign Key
-            $table->foreign('id_kampus')->references('id')->on('universitas')->onDelete('no action');
+            $table->foreign('id_kampus')->references('id')->on('kampuses')->onDelete('no action');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->uuid('id_kelas');
             $table->uuid('id_matkul');
             $table->enum('kehadiran', ['Hadir', 'Izin', 'Sakit', 'Tidak hadir'])->default('Tidak hadir');
-            $table->string('komentar_mhs')->nullable();
-            $table->string('bukti')->nullable();
+            $table->string('komentar_mhs')->nullable(true);
+            $table->string('bukti')->nullable(true);
             $table->timestamps();
 
             // Foreign Key

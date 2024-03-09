@@ -3,12 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\AdminKampus;
-use App\Models\Universitas;
+use App\Models\Kampus;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Ramsey\Uuid\Uuid;
 
 class AdminKampusSeeder extends Seeder
 {
@@ -20,7 +18,7 @@ class AdminKampusSeeder extends Seeder
         $items = [
             [
                 'id_user' => User::orderBy('id')->skip(1)->first()['id'],
-                'id_kampus' => Universitas::orderBy('id')->skip(0)->first()['id'],
+                'id_kampus' => Kampus::orderBy('id')->skip(0)->first()['id'],
                 'nama' => 'Mahmudin Amin S.kom',
                 'jk' => 'Laki-laki',
                 'alamat' => 'Jl. Jalan berkah, Tasikmalaya, Jawa Barat',

@@ -21,11 +21,11 @@ return new class extends Migration
             $table->text('alamat');
             $table->enum('jabatan_khusus', ['Dekan', 'Kaprodi', 'Pembimbing akademik', 'Tidak ada'])->default('Tidak ada');
             $table->string('photo_profile');
-            $table->enum('status', ['Aktif', 'Cuti', 'Tidak aktif']);
+            $table->enum('status', ['Aktif', 'Cuti', 'Tidak aktif'])->default('Tidak aktif');
             $table->timestamps();
 
             // Foreign Key
-            $table->foreign('id_kampus')->references('id')->on('universitas')->onDelete('no action');
+            $table->foreign('id_kampus')->references('id')->on('kampuses')->onDelete('no action');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }

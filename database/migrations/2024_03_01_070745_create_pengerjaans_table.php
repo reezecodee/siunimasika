@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('link_tugas');
             $table->enum('status', ['Belum dikerjakan', 'Dikerjakan', 'Tidak dikerjakan'])->default('Belum dikerjakan');
             $table->string('nilai')->default('0');
-            $table->string('komentar_dosen');
+            $table->string('komentar_dosen')->nullable(true);
             $table->timestamps();
 
             // Foreign Key

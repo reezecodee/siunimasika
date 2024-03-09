@@ -18,8 +18,8 @@ class AdminKampus extends Model
         return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function universitas(): BelongsTo
+    public function kampus(): BelongsTo
     {
-        return $this->belongsTo(Universitas::class, 'id_kampus');
+        return $this->belongsTo(Kampus::class, 'id_kampus');
     }
 }

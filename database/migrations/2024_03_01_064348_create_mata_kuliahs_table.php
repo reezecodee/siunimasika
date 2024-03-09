@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id_kelas');
             $table->uuid('id_dosen');
             $table->string('kode_mk')->unique();
-            $table->string('nama_mk');
+            $table->string('nama_mk')->unique();
             $table->string('semester');
             $table->timestamps();
 

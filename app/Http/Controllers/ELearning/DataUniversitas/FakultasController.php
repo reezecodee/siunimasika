@@ -7,7 +7,7 @@ use App\Http\Requests\StoreFkRequest;
 use App\Models\Dosen;
 use App\Models\Fakultas;
 use App\Models\Prodi;
-use App\Models\Universitas;
+use App\Models\Kampus;
 use Illuminate\Http\Request;
 
 class FakultasController extends Controller
@@ -30,7 +30,7 @@ class FakultasController extends Controller
     {
         return view('e-learning.data-universitas.create.create-fakultas', [
             'title' => 'Tambah Fakultas Baru',
-            'data_kampus' => Universitas::all(),
+            'data_kampus' => Kampus::all(),
             'data_dekan' => Dosen::all()
         ]);
     }
@@ -72,7 +72,7 @@ class FakultasController extends Controller
     {
         return view('e-learning.data-universitas.edit.edit-fakultas', [
             'title' => 'Edit Data Fakultas',
-            'data_kampus' => Universitas::all(),
+            'data_kampus' => Kampus::all(),
             'data_fakultas' => Fakultas::where('id', $id)->get()->first(),
             'data_dekan' => Dosen::all(),
         ]);

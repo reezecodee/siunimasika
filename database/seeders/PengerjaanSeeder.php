@@ -7,8 +7,6 @@ use App\Models\Pengerjaan;
 use App\Models\Penugasan;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Ramsey\Uuid\Uuid;
 
 class PengerjaanSeeder extends Seeder
 {

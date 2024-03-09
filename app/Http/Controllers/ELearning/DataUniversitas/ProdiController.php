@@ -8,7 +8,7 @@ use App\Models\Dosen;
 use App\Models\Fakultas;
 use App\Models\Kelas;
 use App\Models\Prodi;
-use App\Models\Universitas;
+use App\Models\Kampus;
 use Illuminate\Http\Request;
 
 class ProdiController extends Controller
@@ -32,7 +32,7 @@ class ProdiController extends Controller
         return view('e-learning.data-universitas.create.create-prodi', [
             'title' => 'Tambah Program Studi Baru',
             'data_fakultas' => Fakultas::all()->unique('nama_fk'),
-            'data_kampus' => Universitas::all(),
+            'data_kampus' => Kampus::all(),
             'data_kaprodi' => Dosen::all(),
         ]);
     }
@@ -74,7 +74,7 @@ class ProdiController extends Controller
     {
         return view('e-learning.data-universitas.edit.edit-prodi', [
             'title' => 'Edit Data Prodi',
-            'data_kampus' => Universitas::all(),
+            'data_kampus' => Kampus::all(),
             'data_prodi' => Prodi::where('id', $id)->get()->first(),
             'daftar_prodi' => Prodi::where('id', $id)->get(),
             'data_kaprodi' => Dosen::all(),

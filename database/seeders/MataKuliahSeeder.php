@@ -8,8 +8,6 @@ use App\Models\MataKuliah;
 use App\Models\Prodi;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Ramsey\Uuid\Uuid;
 
 class MataKuliahSeeder extends Seeder
 {

@@ -13,16 +13,14 @@ return new class extends Migration
     {
         Schema::create('fakultas', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('id_kampus');
             $table->uuid('id_dekan');
             $table->string('kode_fk')->unique();
-            $table->string('nama_fk');
-            $table->enum('status', ['Aktif', 'Tutup']);
+            $table->string('nama_fk')->unique();
+            $table->enum('status', ['Aktif', 'Tidak aktif'])->default('Tidak aktif');
             $table->string('picture')->nullable(true);
             $table->timestamps();
 
             // Foreign Key
-            $table->foreign('id_kampus')->references('id')->on('universitas')->onDelete('cascade');
             $table->foreign('id_dekan')->references('id')->on('dosens')->onDelete('cascade');
         });
     }

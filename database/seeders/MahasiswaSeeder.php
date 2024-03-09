@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Kampus;
 use App\Models\Kelas;
 use App\Models\Mahasiswa;
 use App\Models\Prodi;
@@ -9,8 +10,6 @@ use App\Models\Universitas;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Ramsey\Uuid\Uuid;
 
 class MahasiswaSeeder extends Seeder
 {
@@ -22,7 +21,7 @@ class MahasiswaSeeder extends Seeder
         $items = [
             [
                 'id_user' => User::orderBy('id')->skip(3)->first()['id'],
-                'id_kampus' => Universitas::orderBy('id')->skip(0)->first()['id'],
+                'id_kampus' => Kampus::orderBy('id')->skip(0)->first()['id'],
                 'id_prodi' => Prodi::orderBy('id')->skip(0)->first()['id'],
                 'id_kelas' => Kelas::orderBy('id')->skip(0)->first()['id'],
                 'nama' => 'Budi Nur Madinah',

@@ -3,12 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Dosen;
-use App\Models\Universitas;
+use App\Models\Kampus;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Ramsey\Uuid\Uuid;
 
 class DosenSeeder extends Seeder
 {
@@ -20,7 +18,7 @@ class DosenSeeder extends Seeder
         $items = [
             [
                 'id_user' => User::orderBy('id')->skip(2)->first()['id'],
-                'id_kampus' => Universitas::orderBy('id')->skip(0)->first()['id'],
+                'id_kampus' => Kampus::orderBy('id')->skip(0)->first()['id'],
                 'kode_dosen' => 'MAN9213',
                 'nama' => 'Prabowo Rakabuming S.Par',
                 'jk' => 'Laki-laki',
