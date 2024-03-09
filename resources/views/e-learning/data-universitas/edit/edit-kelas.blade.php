@@ -11,7 +11,7 @@
                             <div class="col-md-4 mb-2">
                                 <label for="kode-kelas" class="mb-1">Kode kelas</label>
                                 <input type="text" class="form form-control @error('kode_kelas') is-invalid @enderror"
-                                    name="kode_kelas" value="{{ $data_kelas->kode_kelas }}" id="kode-kelas" placeholder=""
+                                    name="kode_kelas" value="{{ old('kode_kelas') ?? $data_kelas->kode_kelas }}" id="kode-kelas" placeholder=""
                                     required>
                                 @error('kode_kelas')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
@@ -22,7 +22,7 @@
                             <div class="col-md-4 mb-2">
                                 <label for="nama-kelas" class="mb-1">Nama kelas</label>
                                 <input type="text" class="form form-control @error('nama_kelas') is-invalid @enderror"
-                                    name="nama_kelas" value="{{ $data_kelas->nama_kelas }}" id="nama-kelas" placeholder=""
+                                    name="nama_kelas" value="{{ old('nama_kelas') ?? $data_kelas->nama_kelas }}" id="nama-kelas" placeholder=""
                                     required>
                                 @error('nama_kelas')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
@@ -33,7 +33,7 @@
                             <div class="col-md-4 mb-2">
                                 <label for="daya-tampung" class="mb-1">Daya tampung kelas</label>
                                 <input type="text" class="form form-control @error('daya_tampung') is-invalid @enderror"
-                                    name="daya_tampung" value="{{ $data_kelas->daya_tampung }}" id="daya-tampung"
+                                    name="daya_tampung" value="{{ old('daya_tampung') ?? $data_kelas->daya_tampung }}" id="daya-tampung"
                                     placeholder="" required>
                                 @error('daya_tampung')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
@@ -45,7 +45,7 @@
                                 <label for="status-kelas" class="mb-1">Status</label>
                                 <select class="form form-select cursor-pointer @error('status') is-invalid @enderror"
                                     name="status" id="status-kelas" required>
-                                    <option value="{{ $data_kelas->status }}" selected>{{ $data_kelas->status }}</option>
+                                    <option value="{{ old('status') ?? $data_kelas->status }}" selected>{{ old('status') ?? $data_kelas->status }}</option>
                                     <option value="Aktif">Aktif</option>
                                     <option value="Tutup">Tutup</option>
                                 </select>

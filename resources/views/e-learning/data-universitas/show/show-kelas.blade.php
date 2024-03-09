@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-md-12 mb-2">
                             <label for="nama-kampus" class="mb-1">Nama kampus</label>
-                            <input type="text" class="form form-control" value="{{ $data_kelas->universitas->nama_pt }}"
+                            <input type="text" class="form form-control" value="{{ $data_kelas->kampus->nama_kampus }}"
                                 readonly disabled id="nama-kampus">
                         </div>
                         <div class="col-md-6 mb-2">
