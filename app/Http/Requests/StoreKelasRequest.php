@@ -24,11 +24,8 @@ class StoreKelasRequest extends FormRequest
         return [
             'kode_kelas' => 'required|min:5|max:20|unique:kelas',
             'nama_kelas' => 'required|max:255|unique:kelas',
-            'daya_tampung' => 'required|min:2|max:3',
             'status' => 'required',
             'id_prodi' => 'required',
-            'id_kampus' => 'required',
-            'id_dosen_pa' => 'required'
         ];
     }
 
@@ -42,14 +39,8 @@ class StoreKelasRequest extends FormRequest
             'nama_kelas.required' => 'Nama kelas wajib di isi',
             'nama_kelas.max' => 'Nama kelas terlalu panjang',
             'nama_kelas.unique' => 'Nama kelas sudah pernah digunakan',
-            'daya_tampung.required' => 'Daya tampung kelas wajib di isi',
-            'daya_tampung.min' => 'Daya tampung minimal berisi 2 digit angka',
-            'daya_tampung.max' => 'Daya tampung maximal berisi 3 digit angka',
             'status.required' => 'Status wajib di isi',
-            'id_fk.required' =>  'Fakultas wajib di pilih',
             'id_prodi.required' =>  'Program studi wajib di pilih',
-            'id_kampus.required' => 'Kampus wajib di pilih',
-            'id_dosen_pa.required' => 'Dosen pembimbing akademik wajib di pilih'
         ];
     }
 

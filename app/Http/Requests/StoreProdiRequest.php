@@ -24,10 +24,8 @@ class StoreProdiRequest extends FormRequest
         return [
             'kode_prodi' => 'required|min:5|max:20|unique:prodis',
             'nama_prodi' => 'required|max:255|unique:prodis',
-            'jenjang' => 'required|min:2|max:2',
             'status' => 'required',
             'id_fk' => 'required',
-            'id_kaprodi' => 'required',
             'picture' => 'image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
@@ -42,11 +40,8 @@ class StoreProdiRequest extends FormRequest
             'nama_prodi.required' => 'Nama prodi wajib di isi',
             'nama_prodi.max' => 'Nama prodi terlalu panjang',
             'nama_prodi.unique' => 'Nama prodi sudah pernah digunakan',
-            'jenjang.min' => 'Jenjang harus berisi 2 digit',
-            'jenjang.max' => 'Jenjang terlalu panjang, harus berisi 2 digit',
             'status.required' => 'Status fakultas wajib di isi',
             'id_fk.required' => 'Fakultas wajib di pilih',
-            'id_kaprodi.required' => 'Kaprodi wajib di pilih',
             'picture.image' => 'File harus berupa gambar',
             'picture.mimes' => 'Format ekstensi gambar yang didukung adalah jpeg, png, dan jpg',
             'picture.max' => 'Size gambar maksimal 2MB',

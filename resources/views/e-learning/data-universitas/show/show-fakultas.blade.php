@@ -28,11 +28,6 @@
                             <input type="text" class="form form-control" value="{{ $data_fakultas->status }}" readonly
                                 disabled id="status-fakultas">
                         </div>
-                        <div class="col-md-6 mb-2">
-                            <label for="dekan-fakultas" class="mb-1">Dekan</label>
-                            <input type="text" class="form form-control" value="{{ $data_fakultas->dekan->nama }}"
-                                readonly disabled id="dekan-fakultas">
-                        </div>
                     </div>
                     <div class="d-flex justify-content-end mt-4 gap-2">
                         <a href="{{ url()->current() }}/edit">

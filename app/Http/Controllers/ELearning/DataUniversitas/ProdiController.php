@@ -5,7 +5,6 @@ namespace App\Http\Controllers\ELearning\DataUniversitas;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProdiRequest;
 use App\Http\Requests\UpdateProdiRequest;
-use App\Models\Dosen;
 use App\Models\Fakultas;
 use App\Models\Kelas;
 use App\Models\Prodi;
@@ -31,7 +30,6 @@ class ProdiController extends Controller
         return view('e-learning.data-universitas.create.create-prodi', [
             'title' => 'Tambah Program Studi Baru',
             'data_fakultas' => Fakultas::all(),
-            'data_kaprodi' => Dosen::all(),
         ]);
     }
 
@@ -74,7 +72,6 @@ class ProdiController extends Controller
             'title' => 'Edit Data Prodi',
             'data_prodi' => Prodi::where('id', $id)->get()->first(),
             'daftar_prodi' => Prodi::where('id', $id)->get(),
-            'data_kaprodi' => Dosen::all(),
         ]);
     }
 

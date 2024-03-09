@@ -67,22 +67,6 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="dekan" class="mb-1">Dekan</label>
-                                <select class="form form-select cursor-pointer @error('id_dekan') is-invalid @enderror"
-                                    name="id_dekan" id="dekan" required>
-                                    <option value="{{ $data_fakultas->dekan->id }}" selected>
-                                        {{ $data_fakultas->dekan->nama }}</option>
-                                    @foreach ($data_dekan as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_dekan')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
                         </div>
                         <div class="d-flex align-items-center mt-3">
                             <input type="checkbox" class="form-check-input cursor-pointer me-2" name=""

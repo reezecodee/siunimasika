@@ -22,7 +22,6 @@ class StoreFkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id_dekan' => 'required',
             'kode_fk' => 'required|min:5|max:20|unique:fakultas',
             'nama_fk' => 'required|max:255|unique:fakultas',
             'status' => 'required',
@@ -33,7 +32,6 @@ class StoreFkRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'id_dekan.required' => 'Dekan fakultas wajib di pilih',
             'kode_fk.required' => 'Kode fakultas wajib di isi',
             'kode_fk.min' => 'Kode fakultas minimal berisi 5 digit',
             'kode_fk.max' => 'Kode fakultas maximal berisi 20 digit',

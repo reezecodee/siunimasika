@@ -24,7 +24,6 @@ class UpdateFkRequest extends FormRequest
     {
         $id = $this->route('data_fakulta');
         return [
-            'id_dekan' => 'required',
             'kode_fk' => ['required','min:5','max:20', Rule::unique('fakultas')->ignore($id)],
             'nama_fk' => ['required','max:255', Rule::unique('fakultas')->ignore($id)],
             'status' => 'required',
@@ -35,7 +34,6 @@ class UpdateFkRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'id_dekan.required' => 'Dekan fakultas wajib di pilih',
             'kode_fk.required' => 'Kode fakultas wajib di isi',
             'kode_fk.min' => 'Kode fakultas minimal berisi 5 digit',
             'kode_fk.max' => 'Kode fakultas maximal berisi 20 digit',

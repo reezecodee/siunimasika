@@ -12,7 +12,6 @@
                     <tr>
                         <th>No</th>
                         <th>Kode</th>
-                        <th>Jenjang</th>
                         <th>Nama Prodi</th>
                         <th>Fakultas</th>
                         <th>Status</th>
@@ -24,7 +23,6 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->kode_prodi }}</td>
-                            <td>{{ $item->jenjang }}</td>
                             <td>{{ $item->nama_prodi }}</td>
                             <td>{{ $item->fakultas->nama_fk }}</td>
                             <td>{{ $item->status }}</td>

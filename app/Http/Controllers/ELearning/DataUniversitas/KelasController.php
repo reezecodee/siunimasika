@@ -5,12 +5,10 @@ namespace App\Http\Controllers\ELearning\DataUniversitas;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreKelasRequest;
 use App\Http\Requests\UpdateKelasRequest;
-use App\Models\Dosen;
 use App\Models\Fakultas;
 use App\Models\Kelas;
 use App\Models\Mahasiswa;
 use App\Models\Prodi;
-use App\Models\Kampus;
 
 class KelasController extends Controller
 {
@@ -32,8 +30,6 @@ class KelasController extends Controller
     {
         return view('e-learning.data-universitas.create.create-kelas', [
             'title' => 'Tambah Kelas Baru',
-            'dosen_pa' => Dosen::all(),
-            'data_kampus' => Kampus::all(),
             'data_prodi' => Prodi::all()
         ]);
     }
@@ -72,8 +68,6 @@ class KelasController extends Controller
         return view('e-learning.data-universitas.edit.edit-kelas', [
             'title' => 'Edit Data Kelas',
             'data_kelas' => Kelas::where('id', $id)->get()->first(),
-            'dosen_pa' => Dosen::all(),
-            'data_kampus' => Kampus::all(),
             'data_fakultas' => Fakultas::all(),
             'data_prodi' => Prodi::all()
         ]);

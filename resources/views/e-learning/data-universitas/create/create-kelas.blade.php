@@ -30,17 +30,6 @@
                                 @enderror
                             </div>
                             <div class="col-md-4 mb-2">
-                                <label for="daya-tampung" class="mb-1">Daya tampung kelas</label>
-                                <input type="text" class="form form-control @error('daya_tampung') is-invalid @enderror"
-                                    name="daya_tampung" value="{{ old('daya_tampung') }}" id="daya-tampung" placeholder=""
-                                    required>
-                                @error('daya_tampung')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-4 mb-2">
                                 <label for="status-kelas" class="mb-1">Status</label>
                                 <select class="form form-select cursor-pointer @error('status') is-invalid @enderror"
                                     name="status" id="status-kelas" required>
@@ -64,40 +53,11 @@
                                     name="id_prodi" id="prodi" required>
                                     <option selected>-- Pilih prodi --</option>
                                     @foreach ($data_prodi as $item)
-                                        <option value="{{ $item->id }} - {{ $item->id_fk }}">{{ $item->nama_prodi }}</option>
+                                        <option value="{{ $item->id }} - {{ $item->id_fk }}">{{ $item->nama_prodi }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 @error('id_prodi')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <label for="dosen-pa" class="mb-1">Dosen pembimbing akademik</label>
-                                <select class="form form-select cursor-pointer @error('id_dosen_pa') is-invalid @enderror"
-                                    name="id_dosen_pa" id="dosen-pa" required>
-                                    <option selected>-- Pilih dosen PA --</option>
-                                    @foreach ($dosen_pa as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_dosen_pa')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-8 mb-2">
-                                <label for="kampus" class="mb-1">Kampus</label>
-                                <select class="form form-select cursor-pointer @error('id_kampus') is-invalid @enderror"
-                                    name="id_kampus" id="kampus" required>
-                                    <option selected>-- Pilih kampus --</option>
-                                    @foreach ($data_kampus as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_kampus }}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_kampus')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>

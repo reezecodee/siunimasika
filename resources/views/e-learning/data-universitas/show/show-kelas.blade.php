@@ -7,11 +7,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-12 mb-2">
-                            <label for="nama-kampus" class="mb-1">Nama kampus</label>
-                            <input type="text" class="form form-control" value="{{ $data_kelas->kampus->nama_kampus }}"
-                                readonly disabled id="nama-kampus">
-                        </div>
                         <div class="col-md-6 mb-2">
                             <label for="kode-kelas" class="mb-1">Kode kelas</label>
                             <input type="text" class="form form-control" value="{{ $data_kelas->kode_kelas }}" readonly
@@ -31,16 +26,6 @@
                             <label for="status-kelas" class="mb-1">Status kelas</label>
                             <input type="text" class="form form-control" value="{{ $data_kelas->status }}" readonly
                                 disabled id="status-kelas">
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <label for="daya-tampung" class="mb-1">Daya tampung</label>
-                            <input type="text" class="form form-control" value="{{ $data_kelas->daya_tampung }}" readonly
-                                disabled id="daya-tampung">
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <label for="dosenPA" class="mb-1">Dosen pembimbing akademik</label>
-                            <input type="text" class="form form-control" value="{{ $data_kelas->dosenPA->nama }}" readonly
-                                disabled id="dosenPA">
                         </div>
                     </div>
                     <div class="d-flex justify-content-end mt-4 gap-2">

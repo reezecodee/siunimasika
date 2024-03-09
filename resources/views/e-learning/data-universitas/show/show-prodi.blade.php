@@ -24,11 +24,6 @@
                                 disabled id="nama-prodi">
                         </div>
                         <div class="col-md-6 mb-2">
-                            <label for="jenjang-prodi" class="mb-1">Jenjang</label>
-                            <input type="text" class="form form-control" value="{{ $data_prodi->jenjang }}" readonly
-                                disabled id="jenjang-prodi">
-                        </div>
-                        <div class="col-md-6 mb-2">
                             <label for="status-prodi" class="mb-1">Status program prodi</label>
                             <input type="text" class="form form-control" value="{{ $data_prodi->status }}" readonly
                                 disabled id="status-prodi">
@@ -37,11 +32,6 @@
                             <label for="nama-fakultas" class="mb-1">Fakultas</label>
                             <input type="text" class="form form-control" value="{{ $data_prodi->fakultas->nama_fk }}"
                                 readonly disabled id="nama-fakultas">
-                        </div>
-                        <div class="col-md-6 mb-2">
-                            <label for="kaprodi" class="mb-1">Kaprodi</label>
-                            <input type="text" class="form form-control" value="{{ $data_prodi->kaprodi->nama }}"
-                                readonly disabled id="kaprodi">
                         </div>
                     </div>
                     <div class="d-flex justify-content-end mt-4 gap-2">
@@ -67,7 +57,6 @@
                         <thead>
                             <tr>
                                 <th>Nama kelas</th>
-                                <th>Daya tampung</th>
                                 <th>Total mahasiswa</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -77,7 +66,6 @@
                             @foreach ($data_kelas as $item)
                                 <tr>
                                     <td> {{ $item->nama_kelas }}</td>
-                                    <td> {{ $item->daya_tampung }}</td>
                                     <td> {{ $item->mahasiswa->count() }}</td>
                                     <td> {{ $item->status }}</td>
                                     <td>

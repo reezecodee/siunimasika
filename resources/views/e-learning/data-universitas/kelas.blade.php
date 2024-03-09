@@ -15,7 +15,6 @@
                         <th>Nama Kelas</th>
                         <th>Prodi</th>
                         <th>Fakultas</th>
-                        <th>Kampus</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -28,7 +27,6 @@
                             <td>{{ $item->nama_kelas }}</td>
                             <td>{{ $item->prodi->nama_prodi }}</td>
                             <td>{{ $item->fakultas->nama_fk }}</td>
-                            <td>{{ $item->kampus->nama_kampus }}</td>
                             <td>{{ $item->status }}</td>
                             <td>
                                 <div class="dropdown">

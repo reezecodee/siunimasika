@@ -13,9 +13,9 @@ class Absensi extends Model
 
     protected $guarded = ['id'];
 
-    public function mahasiswa(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Mahasiswa::class, 'id_mahasiswa');
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     public function kelas(): BelongsTo

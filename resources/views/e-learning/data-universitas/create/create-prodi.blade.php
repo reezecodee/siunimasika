@@ -49,16 +49,6 @@
                                 @enderror
                             </div>
                             <div class="col-md-6 mb-2">
-                                <label for="jenjang" class="mb-1">Jenjang</label>
-                                <input type="text" class="form form-control @error('jenjang') is-invalid @enderror"
-                                    name="jenjang" id="jenjang" value="{{ old('jenjang') }}" placeholder="" required>
-                                @error('jenjang')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-6 mb-2">
                                 <label for="status-prodi" class="mb-1">Status</label>
                                 <select class="form form-select cursor-pointer @error('status') is-invalid @enderror"
                                     name="status" id="status-prodi" required>
@@ -86,23 +76,6 @@
                                     @endforeach
                                 </select>
                                 @error('id_fk')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="kaprodi" class="mb-1">Kaprodi</label>
-                                <select class="form form-select cursor-pointer @error('id_kaprodi') is-invalid @enderror"
-                                    name="id_kaprodi" id="kaprodi" required>
-                                    <option selected>
-                                        -- Pilih kaprodi --
-                                    </option>
-                                    @foreach ($data_kaprodi as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_kaprodi')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>
