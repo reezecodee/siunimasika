@@ -19,11 +19,6 @@ class Kelas extends Model
         return $this->belongsTo(Prodi::class, 'id_prodi');
     }
 
-    public function dosenPA(): BelongsTo
-    {
-        return $this->belongsTo(Dosen::class, 'id_dosen_pa');
-    }
-
     public function mahasiswa(): HasMany
     {
         return $this->hasMany(Mahasiswa::class, 'id_kelas');
@@ -42,11 +37,6 @@ class Kelas extends Model
     public function absensi(): HasMany
     {
         return $this->hasMany(Absensi::class, 'id_kelas');
-    }
-
-    public function kampus(): BelongsTo
-    {
-        return $this->belongsTo(Kampus::class, 'id_kampus');
     }
 
     public function fakultas(): BelongsTo

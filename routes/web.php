@@ -60,7 +60,6 @@ Route::prefix('e-learning')->middleware(['auth'])->group(function () {
     Route::post('profile', [ProfileController::class, 'changePassword'])->name('e-learn.change-password');
 
     // route resource data universitas
-    Route::resource('data-kampus', KampusController::class);
     Route::resource('data-fakultas', FakultasController::class);
     Route::resource('data-prodi', ProdiController::class);
     Route::resource('data-kelas', KelasController::class);

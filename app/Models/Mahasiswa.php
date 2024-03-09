@@ -19,11 +19,6 @@ class Mahasiswa extends Model
         return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function kampus(): BelongsTo
-    {
-        return $this->belongsTo(Kampus::class, 'id_kampus');
-    }
-
     public function prodi(): BelongsTo
     {
         return $this->belongsTo(Prodi::class, 'id_prodi');

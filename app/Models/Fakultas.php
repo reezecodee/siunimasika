@@ -19,11 +19,6 @@ class Fakultas extends Model
         return $this->hasMany(Prodi::class, 'id_fk');
     }
 
-    public function dekan(): BelongsTo
-    {
-        return $this->belongsTo(Dosen::class, 'id_dekan');
-    }
-
     public function kelas(): HasMany
     {
         return $this->hasMany(Kelas::class, 'id_fk');

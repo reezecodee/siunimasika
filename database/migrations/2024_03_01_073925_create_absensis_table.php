@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::create('absensis', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('id_user');
+            $table->uuid('id_mahasiswa');
             $table->uuid('id_kelas');
             $table->uuid('id_matkul');
             $table->enum('kehadiran', ['Hadir', 'Izin', 'Sakit', 'Tidak hadir'])->default('Tidak hadir');
-            $table->string('komentar_mhs')->nullable(true);
             $table->string('bukti')->nullable(true);
             $table->timestamps();
 
             // Foreign Key
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_mahasiswa')->references('id')->on('mahasiswas')->onDelete('cascade');
             $table->foreign('id_kelas')->references('id')->on('kelas')->onDelete('no action');
             $table->foreign('id_matkul')->references('id')->on('mata_kuliahs')->onDelete('no action');
         });

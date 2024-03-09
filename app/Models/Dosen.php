@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Dosen extends Model
 {
@@ -20,19 +19,9 @@ class Dosen extends Model
         return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function kampus(): BelongsTo
+    public function matkul(): HasMany
     {
-        return $this->belongsTo(Kampus::class, 'id_kampus');
-    }
-
-    public function kelas(): HasOne
-    {
-        return $this->hasOne(Kelas::class, 'id_dosen_pa');
-    }
-
-    public function matkul(): HasOne
-    {
-        return $this->hasOne(Kelas::class, 'id_dosen');
+        return $this->hasMany(Kelas::class, 'id_dosen');
     }
 
     public function materi(): HasMany
@@ -43,15 +32,5 @@ class Dosen extends Model
     public function penugasan(): HasMany
     {
         return $this->hasMany(Penugasan::class, 'id_matkul');
-    }
-
-    public function fakultas(): HasMany
-    {
-        return $this->hasMany(Fakultas::class, 'id_dekan');
-    }
-
-    public function prodi(): HasMany
-    {
-        return $this->hasMany(Prodi::class, 'id_kaprodi');
     }
 }

@@ -49,11 +49,6 @@ class User extends Authenticatable
         return $this->hasMany(AdminPusat::class, 'id_user');
     }
 
-    public function adminKampus(): HasMany
-    {
-        return $this->hasMany(AdminKampus::class, 'id_user');
-    }
-
     public function dosen(): HasMany
     {
         return $this->hasMany(Dosen::class, 'id_user');

@@ -29,15 +29,6 @@
                     <span class="hide-menu">Universitas</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('e-learning/data-kampus*') ? 'active' : '' }}"
-                        href="{{ route('data-kampus.index') }}" aria-expanded="false">
-                        <span class="me-3" style="width: 3px">
-                            <i class="fas fa-university fs-4"></i>
-                        </span>
-                        <span class="hide-menu">Data kampus</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
                     <a class="sidebar-link {{ Request::is('e-learning/data-fakultas*') ? 'active' : '' }}"
                         href="{{ route('data-fakultas.index') }}" aria-expanded="false">
                         <span class="me-3" style="width: 3px">
@@ -75,15 +66,6 @@
                             <i class="fas fa-users-cog fs-4"></i>
                         </span>
                         <span class="hide-menu">Admin pusat</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('e-learning/data-admin-kampus*') ? 'active' : '' }}"
-                        href="{{ route('data-admin-kampus.index') }}" aria-expanded="false">
-                        <span class="me-3" style="width: 3px">
-                            <i class="fas fa-user-tag fs-4"></i>
-                        </span>
-                        <span class="hide-menu">Admin kampus</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

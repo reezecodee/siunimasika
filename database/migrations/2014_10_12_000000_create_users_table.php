@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nip_nim')->unique();
             $table->string('email')->unique();
             $table->string('telp')->unique();
-            $table->enum('role', ['Admin Pusat', 'Admin Kampus', 'Dosen', 'Mahasiswa']);
+            $table->enum('role', ['Admin Pusat','Dosen', 'Mahasiswa']);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

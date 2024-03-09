@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('id_matkul');
             $table->uuid('id_prodi');
+            $table->uuid('id_kelas');
             $table->uuid('id_dosen');
             $table->string('judul');
             $table->string('deskripsi');
@@ -27,6 +28,7 @@ return new class extends Migration
             // Foreign Key
             $table->foreign('id_matkul')->references('id')->on('mata_kuliahs')->onDelete('cascade');
             $table->foreign('id_prodi')->references('id')->on('prodis')->onDelete('cascade');
+            $table->foreign('id_kelas')->references('id')->on('kelas')->onDelete('cascade');
             $table->foreign('id_dosen')->references('id')->on('dosens')->onDelete('cascade');
         });
     }

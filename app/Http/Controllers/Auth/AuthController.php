@@ -32,8 +32,6 @@ class AuthController extends Controller
             $role = auth()->user()->role;
             if ($role == 'Admin Pusat') {
                 $namaUser = AdminPusat::where('id_user', auth()->user()->id)->first();
-            } else if ($role == 'Admin Kampus') {
-                $namaUser = AdminKampus::where('id_user', auth()->user()->id)->first();
             } else if ($role == 'Dosen') {
                 $namaUser = Dosen::where('id_user', auth()->user()->id)->first();
             } else {

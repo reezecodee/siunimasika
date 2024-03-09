@@ -18,9 +18,8 @@ return new class extends Migration
             $table->uuid('id_dosen');
             $table->string('kode_tugas')->unique();
             $table->string('judul');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->string('link_tugas');
-            $table->string('mulai');
             $table->string('deadline');
             $table->enum('status', ['Dibuka', 'Ditutup'])->default('Dibuka');
             $table->timestamps();
