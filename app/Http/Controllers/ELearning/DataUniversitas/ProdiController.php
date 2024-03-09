@@ -31,8 +31,7 @@ class ProdiController extends Controller
     {
         return view('e-learning.data-universitas.create.create-prodi', [
             'title' => 'Tambah Program Studi Baru',
-            'data_fakultas' => Fakultas::all()->unique('nama_fk'),
-            'data_kampus' => Kampus::all(),
+            'data_fakultas' => Fakultas::all(),
             'data_kaprodi' => Dosen::all(),
         ]);
     }
@@ -74,7 +73,6 @@ class ProdiController extends Controller
     {
         return view('e-learning.data-universitas.edit.edit-prodi', [
             'title' => 'Edit Data Prodi',
-            'data_kampus' => Kampus::all(),
             'data_prodi' => Prodi::where('id', $id)->get()->first(),
             'daftar_prodi' => Prodi::where('id', $id)->get(),
             'data_kaprodi' => Dosen::all(),
@@ -92,7 +90,6 @@ class ProdiController extends Controller
             'jenjang' => 'required|min:2|max:2',
             'status' => 'required',
             'id_fk' => 'required',
-            'id_kampus' => 'required',
             'id_kaprodi' => 'required',
             'picture' => 'image|mimes:jpeg,png,jpg|max:2048',
         ],[
@@ -106,9 +103,8 @@ class ProdiController extends Controller
             'jenjang.min' => 'Jenjang harus berisi 2 digit',
             'jenjang.max' => 'Jenjang terlalu panjang, harus berisi 2 digit',
             'status.required' => 'Status fakultas wajib di isi',
-            'id_fk.required' => 'Tidak ada fakultas yang di pilih, permintaan ditolak',
-            'id_kaprodi.required' => 'Tidak ada kaprodi yang di pilih, permintaan ditolak',
-            'id_kampus.required' => 'Tidak ada kampus yang di pilih, permintaan ditolak',
+            'id_fk.required' => 'Fakultas wajib di pilih',
+            'id_kaprodi.required' => 'Kaprodi wajib di pilih',
             'picture.image' => 'File harus berupa gambar',
             'picture.mimes' => 'Format ekstensi gambar yang didukung adalah jpeg, png, dan jpg',
             'picture.max' => 'Size gambar maksimal 2MB',

@@ -27,7 +27,6 @@ class StoreProdiRequest extends FormRequest
             'jenjang' => 'required|min:2|max:2',
             'status' => 'required',
             'id_fk' => 'required',
-            'id_kampus' => 'required',
             'id_kaprodi' => 'required',
             'picture' => 'image|mimes:jpeg,png,jpg|max:2048',
         ];
@@ -48,7 +47,6 @@ class StoreProdiRequest extends FormRequest
             'status.required' => 'Status fakultas wajib di isi',
             'id_fk.required' => 'Fakultas wajib di pilih',
             'id_kaprodi.required' => 'Kaprodi wajib di pilih',
-            'id_kampus.required' => 'Kampus wajib di pilih',
             'picture.image' => 'File harus berupa gambar',
             'picture.mimes' => 'Format ekstensi gambar yang didukung adalah jpeg, png, dan jpg',
             'picture.max' => 'Size gambar maksimal 2MB',

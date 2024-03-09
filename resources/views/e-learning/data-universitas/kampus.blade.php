@@ -22,8 +22,8 @@
                     @foreach ($data_kampus as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->kode_pt }}</td>
-                            <td>{{ $item->nama_pt }}</td>
+                            <td>{{ $item->kode_kampus }}</td>
+                            <td>{{ $item->nama_kampus }}</td>
                             <td>{{ $item->kategori }}</td>
                             <td>{{ $item->status }}</td>
                             <td>

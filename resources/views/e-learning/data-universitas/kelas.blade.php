@@ -13,6 +13,8 @@
                         <th>No</th>
                         <th>Kode</th>
                         <th>Nama Kelas</th>
+                        <th>Prodi</th>
+                        <th>Fakultas</th>
                         <th>Kampus</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -22,10 +24,12 @@
                     @foreach ($data_kelas as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item['kode_kelas'] }}</td>
-                            <td>{{ $item['nama_kelas'] }}</td>
-                            <td>{{ $item->prodi->fakultas->universitas['nama_pt'] }}</td>
-                            <td>{{ $item['status'] }}</td>
+                            <td>{{ $item->kode_kelas }}</td>
+                            <td>{{ $item->nama_kelas }}</td>
+                            <td>{{ $item->prodi->nama_prodi }}</td>
+                            <td>{{ $item->fakultas->nama_fk }}</td>
+                            <td>{{ $item->kampus->nama_kampus }}</td>
+                            <td>{{ $item->status }}</td>
                             <td>
                                 <div class="dropdown">
                                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button"

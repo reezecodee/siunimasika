@@ -30,10 +30,10 @@
                         <div class="row">
                             <div class="col-md-12 mb-2">
                                 <label for="nama-kampus" class="mb-1">Nama kampus</label>
-                                <input type="text" class="form form-control @error('nama_pt') is-invalid @enderror"
-                                    name="nama_pt" id="nama-kampus" value="{{ $data_kampus->nama_pt }}" placeholder=""
+                                <input type="text" class="form form-control @error('nama_kampus') is-invalid @enderror"
+                                    name="nama_kampus" id="nama-kampus" value="{{ old('nama_kampus') ?? $data_kampus->nama_kampus }}" placeholder=""
                                     required>
-                                @error('nama_pt')
+                                @error('nama_kampus')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -41,10 +41,10 @@
                             </div>
                             <div class="col-md-6 mb-2">
                                 <label for="kode-kampus" class="mb-1">Kode kampus</label>
-                                <input type="text" class="form form-control @error('kode_pt') is-invalid @enderror"
-                                    name="kode_pt" id="kode-kampus" value="{{ $data_kampus->kode_pt }}" placeholder=""
+                                <input type="text" class="form form-control @error('kode_kampus') is-invalid @enderror"
+                                    name="kode_kampus" id="kode-kampus" value="{{ old('kode_kampus') ?? $data_kampus->kode_kampus }}" placeholder=""
                                     required>
-                                @error('kode_pt')
+                                @error('kode_kampus')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -54,7 +54,7 @@
                                 <label for="kategori-kampus" class="mb-1">Kategori</label>
                                 <select class="form form-select cursor-pointer @error('kategori') is-invalid @enderror"
                                     name="kategori" id="kategori-kampus" required>
-                                    <option value="{{ $data_kampus->kategori }}" selected>{{ $data_kampus->kategori }}
+                                    <option value="{{ old('kategori') ?? $data_kampus->kategori }}" selected>{{  old('kategori') ?? $data_kampus->kategori }}
                                     </option>
                                     <option value="Pusat">Kampus Pusat</option>
                                     <option value="PSDKU">Kampus PSDKU</option>
@@ -68,7 +68,7 @@
                             <div class="col-md-6 mb-2">
                                 <label for="email-kampus" class="mb-1">Email kampus</label>
                                 <input type="email" class="form form-control @error('email') is-invalid @enderror"
-                                    name="email" id="email-kampus" value="{{ $data_kampus->email }}" placeholder=""
+                                    name="email" id="email-kampus" value="{{ old('email') ?? $data_kampus->email }}" placeholder=""
                                     required>
                                 @error('email')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
@@ -79,7 +79,7 @@
                             <div class="col-md-6 mb-2">
                                 <label for="telepon-kampus" class="mb-1">Telepon kampus</label>
                                 <input type="text" class="form form-control @error('telepon') is-invalid @enderror"
-                                    name="telepon" id="telepon-kampus" value="{{ $data_kampus->telepon }}" placeholder=""
+                                    name="telepon" id="telepon-kampus" value="{{ old('telepon') ??$data_kampus->telepon }}" placeholder=""
                                     required>
                                 @error('telepon')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
@@ -91,7 +91,7 @@
                                 <label for="status-kampus" class="mb-1">Status</label>
                                 <select class="form form-select cursor-pointer @error('status') is-invalid @enderror"
                                     name="status" id="status-kampus" required>
-                                    <option value="{{ $data_kampus->status }}" selected>{{ $data_kampus->status }}
+                                    <option value="{{ old('status') ?? $data_kampus->status }}" selected>{{ old('status') ?? $data_kampus->status }}
                                     </option>
                                     <option value="Aktif">Aktif</option>
                                     <option value="Tidak aktif">Tidak aktif</option>
@@ -102,22 +102,9 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="tanggal-berdiri-kampus" class="mb-1">Tanggal berdiri kampus</label>
-                                <input type="text"
-                                    class="form form-control @error('tanggal_berdiri') is-invalid @enderror"
-                                    name="tanggal_berdiri" id="tanggal-berdiri-kampus" placeholder=""
-                                    value="{{ $data_kampus->tanggal_berdiri }}" required>
-                                @error('tanggal_berdiri')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
                         </div>
                         <label for="alamat" class="mb-1 mt-2">Alamat kampus</label>
-                        <textarea class="form form-control @error('alamat') is-invalid @enderror" name="alamat" id="alamat"
-                            value="{{ $data_kampus->alamat }}" rows="5">{{ $data_kampus->alamat }}</textarea>
+                        <textarea class="form form-control @error('alamat') is-invalid @enderror" name="alamat" id="alamat" rows="5">{{ old('alamat') ?? $data_kampus->alamat }}</textarea>
                         @error('alamat')
                             <div id="validationServer03Feedback" class="invalid-feedback">
                                 {{ $message }}

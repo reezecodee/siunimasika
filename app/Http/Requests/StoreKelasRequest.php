@@ -26,7 +26,6 @@ class StoreKelasRequest extends FormRequest
             'nama_kelas' => 'required|max:255|unique:kelas',
             'daya_tampung' => 'required|min:2|max:3',
             'status' => 'required',
-            'id_fk' => 'required',
             'id_prodi' => 'required',
             'id_kampus' => 'required',
             'id_dosen_pa' => 'required'

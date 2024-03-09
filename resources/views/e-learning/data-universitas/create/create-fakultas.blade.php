@@ -46,21 +46,6 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="col-md-12 mb-2">
-                                <label for="fakultas" class="mb-1">Kampus</label>
-                                <select class="form form-select cursor-pointer @error('id_kampus') is-invalid @enderror"
-                                    name="id_kampus" id="fakultas" required>
-                                    <option selected>-- Pilih kampus --</option>
-                                    @foreach ($data_kampus as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_pt }}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_kampus')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
                             <div class="col-md-6 mb-2">
                                 <label for="status-fakultas" class="mb-1">Status</label>
                                 <select class="form form-select cursor-pointer @error('status') is-invalid @enderror"
@@ -71,7 +56,7 @@
                                         <option selected>-- Pilih status --</option>
                                     @endif
                                     <option value="Aktif">Aktif</option>
-                                    <option value="Tutup">Tutup</option>
+                                    <option value="Tidak aktif">Tidak aktif</option>
                                 </select>
                                 @error('status')
                                     <div id="validationServer03Feedback" class="invalid-feedback">

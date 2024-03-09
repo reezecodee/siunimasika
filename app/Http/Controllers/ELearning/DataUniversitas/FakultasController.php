@@ -50,7 +50,7 @@ class FakultasController extends Controller
         }
 
         Fakultas::create($validated);
-        return redirect()->route('data-kampus.index')->with('success', 'Berhasil menambahkan data fakultas');
+        return redirect()->route('data-fakultas.index')->with('success', 'Berhasil menambahkan data fakultas');
     }
 
     /**
@@ -72,7 +72,6 @@ class FakultasController extends Controller
     {
         return view('e-learning.data-universitas.edit.edit-fakultas', [
             'title' => 'Edit Data Fakultas',
-            'data_kampus' => Kampus::all(),
             'data_fakultas' => Fakultas::where('id', $id)->get()->first(),
             'data_dekan' => Dosen::all(),
         ]);
@@ -84,15 +83,13 @@ class FakultasController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'id_kampus' => 'required',
             'id_dekan' => 'required',
             'kode_fk' => 'required|min:5|max:20|unique:fakultas,kode_fk,' . $id,
             'nama_fk' => 'required|max:255|unique:fakultas,nama_fk,' . $id,
             'status' => 'required',
             'picture' => 'image|mimes:jpeg,png,jpg|max:2048',
         ], [
-            'id_kampus.required' => 'Tidak ada kampus yang di pilih, permintaan ditolak',
-            'id_dekan.required' => 'Tidak ada kampus yang di pilih, permintaan ditolak',
+            'id_dekan.required' => 'Dekan fakultas wajib di pilih',
             'kode_fk.required' => 'Kode fakultas wajib di isi',
             'kode_fk.min' => 'Kode fakultas minimal berisi 5 digit',
             'kode_fk.max' => 'Kode fakultas maximal berisi 20 digit',

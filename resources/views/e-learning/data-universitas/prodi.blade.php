@@ -15,7 +15,6 @@
                         <th>Jenjang</th>
                         <th>Nama Prodi</th>
                         <th>Fakultas</th>
-                        <th>Kampus</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -24,12 +23,11 @@
                     @foreach ($data_prodi as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item['kode_prodi'] }}</td>
-                            <td>{{ $item['jenjang'] }}</td>
-                            <td>{{ $item['nama_prodi'] }}</td>
-                            <td>{{ $item->fakultas['nama_fk'] }}</td>
-                            <td>{{ $item->fakultas->universitas['nama_pt'] }}</td>
-                            <td>{{ $item['status'] }}</td>
+                            <td>{{ $item->kode_prodi }}</td>
+                            <td>{{ $item->jenjang }}</td>
+                            <td>{{ $item->nama_prodi }}</td>
+                            <td>{{ $item->fakultas->nama_fk }}</td>
+                            <td>{{ $item->status }}</td>
                             <td>
                                 <div class="dropdown">
                                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button"

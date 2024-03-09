@@ -34,7 +34,6 @@ class KelasController extends Controller
             'title' => 'Tambah Kelas Baru',
             'dosen_pa' => Dosen::all(),
             'data_kampus' => Kampus::all(),
-            'data_fakultas' => Fakultas::all(),
             'data_prodi' => Prodi::all()
         ]);
     }
@@ -45,6 +44,10 @@ class KelasController extends Controller
     public function store(StoreKelasRequest $request)
     {
         $validated = $request->validated();
+        $array = explode(' - ', $validated['id_prodi']);
+        $validated['id_prodi'] = $array[0];
+        $validated['id_fk'] = $array[1];
+
         Kelas::create($validated);
         return redirect()->route('data-kelas.index')->with('success', 'Berhasil menambahkan data kelas');
     }
@@ -86,7 +89,6 @@ class KelasController extends Controller
             'nama_kelas' => 'required|max:255|unique:kelas,nama_kelas,' . $id,
             'daya_tampung' => 'required|min:2|max:3',
             'status' => 'required',
-            'id_fk' => 'required',
             'id_prodi' => 'required',
             'id_kampus' => 'required',
             'id_dosen_pa' => 'required'
@@ -102,11 +104,14 @@ class KelasController extends Controller
             'daya_tampung.min' => 'Daya tampung minimal berisi 2 digit angka',
             'daya_tampung.max' => 'Daya tampung maximal berisi 3 digit angka',
             'status.required' => 'Status wajib di isi',
-            'id_fk.required' =>  'Fakultas wajib di pilih',
             'id_prodi.required' =>  'Program studi wajib di pilih',
             'id_kampus.required' => 'Kampus wajib di pilih',
             'id_dosen_pa.required' => 'Dosen pembimbing akademik wajib di pilih'
         ]);
+
+        $array = explode(' - ', $validated['id_prodi']);
+        $validated['id_prodi'] = $array[0];
+        $validated['id_fk'] = $array[1];
 
         $kelas = Kelas::find($id);
         $kelas->update($validated);

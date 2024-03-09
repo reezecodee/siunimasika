@@ -59,45 +59,13 @@
                                 <label for="prodi" class="mb-1">Program studi</label>
                                 <select class="form form-select cursor-pointer @error('id_prodi') is-invalid @enderror"
                                     name="id_prodi" id="prodi" required>
-                                    <option value="{{ $data_kelas->prodi->id }}" selected>
+                                    <option value="{{ $data_kelas->id_prodi }} - {{ $data_kelas->id_fk }}" selected>
                                         {{ $data_kelas->prodi->nama_prodi }}</option>
                                     @foreach ($data_prodi as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_prodi }}</option>
+                                        <option value="{{ $item->id }} - {{ $item->id_fk }}">{{ $item->nama_prodi }}</option>
                                     @endforeach
                                 </select>
                                 @error('id_prodi')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <label for="fakultas" class="mb-1">Fakultas</label>
-                                <select class="form form-select cursor-pointer @error('id_fk') is-invalid @enderror"
-                                    name="id_fk" id="fakultas" required>
-                                    <option value="{{ $data_kelas->fakultas->id }}" selected>
-                                        {{ $data_kelas->fakultas->nama_fk }}</option>
-                                    @foreach ($data_fakultas as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_fk }}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_fk')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-8 mb-2">
-                                <label for="kampus" class="mb-1">Kampus</label>
-                                <select class="form form-select cursor-pointer @error('id_kampus') is-invalid @enderror"
-                                    name="id_kampus" id="kampus" required>
-                                    <option value="{{ $data_kelas->universitas->id }}" selected>
-                                        {{ $data_kelas->universitas->nama_pt }}</option>
-                                    @foreach ($data_kampus as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_pt }}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_kampus')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -115,6 +83,22 @@
                                     @endforeach
                                 </select>
                                 @error('id_dosen_pa')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="col-md-8 mb-2">
+                                <label for="kampus" class="mb-1">Kampus</label>
+                                <select class="form form-select cursor-pointer @error('id_kampus') is-invalid @enderror"
+                                    name="id_kampus" id="kampus" required>
+                                    <option value="{{ $data_kelas->kampus->id }}" selected>
+                                        {{ $data_kelas->kampus->nama_kampus }}</option>
+                                    @foreach ($data_kampus as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_kampus }}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_kampus')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>

@@ -38,9 +38,9 @@
                             </div>
                             <div class="col-md-6 mb-2">
                                 <label for="kode-kampus" class="mb-1">Kode kampus</label>
-                                <input type="text" class="form form-control @error('kode_pt') is-invalid @enderror"
-                                    name="kode_pt" id="kode-kampus" value="{{ old('kode_pt') }}" placeholder="" required>
-                                @error('kode_pt')
+                                <input type="text" class="form form-control @error('kode_kampus') is-invalid @enderror"
+                                    name="kode_kampus" id="kode-kampus" value="{{ old('kode_kampus') }}" placeholder="" required>
+                                @error('kode_kampus')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -50,8 +50,12 @@
                                 <label for="kategori-kampus" class="mb-1">Kategori</label>
                                 <select class="form form-select cursor-pointer @error('kategori') is-invalid @enderror"
                                     name="kategori" id="kategori-kampus" required>
-                                    <option selected>-- Pilih kategori --</option>
-                                    <option value="Pusat">Kampus Pusat</option>
+                                    @if (old('kategori'))
+                                        <option value="{{ old('kategori') }}" selected>Kampus {{ old('kategori') }}</option>
+                                    @else
+                                        <option selected>-- Pilih kategori --</option>
+                                    @endif
+                                    <option value="Utama">Kampus Utama</option>
                                     <option value="PSDKU">Kampus PSDKU</option>
                                 </select>
                                 @error('kategori')
@@ -73,7 +77,8 @@
                             <div class="col-md-6 mb-2">
                                 <label for="telepon-kampus" class="mb-1">Telepon kampus</label>
                                 <input type="text" class="form form-control @error('telepon') is-invalid @enderror"
-                                    name="telepon" id="telepon-kampus" value="{{ old('telepon') }}" placeholder="" required>
+                                    name="telepon" id="telepon-kampus" value="{{ old('telepon') }}" placeholder=""
+                                    required>
                                 @error('telepon')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
@@ -93,18 +98,6 @@
                                     <option value="Tidak aktif">Tidak aktif</option>
                                 </select>
                                 @error('status')
-                                    <div id="validationServer03Feedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="tanggal-berdiri-kampus" class="mb-1">Tanggal berdiri kampus</label>
-                                <input type="text"
-                                    class="form form-control @error('tanggal_berdiri') is-invalid @enderror"
-                                    name="tanggal_berdiri" id="tanggal-berdiri-kampus" placeholder="" required
-                                    value="{{ old('tanggal_berdiri') }}">
-                                @error('tanggal_berdiri')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>

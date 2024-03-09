@@ -12,9 +12,7 @@
                     <tr>
                         <th>No</th>
                         <th>Kode</th>
-                        <th>Nama FK</th>
-                        <th>Kampus</th>
-                        <th>Kategori</th>
+                        <th>Nama fakultas</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -25,8 +23,6 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->kode_fk }}</td>
                             <td>{{ $item->nama_fk }}</td>
-                            <td>{{ $item->universitas->nama_pt }}</td>
-                            <td>{{ $item->universitas->kategori }}</td>
                             <td>{{ $item->status }}</td>
                             <td>
                                 <div class="dropdown">

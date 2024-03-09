@@ -13,11 +13,6 @@
                 </div>
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-md-12 mb-2">
-                            <label for="nama-kampus" class="mb-1">Nama kampus</label>
-                            <input type="text" class="form form-control" value="{{ $data_prodi->universitas->nama_pt }}"
-                                readonly disabled id="nama-kampus">
-                        </div>
                         <div class="col-md-6 mb-2">
                             <label for="kode-prodi" class="mb-1">Kode program studi</label>
                             <input type="text" class="form form-control" value="{{ $data_prodi->kode_prodi }}" readonly
@@ -29,9 +24,9 @@
                                 disabled id="nama-prodi">
                         </div>
                         <div class="col-md-6 mb-2">
-                            <label for="nama-fakultas" class="mb-1">Fakultas</label>
-                            <input type="text" class="form form-control" value="{{ $data_prodi->fakultas->nama_fk }}"
-                                readonly disabled id="nama-fakultas">
+                            <label for="jenjang-prodi" class="mb-1">Jenjang</label>
+                            <input type="text" class="form form-control" value="{{ $data_prodi->jenjang }}" readonly
+                                disabled id="jenjang-prodi">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="status-prodi" class="mb-1">Status program prodi</label>
@@ -39,14 +34,14 @@
                                 disabled id="status-prodi">
                         </div>
                         <div class="col-md-6 mb-2">
-                            <label for="jenjang-prodi" class="mb-1">Jenjang</label>
-                            <input type="text" class="form form-control" value="{{ $data_prodi->jenjang }}" readonly
-                                disabled id="jenjang-prodi">
+                            <label for="nama-fakultas" class="mb-1">Fakultas</label>
+                            <input type="text" class="form form-control" value="{{ $data_prodi->fakultas->nama_fk }}"
+                                readonly disabled id="nama-fakultas">
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="kaprodi" class="mb-1">Kaprodi</label>
-                            <input type="text" class="form form-control" value="{{ $data_prodi->kaprodi->nama }}" readonly
-                                disabled id="kaprodi">
+                            <input type="text" class="form form-control" value="{{ $data_prodi->kaprodi->nama }}"
+                                readonly disabled id="kaprodi">
                         </div>
                     </div>
                     <div class="d-flex justify-content-end mt-4 gap-2">
