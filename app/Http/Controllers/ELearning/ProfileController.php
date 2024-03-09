@@ -20,7 +20,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function store(Request $request, string $id)
+    public function update(Request $request, string $id)
     {
         $validate = $request->validate([
             'photo_profile' => 'image|mimes:jpeg,png,jpg|max:2048',
@@ -35,7 +35,7 @@ class ProfileController extends Controller
         if ($request->file('photo_profile')) {
             $file = $request->file('photo_profile');
             $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/img/profile_users', $fileName);
+            $file->move(public_path('img/profile'), $fileName);
             $validate['photo_profile'] = $fileName;
         }
 

@@ -45,7 +45,7 @@ class ProdiController extends Controller
         if ($request->file('picture')) {
             $file = $request->file('picture');
             $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/img/logo-prodi', $fileName);
+            $file->move(public_path('img/logo-prodi'), $fileName);
             $validated['picture'] = $fileName;
         }
 
@@ -88,7 +88,7 @@ class ProdiController extends Controller
         if ($request->file('picture')) {
             $file = $request->file('picture');
             $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/img/logo-prodi', $fileName);
+            $file->move(public_path('img/logo-prodi'), $fileName);
             $validated['picture'] = $fileName;
         }
 

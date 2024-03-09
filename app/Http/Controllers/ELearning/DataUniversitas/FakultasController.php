@@ -45,7 +45,7 @@ class FakultasController extends Controller
         if ($request->file('picture')) {
             $file = $request->file('picture');
             $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/img/logo-fakultas', $fileName);
+            $file->move(public_path('img/logo-fakultas'), $fileName);
             $validated['picture'] = $fileName;
         }
 
@@ -87,7 +87,7 @@ class FakultasController extends Controller
         if ($request->file('picture')) {
             $file = $request->file('picture');
             $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/img/logo-fakultas', $fileName);
+            $file->move(public_path('img/logo-fakultas'), $fileName);
             $validated['picture'] = $fileName;
         }
 

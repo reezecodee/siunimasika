@@ -56,7 +56,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::prefix('e-learning')->middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('e-learn.dashboard');
     Route::get('profile', [ProfileController::class, 'index'])->name('e-learn.profile');
-    Route::put('profile/{id}', [ProfileController::class, 'store'])->name('e-learn.update-profile');
+    Route::put('profile/{id}', [ProfileController::class, 'update'])->name('e-learn.update-profile');
     Route::post('profile', [ProfileController::class, 'changePassword'])->name('e-learn.change-password');
 
     // route resource data universitas

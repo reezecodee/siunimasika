@@ -40,7 +40,7 @@ class KampusController extends Controller
         if ($request->file('picture')) {
             $file = $request->file('picture');
             $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/img/logo-kampus', $fileName);
+            $file->move(public_path('img/logo-kampus'), $fileName);
             $validated['picture'] = $fileName;
         }
 
@@ -80,7 +80,7 @@ class KampusController extends Controller
         if ($request->file('picture')) {
             $file = $request->file('picture');
             $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/img/logo-kampus', $fileName);
+            $file->move(public_path('img/logo-kampus'), $fileName);
             $validated['picture'] = $fileName;
         }
 
