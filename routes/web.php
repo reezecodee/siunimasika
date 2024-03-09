@@ -39,6 +39,7 @@ Route::get('/', function () {
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('auth.loginView');
     Route::post('/login', [AuthController::class, 'loginHandler'])->name('auth.loginHandler');
+    Route::get('/lupa-password', [AuthController::class, 'forgetPassword'])->name('auth.lupa-password');
 });
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
@@ -56,7 +57,7 @@ Route::prefix('e-learning')->middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('e-learn.dashboard');
     Route::get('profile', [ProfileController::class, 'index'])->name('e-learn.profile');
     Route::put('profile/{id}', [ProfileController::class, 'store'])->name('e-learn.update-profile');
-    Route::post('profile', [ProfileController::class, 'changePassword'])->name('e-learn.changePassword');
+    Route::post('profile', [ProfileController::class, 'changePassword'])->name('e-learn.change-password');
 
     // route resource data universitas
     Route::resource('data-kampus', KampusController::class);

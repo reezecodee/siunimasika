@@ -48,7 +48,7 @@ class ProfileController extends Controller
         } else {
             Mahasiswa::find($id)->update($validate);
         }
-        return redirect('/e-learning/profile')->with('success', 'Berhasil memperbarui data profile');
+        return redirect('/e-learning/profile')->withSuccess('Berhasil memperbarui data profile');
     }
 
     public function changePassword(Request $request)
@@ -65,13 +65,13 @@ class ProfileController extends Controller
         ]);
 
         if (!Hash::check($request->current_password, Auth::user()->password)) {
-            return back()->with('failed', 'Password tidak cocok');
+            return back()->withError('Password tidak cocok');
         }
     
         Auth::user()->update([
             'password' => bcrypt($request->new_password)
         ]);
 
-        return redirect()->route('e-learn.profile')->with('success', 'Password telah berhasi diperbarui');
+        return redirect()->route('e-learn.profile')->withSuccess('Password telah berhasi diperbarui');
     }
 }

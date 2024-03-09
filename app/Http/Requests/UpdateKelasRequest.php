@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StoreKelasRequest extends FormRequest
+class UpdateKelasRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,9 +22,10 @@ class StoreKelasRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('data_kela');
         return [
-            'kode_kelas' => 'required|min:5|max:20|unique:kelas',
-            'nama_kelas' => 'required|max:255|unique:kelas',
+            'kode_kelas' => ['required','min:5','max:20', Rule::unique('kelas')->ignore($id)],
+            'nama_kelas' => ['required','max:255', Rule::unique('kelas')->ignore($id)],
             'daya_tampung' => 'required|min:2|max:3',
             'status' => 'required',
             'id_prodi' => 'required',
@@ -46,7 +48,6 @@ class StoreKelasRequest extends FormRequest
             'daya_tampung.min' => 'Daya tampung minimal berisi 2 digit angka',
             'daya_tampung.max' => 'Daya tampung maximal berisi 3 digit angka',
             'status.required' => 'Status wajib di isi',
-            'id_fk.required' =>  'Fakultas wajib di pilih',
             'id_prodi.required' =>  'Program studi wajib di pilih',
             'id_kampus.required' => 'Kampus wajib di pilih',
             'id_dosen_pa.required' => 'Dosen pembimbing akademik wajib di pilih'
@@ -55,6 +56,6 @@ class StoreKelasRequest extends FormRequest
 
     protected function failedValidation($validator)
     {
-        return redirect()->back()->withError('Gagal menambahkan data kelas')->withInput();
+        return redirect()->back()->withError('Gagal memperbarui data kelas')->withInput();
     }
 }

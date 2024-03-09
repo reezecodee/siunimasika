@@ -4,13 +4,13 @@ namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreKelasRequest;
+use App\Http\Requests\UpdateKelasRequest;
 use App\Models\Dosen;
 use App\Models\Fakultas;
 use App\Models\Kelas;
 use App\Models\Mahasiswa;
 use App\Models\Prodi;
 use App\Models\Kampus;
-use Illuminate\Http\Request;
 
 class KelasController extends Controller
 {
@@ -49,7 +49,7 @@ class KelasController extends Controller
         $validated['id_fk'] = $array[1];
 
         Kelas::create($validated);
-        return redirect()->route('data-kelas.index')->with('success', 'Berhasil menambahkan data kelas');
+        return redirect()->route('data-kelas.index')->withSuccess('Berhasil menambahkan data kelas');
     }
 
     /**
@@ -82,32 +82,9 @@ class KelasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateKelasRequest $request, string $id)
     {
-        $validated = $request->validate([
-            'kode_kelas' => 'required|min:5|max:20|unique:kelas,kode_kelas,' . $id,
-            'nama_kelas' => 'required|max:255|unique:kelas,nama_kelas,' . $id,
-            'daya_tampung' => 'required|min:2|max:3',
-            'status' => 'required',
-            'id_prodi' => 'required',
-            'id_kampus' => 'required',
-            'id_dosen_pa' => 'required'
-        ], [
-            'kode_kelas.required' => 'Kode kelas wajib di isi',
-            'kode_kelas.min' => 'Kode kelas minimal berisi 5 digit',
-            'kode_kelas.max' => 'Kode kelas maximal berisi 20 digit',
-            'kode_kelas.unique' => 'Kode kelas sudah pernah digunakan',
-            'nama_kelas.required' => 'Nama kelas wajib di isi',
-            'nama_kelas.max' => 'Nama kelas terlalu panjang',
-            'nama_kelas.unique' => 'Nama kelas sudah pernah digunakan',
-            'daya_tampung.required' => 'Daya tampung kelas wajib di isi',
-            'daya_tampung.min' => 'Daya tampung minimal berisi 2 digit angka',
-            'daya_tampung.max' => 'Daya tampung maximal berisi 3 digit angka',
-            'status.required' => 'Status wajib di isi',
-            'id_prodi.required' =>  'Program studi wajib di pilih',
-            'id_kampus.required' => 'Kampus wajib di pilih',
-            'id_dosen_pa.required' => 'Dosen pembimbing akademik wajib di pilih'
-        ]);
+        $validated = $request->validated();
 
         $array = explode(' - ', $validated['id_prodi']);
         $validated['id_prodi'] = $array[0];
@@ -115,7 +92,7 @@ class KelasController extends Controller
 
         $kelas = Kelas::find($id);
         $kelas->update($validated);
-        return redirect()->route('data-kelas.index')->with('success', 'Berhasil memperbarui data kelas');
+        return redirect()->route('data-kelas.index')->withSuccess('Berhasil memperbarui data kelas');
     }
 
     /**
@@ -124,6 +101,6 @@ class KelasController extends Controller
     public function destroy(string $id)
     {
         Kelas::destroy($id);
-        return redirect()->route('data-kelas.index')->with('success', 'Data kelas berhasil dihapus.');
+        return redirect()->route('data-kelas.index')->withSuccess('Data kelas berhasil dihapus.');
     }
 }

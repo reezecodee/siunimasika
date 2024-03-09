@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUnivRequest extends FormRequest
+class StoreKampusRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -58,6 +58,6 @@ class StoreUnivRequest extends FormRequest
 
     protected function failedValidation($validator)
     {
-        return redirect()->back()->with('failed', 'Gagal menambahkan data kampus')->withInput();
+        return redirect()->back()->withError('Gagal menambahkan data kampus')->withInput();
     }
 }

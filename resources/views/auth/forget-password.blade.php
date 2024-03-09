@@ -12,7 +12,7 @@
                                 <a href="/" class="text-nowrap logo-img text-center d-block py-3 w-100">
                                     <img src="/main-assets/images/logos/dark-logo.svg" width="180" alt="">
                                 </a>
-                                <p class="text-center">Selamat Datang, silahkan login terlebih dahulu</p>
+                                <p class="text-center">Masukkan email Anda untuk konfirmasi</p>
                                 @session('failed')
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                         <i class="fas fa-times"></i> {{ $value }}
@@ -23,22 +23,17 @@
                                 <form action="" method="POST">
                                     @csrf
                                     <div class="mb-3">
-                                        <label for="exampleInputNIPNIM" class="form-label">NIP Dosen / NIM
-                                            Mahasiswa</label>
-                                        <input type="text" class="form-control" id="exampleInputNIPNIM"
-                                            aria-describedby="emailHelp" placeholder="NIP/NIM" name="nip_nim" required
-                                            autocomplete="off" autofocus value="{{ old('nip_nim') }}">
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1"
-                                            placeholder="Password" name="password" required autocomplete="off">
+                                        <label for="exampleInputEmail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail"
+                                            aria-describedby="emailHelp" name="email" required autocomplete="off"
+                                            autofocus value="{{ old('email') }}">
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mb-4">
-                                        <a class="text-primary fw-bold" href="{{ route('auth.lupa-password') }}">Lupa Password ?</a>
+                                        <a class="text-primary fw-bold" href="{{ route('auth.loginView') }}">Kembali
+                                            ke login</a>
                                     </div>
-                                    <button type="submit"
-                                        class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Login</button>
+                                    <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Reset
+                                        password</button>
                                 </form>
                             </div>
                         </div>

@@ -4,11 +4,11 @@ namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFkRequest;
+use App\Http\Requests\UpdateFkRequest;
 use App\Models\Dosen;
 use App\Models\Fakultas;
 use App\Models\Prodi;
 use App\Models\Kampus;
-use Illuminate\Http\Request;
 
 class FakultasController extends Controller
 {
@@ -50,7 +50,7 @@ class FakultasController extends Controller
         }
 
         Fakultas::create($validated);
-        return redirect()->route('data-fakultas.index')->with('success', 'Berhasil menambahkan data fakultas');
+        return redirect()->route('data-fakultas.index')->withSuccess('Berhasil menambahkan data fakultas');
     }
 
     /**
@@ -80,28 +80,9 @@ class FakultasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateFkRequest $request, string $id)
     {
-        $validated = $request->validate([
-            'id_dekan' => 'required',
-            'kode_fk' => 'required|min:5|max:20|unique:fakultas,kode_fk,' . $id,
-            'nama_fk' => 'required|max:255|unique:fakultas,nama_fk,' . $id,
-            'status' => 'required',
-            'picture' => 'image|mimes:jpeg,png,jpg|max:2048',
-        ], [
-            'id_dekan.required' => 'Dekan fakultas wajib di pilih',
-            'kode_fk.required' => 'Kode fakultas wajib di isi',
-            'kode_fk.min' => 'Kode fakultas minimal berisi 5 digit',
-            'kode_fk.max' => 'Kode fakultas maximal berisi 20 digit',
-            'kode_fk.unique' => 'Kode fakultas sudah pernah digunakan',
-            'nama_fk.required' => 'Nama perguruan tinggi wajib di isi',
-            'nama_fk.max' => 'Nama perguruan tinggi terlalu panjang',
-            'nama_fk.unique' => 'Nama perguruan tinggi sudah pernah digunakan',
-            'status.required' => 'Status wajib di isi',
-            'picture.image' => 'File harus berupa gambar.',
-            'picture.mimes' => 'Format ekstensi gambar yang didukung adalah jpeg, png, dan jpg',
-            'picture.max' => 'Size gambar maksimal 2MB',
-        ]);
+        $validated = $request->validated();
 
         if ($request->file('picture')) {
             $file = $request->file('picture');
@@ -112,7 +93,7 @@ class FakultasController extends Controller
 
         $fakultas = Fakultas::find($id);
         $fakultas->update($validated);
-        return redirect()->route('data-fakultas.index')->with('success', 'Berhasil memperbarui data fakultas');
+        return redirect()->route('data-fakultas.index')->withSuccess('Berhasil memperbarui data fakultas');
     }
 
     /**
@@ -121,6 +102,6 @@ class FakultasController extends Controller
     public function destroy(string $id)
     {
         Fakultas::destroy($id);
-        return redirect()->route('data-fakultas.index')->with('success', 'Data fakultas berhasil dihapus.');
+        return redirect()->route('data-fakultas.index')->withSuccess('Data fakultas berhasil dihapus');
     }
 }

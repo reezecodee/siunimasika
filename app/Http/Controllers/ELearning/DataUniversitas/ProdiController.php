@@ -4,12 +4,11 @@ namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProdiRequest;
+use App\Http\Requests\UpdateProdiRequest;
 use App\Models\Dosen;
 use App\Models\Fakultas;
 use App\Models\Kelas;
 use App\Models\Prodi;
-use App\Models\Kampus;
-use Illuminate\Http\Request;
 
 class ProdiController extends Controller
 {
@@ -51,7 +50,7 @@ class ProdiController extends Controller
         }
 
         Prodi::create($validated);
-        return redirect()->route('data-prodi.index')->with('success', 'Berhasil menambahkan data prgram studi');
+        return redirect()->route('data-prodi.index')->withSuccess('Berhasil menambahkan data prgram studi');
     }
 
     /**
@@ -82,33 +81,9 @@ class ProdiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateProdiRequest $request, string $id)
     {
-        $validated = $request->validate([
-            'kode_prodi' => 'required|min:5|max:20|unique:prodis,kode_prodi,' . $id,
-            'nama_prodi' => 'required|max:255|unique:prodis,nama_prodi,' . $id,
-            'jenjang' => 'required|min:2|max:2',
-            'status' => 'required',
-            'id_fk' => 'required',
-            'id_kaprodi' => 'required',
-            'picture' => 'image|mimes:jpeg,png,jpg|max:2048',
-        ],[
-            'kode_prodi.required' => 'Kode prodi wajib di isi',
-            'kode_prodi.min' => 'Kode prodi minimal berisi 5 digit',
-            'kode_prodi.max' => 'Kode prodi maximal berisi 20 digit',
-            'kode_prodi.unique' => 'Kode prodi sudah pernah digunakan',
-            'nama_prodi.required' => 'Nama prodi wajib di isi',
-            'nama_prodi.max' => 'Nama prodi terlalu panjang',
-            'nama_prodi.unique' => 'Nama prodi sudah pernah digunakan',
-            'jenjang.min' => 'Jenjang harus berisi 2 digit',
-            'jenjang.max' => 'Jenjang terlalu panjang, harus berisi 2 digit',
-            'status.required' => 'Status fakultas wajib di isi',
-            'id_fk.required' => 'Fakultas wajib di pilih',
-            'id_kaprodi.required' => 'Kaprodi wajib di pilih',
-            'picture.image' => 'File harus berupa gambar',
-            'picture.mimes' => 'Format ekstensi gambar yang didukung adalah jpeg, png, dan jpg',
-            'picture.max' => 'Size gambar maksimal 2MB',
-        ]);
+        $validated = $request->validated();
 
         if ($request->file('picture')) {
             $file = $request->file('picture');
@@ -119,7 +94,7 @@ class ProdiController extends Controller
 
         $prodi = Prodi::find($id);
         $prodi->update($validated);
-        return redirect()->route('data-prodi.index')->with('success', 'Berhasil memperbarui data program studi');
+        return redirect()->route('data-prodi.index')->withSuccess('Berhasil memperbarui data program studi');
     }
 
     /**
@@ -128,6 +103,6 @@ class ProdiController extends Controller
     public function destroy(string $id)
     {
         Prodi::destroy($id);
-        return redirect()->route('data-prodi.index')->with('success', 'Data program studi berhasil dihapus.');
+        return redirect()->route('data-prodi.index')->withSuccess('Data program studi berhasil dihapus.');
     }
 }

@@ -28,9 +28,9 @@
                         <div class="row">
                             <div class="col-md-12 mb-2">
                                 <label for="nama-kampus" class="mb-1">Nama kampus</label>
-                                <input type="text" class="form form-control @error('nama_pt') is-invalid @enderror"
-                                    name="nama_pt" id="nama-kampus" value="{{ old('nama_pt') }}" placeholder="" required>
-                                @error('nama_pt')
+                                <input type="text" class="form form-control @error('nama_kampus') is-invalid @enderror"
+                                    name="nama_kampus" id="nama-kampus" value="{{ old('nama_kampus') }}" placeholder="" required>
+                                @error('nama_kampus')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
                                     </div>

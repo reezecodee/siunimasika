@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\ELearning\DataUniversitas;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUnivRequest;
-use App\Models\Fakultas;
-use App\Models\Kelas;
-use App\Models\Prodi;
+use App\Http\Requests\StoreKampusRequest;
+use App\Http\Requests\UpdateKampusRequest;
 use App\Models\Kampus;
-use Illuminate\Http\Request;
 
 class KampusController extends Controller
 {
@@ -36,7 +33,7 @@ class KampusController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUnivRequest $request)
+    public function store(StoreKampusRequest $request)
     {
         $validated = $request->validated();
 
@@ -48,7 +45,7 @@ class KampusController extends Controller
         }
 
         Kampus::create($validated);
-        return redirect()->route('data-kampus.index')->with('success', 'Berhasil menambahkan data kampus');
+        return redirect()->route('data-kampus.index')->withSuccess('Berhasil menambahkan data kampus');
     }
 
     /**
@@ -76,37 +73,9 @@ class KampusController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateKampusRequest $request, string $id)
     {
-        $validated = $request->validate([
-            'kode_kampus' => 'required|min:5|max:20|unique:kampuses,kode_kampus,' . $id,
-            'nama_kampus' => 'required|max:255|unique:kampuses,nama_kampus,' . $id,
-            'kategori' => 'required',
-            'status' => 'required',
-            'telepon' => 'required|unique:kampuses,telepon,' . $id,
-            'email' => 'required|email|unique:kampuses,email,' . $id,
-            'picture' => 'image|mimes:jpeg,png,jpg|max:2048',
-            'alamat' => 'required',
-        ], [
-            'kode_kampus.required' => 'Kode kampus wajib di isi',
-            'kode_kampus.min' => 'Kode kampus minimal berisi 5 digit',
-            'kode_kampus.max' => 'Kode kampus maximal berisi 20 digit',
-            'kode_kampus.unique' => 'Kode kampus sudah pernah digunakan',
-            'nama_kampus.required' => 'Nama kampus wajib di isi',
-            'nama_kampus.max' => 'Nama kampus terlalu panjang',
-            'nama_kampus.unique' => 'Nama kampus sudah pernah digunakan',
-            'kategori.required' => 'Kategori wajib di isi',
-            'status.required' => 'Status wajib di isi',
-            'telepon.required' => 'No telepon wajib di isi',
-            'telepon.unique' => 'No telepon sudah pernah digunakan',
-            'email.required' => 'Email wajib di isi',
-            'email.email' => 'Data bukan email',
-            'email.unique' => 'Email sudah pernah digunakan',
-            'picture.image' => 'File harus berupa gambar.',
-            'picture.mimes' => 'Format ekstensi gambar yang didukung adalah jpeg, png, dan jpg',
-            'picture.max' => 'Size gambar maksimal 2MB',
-            'alamat.required' => 'Alamat wajib di isi',
-        ]);
+        $validated = $request->validated();
 
         if ($request->file('picture')) {
             $file = $request->file('picture');
@@ -117,7 +86,7 @@ class KampusController extends Controller
 
         $kampus = Kampus::find($id);
         $kampus->update($validated);
-        return redirect()->route('data-kampus.index')->with('success', 'Berhasil memperbarui data kampus');
+        return redirect()->route('data-kampus.index')->withSuccess('Berhasil memperbarui data kampus');
     }
 
     /**
@@ -126,6 +95,6 @@ class KampusController extends Controller
     public function destroy(string $id)
     {
         Kampus::destroy($id);
-        return redirect()->route('data-kampus.index')->with('success', 'Data universitas berhasil dihapus.');
+        return redirect()->route('data-kampus.index')->withSuccess('Data universitas berhasil dihapus.');
     }
 }

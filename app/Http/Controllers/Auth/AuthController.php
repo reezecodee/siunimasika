@@ -40,10 +40,17 @@ class AuthController extends Controller
                 $namaUser = Mahasiswa::where('id_user', auth()->user()->id)->first();
             }
 
-            return redirect()->intended('/e-learning/dashboard')->with('success', 'Selamat datang <strong>' . $namaUser->nama . ', </strong> Senang bisa melihat Anda kembali!');
+            return redirect()->intended('/e-learning/dashboard')->withSuccess('Selamat datang <strong>' . $namaUser->nama . ', </strong> Senang bisa melihat Anda kembali!');
         }
 
-        return back()->with('failed', 'NIP/NIM atau password Anda salah')->withInput();
+        return back()->withError('NIP/NIM atau password Anda salah')->withInput();
+    }
+
+    public function forgetPassword()
+    {
+        return view('auth.forget-password', [
+            'title' => 'Lupa password - Universitas Transformasi Informatika'
+        ]);
     }
 
     public function logout(Request $request)

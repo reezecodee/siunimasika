@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StoreProdiRequest extends FormRequest
+class UpdateProdiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,9 +22,11 @@ class StoreProdiRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('data_prodi');
+
         return [
-            'kode_prodi' => 'required|min:5|max:20|unique:prodis',
-            'nama_prodi' => 'required|max:255|unique:prodis',
+            'kode_prodi' => ['required','min:5','max:20', Rule::unique('prodis')->ignore($id)],
+            'nama_prodi' => ['required','max:255', Rule::unique('prodis')->ignore($id)],
             'jenjang' => 'required|min:2|max:2',
             'status' => 'required',
             'id_fk' => 'required',
@@ -55,6 +58,6 @@ class StoreProdiRequest extends FormRequest
 
     protected function failedValidation($validator)
     {
-        return redirect()->back()->withError('Gagal menambahkan data program studi')->withInput();
+        return redirect()->back()->withError('Gagal memperbarui data program studi')->withInput();
     }
 }

@@ -44,7 +44,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endsession
-                @session('failed')
+                @session('error')
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <i class="fas fa-exclamation-triangle"></i> {!! $value !!}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
