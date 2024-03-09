@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\ForgetPasswordController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ELearning\DashboardController;
 use App\Http\Controllers\ELearning\ProfileController;
 use App\Http\Controllers\ELearning\DataUniversitas\FakultasController;
@@ -37,12 +41,16 @@ Route::get('/', function () {
 */
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/login', [AuthController::class, 'index'])->name('auth.loginView');
-    Route::post('/login', [AuthController::class, 'loginHandler'])->name('auth.loginHandler');
-    Route::get('/lupa-password', [AuthController::class, 'forgetPassword'])->name('auth.lupa-password');
+    Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
+    Route::post('/login', [LoginController::class, 'loginHandler'])->name('auth.loginHandler');
+    
+    Route::get('/register-admin-pusat', [RegisterController::class, 'index'])->name('auth.register');
+    Route::post('/register-admin-pusat', [RegisterController::class, 'registerHandler'])->name('auth.registerHandler');
+
+    Route::get('/lupa-password', [ForgetPasswordController::class, 'index'])->name('forget-password.index');
 });
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
 
 
 
@@ -66,7 +74,6 @@ Route::prefix('e-learning')->middleware(['auth'])->group(function () {
 
     // route resource data users
     Route::resource('data-admin-pusat', AdminPusatController::class);
-    Route::resource('data-admin-kampus', AdminKampusController::class);
     Route::resource('data-dosen', DosenController::class);
     Route::resource('data-mahasiswa', MahasiswaController::class);
 });

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->uuid('id_user');
             $table->string('nama');
             $table->enum('jk', ['Laki-laki', 'Perempuan']);
-            $table->text('alamat');
+            $table->text('alamat')->nullable(true);
             $table->string('photo_profile')->nullable(true);
             $table->enum('status', ['Aktif', 'Cuti', 'Tidak aktif']);
             $table->timestamps();

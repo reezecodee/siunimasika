@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\AdminKampus;
 use App\Models\AdminPusat;
 use App\Models\Dosen;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AuthController extends Controller
+class LoginController extends Controller
 {
     public function index()
     {
         return view('auth.login', [
-            'title' => 'Login - Universitas Transformasi Informatika'
+            'title' => 'Login - Universitas Transformasi Informatika',
+            'check_admin_pusat' => AdminPusat::count()
         ]);
     }
 
@@ -42,22 +42,5 @@ class AuthController extends Controller
         }
 
         return back()->withError('NIP/NIM atau password Anda salah')->withInput();
-    }
-
-    public function forgetPassword()
-    {
-        return view('auth.forget-password', [
-            'title' => 'Lupa password - Universitas Transformasi Informatika'
-        ]);
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect('/');
     }
 }

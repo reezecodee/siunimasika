@@ -13,13 +13,19 @@
                                     <img src="/main-assets/images/logos/dark-logo.svg" width="180" alt="">
                                 </a>
                                 <p class="text-center">Selamat Datang, silahkan login terlebih dahulu</p>
-                                @session('failed')
+                                @session('error')
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                         <i class="fas fa-times"></i> {{ $value }}
                                         <button type="button" class="btn-close" data-bs-dismiss="alert"
                                             aria-label="Close"></button>
                                     </div>
                                 @endsession
+                                @if ($check_admin_pusat == 0)
+                                    <div class="alert alert-warning" role="alert">
+                                        Belum ada admin pusat yang terdaftar. Silahkan melakukan <a
+                                            href="{{ route('auth.register') }}"><u>registrasi.</u></a>
+                                    </div>
+                                @endif
                                 <form action="" method="POST">
                                     @csrf
                                     <div class="mb-3">
@@ -35,7 +41,8 @@
                                             placeholder="Password" name="password" required autocomplete="off">
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mb-4">
-                                        <a class="text-primary fw-bold" href="{{ route('auth.lupa-password') }}">Lupa Password ?</a>
+                                        <a class="text-primary fw-bold" href="{{ route('forget-password.index') }}">Lupa
+                                            Password ?</a>
                                     </div>
                                     <button type="submit"
                                         class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Login</button>
