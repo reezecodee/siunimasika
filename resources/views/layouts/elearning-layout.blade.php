@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="_token" content="{{ csrf_token() }}">
+    <meta name="url" content="{{ url()->current() }}">
     <title>{{ $title ?? env('APP_NAME') }}</title>
     <link rel="shortcut icon" type="image/png" href="/main-assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="/main-assets/css/styles.min.css" />
@@ -14,12 +16,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .font-poppins {
             font-family: 'Poppins', sans-serif;
             font-weight: 500
+        }
+
+        #display_image_div img {
+            max-width: 100%;
+        }
+
+        #cropped_image_result img {
+            max-width: 100%;
+        }
+
+        .cropper-view-box,
+        .cropper-face {
+            border-radius: 50%;
+        }
+
+        .crop_result {
+            width: 1px !important;
         }
     </style>
 </head>
@@ -62,12 +82,14 @@
     <script src="/main-assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.1/js/dataTables.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#datatable').DataTable();
         });
     </script>
     <script src="/js/custom.js"></script>
+    <script src="/js/cropper.js"></script>
     <script src="/main-assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/main-assets/js/sidebarmenu.js"></script>
     <script src="/main-assets/js/app.min.js"></script>

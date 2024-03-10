@@ -3,10 +3,7 @@
 namespace App\Http\Controllers\ELearning;
 
 use App\Http\Controllers\Controller;
-use App\Models\AdminKampus;
 use App\Models\AdminPusat;
-use App\Models\Dosen;
-use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -20,35 +17,32 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function update(Request $request, string $id)
+    public function updateProfilePicture(Request $request)
     {
-        $validate = $request->validate([
-            'photo_profile' => 'image|mimes:jpeg,png,jpg|max:2048',
-            'alamat' => 'required'
-        ], [
-            'alamat.required' => 'Alamat wajib di isi',
-            'picture.image' => 'File harus berupa gambar',
-            'picture.mimes' => 'Format ekstensi gambar yang didukung adalah jpeg, png, dan jpg',
-            'picture.max' => 'Size gambar maksimal 2MB',
-        ]);
+        $folderPath = public_path('img/profile/');
 
-        if ($request->file('photo_profile')) {
-            $file = $request->file('photo_profile');
-            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('img/profile'), $fileName);
-            $validate['photo_profile'] = $fileName;
+        $image_parts = explode(";base64,", $request->image);
+        $image_type_aux = explode("image/", $image_parts[0]);
+        $image_type = $image_type_aux[1];
+        $image_base64 = base64_decode($image_parts[1]);
+
+        $imageName = uniqid() . '.png';
+
+        $imageFullPath = $folderPath . $imageName;
+
+        file_put_contents($imageFullPath, $image_base64);
+
+        // baru admin pusat
+        $adminPusat = AdminPusat::where('id_user', auth()->user()->id)->first();
+        $previousProfilePath = public_path('img/profile/' . $adminPusat->photo_profile);
+        $adminPusat->photo_profile = $imageName;
+        $adminPusat->save();
+
+        if (file_exists($previousProfilePath)) {
+            unlink($previousProfilePath);
         }
 
-        if (auth()->user()->role == "Admin Pusat") {
-            AdminPusat::find($id)->update($validate);
-        } else if (auth()->user()->role == "Admin Kampus") {
-            AdminKampus::find($id)->update($validate);
-        } else if (auth()->user()->role == "Dosen") {
-            Dosen::find($id)->update($validate);
-        } else {
-            Mahasiswa::find($id)->update($validate);
-        }
-        return redirect('/e-learning/profile')->withSuccess('Berhasil memperbarui data profile');
+        return response()->json(['success' => 'Crop Image Uploaded Successfully']);
     }
 
     public function changePassword(Request $request)
@@ -57,7 +51,7 @@ class ProfileController extends Controller
             'current_password'       => 'required',
             'new_password'       => 'required',
             'confirm_password' => 'required|same:new_password',
-        ],[
+        ], [
             'current_password.required' => 'Password saat ini wajib di isi',
             'new_password.required' => 'Password baru wajib di isi',
             'confirm_password.required' => 'Konfirmasi password wajib di isi',
@@ -67,7 +61,7 @@ class ProfileController extends Controller
         if (!Hash::check($request->current_password, Auth::user()->password)) {
             return back()->withError('Password tidak cocok');
         }
-    
+
         Auth::user()->update([
             'password' => bcrypt($request->new_password)
         ]);

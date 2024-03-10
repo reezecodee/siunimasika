@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ForgetPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -10,10 +9,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ELearning\DashboardController;
 use App\Http\Controllers\ELearning\ProfileController;
 use App\Http\Controllers\ELearning\DataUniversitas\FakultasController;
-use App\Http\Controllers\ELearning\DataUniversitas\KampusController;
 use App\Http\Controllers\ELearning\DataUniversitas\KelasController;
 use App\Http\Controllers\ELearning\DataUniversitas\ProdiController;
-use App\Http\Controllers\ELearning\DataUsers\AdminKampusController;
 use App\Http\Controllers\ELearning\DataUsers\AdminPusatController;
 use App\Http\Controllers\ELearning\DataUsers\DosenController;
 use App\Http\Controllers\ELearning\DataUsers\MahasiswaController;
@@ -64,8 +61,8 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('auth.logout');
 Route::prefix('e-learning')->middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('e-learn.dashboard');
     Route::get('profile', [ProfileController::class, 'index'])->name('e-learn.profile');
-    Route::put('profile/{id}', [ProfileController::class, 'update'])->name('e-learn.update-profile');
-    Route::post('profile', [ProfileController::class, 'changePassword'])->name('e-learn.change-password');
+    Route::post('profile', [ProfileController::class, 'updateProfilePicture'])->name('e-learn.update-photo');
+    // Route::post('profile', [ProfileController::class, 'changePassword'])->name('e-learn.change-password');
 
     // route resource data universitas
     Route::resource('data-fakultas', FakultasController::class);
