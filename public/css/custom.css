@@ -1,0 +1,21 @@
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500
+}
+
+#display_image_div img {
+    max-width: 100%;
+}
+
+#cropped_image_result img {
+    max-width: 100%;
+}
+
+.cropper-view-box,
+.cropper-face {
+    border-radius: 50%;
+}
+
+.crop_result {
+    width: 1px !important;
+}

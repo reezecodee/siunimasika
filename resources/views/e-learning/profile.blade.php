@@ -81,7 +81,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" id="crop_button">Crop</button>
-                    <button type="button" class="btn btn-warning" id="upload_button" onclick="upload()">Upload</button>
+                    <button type="button" class="btn btn-primary" id="upload_button" onclick="upload()">Upload</button>
                 </div>
             </div>
         </div>
@@ -152,12 +152,12 @@
                     inginkan
                 </p>
             </div>
-            {{-- <form action="{{ route('e-learn.change-password') }}" method="post">
-                @csrf --}}
+            <form action="{{ route('e-learn.change-password') }}" method="post">
+                @csrf
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="current-password"><strong>Password saat ini</strong></label>
-                        <input type="password" name="current_password" id="current-password"
+                        <input type="text" name="current_password" id="current-password"
                             class="form form-control mt-2" placeholder="Current password" required>
                     </div>
                     <div class="col-md-6 mb-3">
@@ -172,7 +172,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Ganti password</button>
-            {{-- </form> --}}
+            </form>
         </div>
     </div>
 @endsection

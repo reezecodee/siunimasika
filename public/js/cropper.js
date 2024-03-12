@@ -95,7 +95,8 @@ function upload() {
             },
             success: function(data) {
                 console.log(data);
-                alert("Crop image successfully uploaded");
+                alert(data.success);
+                window.location.reload();
             }
         });
 }

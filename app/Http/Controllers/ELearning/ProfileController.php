@@ -4,6 +4,7 @@ namespace App\Http\Controllers\ELearning;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdminPusat;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +27,7 @@ class ProfileController extends Controller
         $image_type = $image_type_aux[1];
         $image_base64 = base64_decode($image_parts[1]);
 
-        $imageName = uniqid() . '.png';
+        $imageName = time() . uniqid() . '.png';
 
         $imageFullPath = $folderPath . $imageName;
 
@@ -42,7 +43,7 @@ class ProfileController extends Controller
             unlink($previousProfilePath);
         }
 
-        return response()->json(['success' => 'Crop Image Uploaded Successfully']);
+        return response()->json(['success' => 'Photo profile sukses disimpan']);
     }
 
     public function changePassword(Request $request)
@@ -62,9 +63,9 @@ class ProfileController extends Controller
             return back()->withError('Password tidak cocok');
         }
 
-        Auth::user()->update([
-            'password' => bcrypt($request->new_password)
-        ]);
+        $user = User::where('id', auth()->user()->id)->first();
+        $user->password = bcrypt($request->new_password);
+        $user->save();
 
         return redirect()->route('e-learn.profile')->withSuccess('Password telah berhasi diperbarui');
     }
