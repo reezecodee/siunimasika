@@ -81,16 +81,16 @@ class ProdiController extends Controller
     public function update(UpdateProdiRequest $request, string $id)
     {
         $validated = $request->validated();
+        $prodi = Prodi::find($id);
+        $previousProfilePath = '';
 
         if ($request->file('picture')) {
             $file = $request->file('picture');
             $fileName = time() . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/logo-prodi'), $fileName);
             $validated['picture'] = $fileName;
+            $previousProfilePath = public_path('img/logo-prodi/' . ($prodi->picture ?? 'null.jpg'));
         }
-
-        $prodi = Prodi::find($id);
-        $previousProfilePath = public_path('img/logo-prodi/' . ($prodi->picture ?? 'null.jpg'));
 
         if (file_exists($previousProfilePath)) {
             unlink($previousProfilePath);

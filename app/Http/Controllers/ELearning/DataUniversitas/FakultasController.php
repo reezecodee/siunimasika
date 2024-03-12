@@ -79,15 +79,15 @@ class FakultasController extends Controller
     public function update(UpdateFkRequest $request, string $id)
     {
         $validated = $request->validated();
-
+        $fakultas = Fakultas::find($id);
+        $previousProfilePath = '';
         if ($request->file('picture')) {
             $file = $request->file('picture');
             $fileName = time() . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/logo-fakultas'), $fileName);
             $validated['picture'] = $fileName;
+            $previousProfilePath = public_path('img/logo-fakultas/' . ($fakultas->picture ?? 'null.jpg'));
         }
-        $fakultas = Fakultas::find($id);
-        $previousProfilePath = public_path('img/logo-fakultas/' . ($fakultas->picture ?? 'null.jpg'));
 
         if (file_exists($previousProfilePath)) {
             unlink($previousProfilePath);
