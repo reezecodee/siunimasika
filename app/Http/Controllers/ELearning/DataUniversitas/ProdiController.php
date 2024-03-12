@@ -28,7 +28,7 @@ class ProdiController extends Controller
     public function create()
     {
         return view('e-learning.data-universitas.create.create-prodi', [
-            'title' => 'Tambah Program Studi Baru',
+            'title' => 'Tambah Prodi Baru',
             'data_fakultas' => Fakultas::all(),
         ]);
     }
@@ -69,8 +69,8 @@ class ProdiController extends Controller
     public function edit(string $id)
     {
         return view('e-learning.data-universitas.edit.edit-prodi', [
-            'title' => 'Edit Data Prodi',
-            'data_prodi' => Prodi::where('id', $id)->get()->first(),
+            'title' => 'Edit Prodi',
+            'data' => Prodi::where('id', $id)->get()->first(),
             'daftar_prodi' => Prodi::where('id', $id)->get(),
         ]);
     }
@@ -84,12 +84,18 @@ class ProdiController extends Controller
 
         if ($request->file('picture')) {
             $file = $request->file('picture');
-            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $fileName = time() . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/logo-prodi'), $fileName);
             $validated['picture'] = $fileName;
         }
 
         $prodi = Prodi::find($id);
+        $previousProfilePath = public_path('img/logo-prodi/' . ($prodi->picture ?? 'null.jpg'));
+
+        if (file_exists($previousProfilePath)) {
+            unlink($previousProfilePath);
+        }
+
         $prodi->update($validated);
         return redirect()->route('data-prodi.index')->withSuccess('Berhasil memperbarui data program studi');
     }
@@ -99,7 +105,14 @@ class ProdiController extends Controller
      */
     public function destroy(string $id)
     {
-        Prodi::destroy($id);
+        $prodi = Prodi::find($id);
+        $previousProfilePath = public_path('img/logo-prodi/' . ($prodi->picture ?? 'null.jpg'));
+
+        if (file_exists($previousProfilePath)) {
+            unlink($previousProfilePath);
+        }
+
+        $prodi->delete();
         return redirect()->route('data-prodi.index')->withSuccess('Data program studi berhasil dihapus.');
     }
 }

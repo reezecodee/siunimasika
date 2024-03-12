@@ -66,8 +66,8 @@ class KelasController extends Controller
     public function edit(string $id)
     {
         return view('e-learning.data-universitas.edit.edit-kelas', [
-            'title' => 'Edit Data Kelas',
-            'data_kelas' => Kelas::where('id', $id)->get()->first(),
+            'title' => 'Edit Kelas',
+            'data' => Kelas::where('id', $id)->get()->first(),
             'data_fakultas' => Fakultas::all(),
             'data_prodi' => Prodi::all()
         ]);

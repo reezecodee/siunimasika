@@ -68,8 +68,8 @@ class FakultasController extends Controller
     public function edit(string $id)
     {
         return view('e-learning.data-universitas.edit.edit-fakultas', [
-            'title' => 'Edit Data Fakultas',
-            'data_fakultas' => Fakultas::where('id', $id)->get()->first(),
+            'title' => 'Edit Fakultas',
+            'data' => Fakultas::where('id', $id)->get()->first(),
         ]);
     }
 
@@ -82,12 +82,17 @@ class FakultasController extends Controller
 
         if ($request->file('picture')) {
             $file = $request->file('picture');
-            $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $fileName = time() . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('img/logo-fakultas'), $fileName);
             $validated['picture'] = $fileName;
         }
-
         $fakultas = Fakultas::find($id);
+        $previousProfilePath = public_path('img/logo-fakultas/' . ($fakultas->picture ?? 'null.jpg'));
+
+        if (file_exists($previousProfilePath)) {
+            unlink($previousProfilePath);
+        }
+
         $fakultas->update($validated);
         return redirect()->route('data-fakultas.index')->withSuccess('Berhasil memperbarui data fakultas');
     }
@@ -97,7 +102,14 @@ class FakultasController extends Controller
      */
     public function destroy(string $id)
     {
-        Fakultas::destroy($id);
+        $fakultas = Fakultas::find($id);
+        $previousProfilePath = public_path('img/logo-fakultas/' . ($fakultas->picture ?? 'null.jpg'));
+
+        if (file_exists($previousProfilePath)) {
+            unlink($previousProfilePath);
+        }
+
+        $fakultas->delete();
         return redirect()->route('data-fakultas.index')->withSuccess('Data fakultas berhasil dihapus');
     }
 }

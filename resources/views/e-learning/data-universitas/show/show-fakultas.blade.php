@@ -51,7 +51,6 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Jenjang</th>
                                 <th>Program studi</th>
                                 <th>Fakultas</th>
                                 <th>Jumlah kelas</th>
@@ -63,7 +62,6 @@
                         <tbody>
                             @foreach ($data_prodi as $item)
                                 <tr>
-                                    <td>{{ $item->jenjang }}</td>
                                     <td>{{ $item->nama_prodi }}</td>
                                     <td>{{ $item->fakultas->nama_fk }}</td>
                                     <td>{{ $item->kelas->count() }}</td>

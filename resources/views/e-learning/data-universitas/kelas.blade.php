@@ -40,7 +40,7 @@
                                                 href="{{ route('data-kelas.index') }}/{{ $item->id }}">Detail</a>
                                         </li>
                                         <li><a class="dropdown-item"
-                                                href="{{ route('data-kelas.index') }}/{{ $item->id }}/edit">Perbarui</a>
+                                                href="{{ route('data-kelas.index') }}/{{ $item->id }}/edit">Edit</a>
                                         </li>
                                         <li>
                                             <form action="{{ route('data-kelas.destroy', $item->id) }}" method="post">

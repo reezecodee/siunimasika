@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="text-center mb-4">
-                        <img src="{{ $data_prodi->picture ? asset('/img/logo-fakultas/' . $data_prodi->picture) : asset('/img/example.png') }}"
-                            class="w-50 mb-2" id="preview" alt="logo fakultas" srcset="">
+                        <img src="{{ $data_prodi->picture ? asset('/img/logo-prodi/' . $data_prodi->picture) : asset('/img/example.png') }}"
+                            class="w-50 mb-2" id="preview" alt="logo prodi" srcset="">
                     </div>
                 </div>
                 <div class="col-md-8">
