@@ -62,7 +62,7 @@ Route::prefix('e-learning')->middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('e-learn.dashboard');
     Route::get('profile', [ProfileController::class, 'index'])->name('e-learn.profile');
     Route::post('profile', [ProfileController::class, 'updateProfilePicture'])->name('e-learn.update-photo');
-    Route::post('profile', [ProfileController::class, 'changePassword'])->name('e-learn.change-password');
+    Route::post('profile/change-password', [ProfileController::class, 'changePassword'])->name('e-learn.change-password');
 
     // route resource data universitas
     Route::resource('data-fakultas', FakultasController::class);
