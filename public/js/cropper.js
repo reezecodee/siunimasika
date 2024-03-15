@@ -22,6 +22,7 @@ $("body").on("change", "#browse_image", function(e) {
 
     var image = document.getElementById('display_image_data');
     var button = document.getElementById('crop_button');
+    var btnClose = document.getElementById('btn-close');
     var result = document.getElementById('cropped_image_result');
     var croppable = false;
     var cropper = new Cropper(image, {
@@ -31,6 +32,13 @@ $("body").on("change", "#browse_image", function(e) {
             croppable = true;
         },
     });
+
+    btnClose.onclick = function(){
+        $('#cropped_image_data').val(null);
+        $('#browse_image').val(null);
+        $("#display_image_div").html('<img name="display_image_data" id="display_image_data" src="/img/upload-picture.png" alt="Uploaded Picture">');
+        $("#cropped_image_result").html('<img id="crop_result" class="crop-result" src="/img/preview-picture.png" />');
+    }
 
     button.onclick = function() {
 
@@ -95,7 +103,6 @@ function upload() {
             },
             success: function(data) {
                 console.log(data);
-                alert(data.success);
                 window.location.reload();
             }
         });

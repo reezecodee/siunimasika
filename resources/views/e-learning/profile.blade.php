@@ -57,7 +57,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Crop your new profile picture</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" id="btn-close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="d-flex justify-content-center gap-5">
@@ -74,7 +74,7 @@
                         <div class="w-50" align="center">
                             <label class="mb-2">Preview</label>
                             <div id="cropped_image_result">
-                                <img class="crop-result" src="/img/preview-picture.png" />
+                                <img id="crop_result" class="crop-result" src="/img/preview-picture.png" />
                             </div>
                             <br>
                         </div>
@@ -83,9 +83,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" id="crop_button">Crop</button>
                     <button type="button" class="btn btn-primary" id="upload_button" onclick="upload()">
-                        <div class="spinner-border text-white spinner-border-sm" role="status">
-                            <span class="visually-hidden"></span>
-                        </div> Upload
+                        Upload
                     </button>
                 </div>
             </div>
