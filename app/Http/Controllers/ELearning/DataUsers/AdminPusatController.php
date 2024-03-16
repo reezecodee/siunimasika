@@ -43,7 +43,10 @@ class AdminPusatController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('e-learning.data-users.show.show-admin-pusat', [
+            'title' => 'Detail Admin Pusat',
+            'data' => AdminPusat::where('id', $id)->get()->first()
+        ]);
     }
 
     /**
@@ -51,7 +54,10 @@ class AdminPusatController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('e-learning.data-users.edit.edit-admin-pusat', [
+            'title' => 'Edit Admin Pusat',
+            'data' => AdminPusat::where('id', $id)->get()->first()
+        ]);
     }
 
     /**
