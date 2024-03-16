@@ -26,8 +26,6 @@ class AppServiceProvider extends ServiceProvider
             // Memeriksa apakah pengguna telah terotentikasi
             if (Auth::check() && Auth::user()->role == "Admin Pusat") {
                 $view->with('dataUser', json_decode(Auth::user()->adminPusat, true)[0]);
-            } else if (Auth::check() && Auth::user()->role == "Admin Kampus") {
-                $view->with('dataUser', json_decode(Auth::user()->adminKampus, true)[0]);
             } else if (Auth::check() && Auth::user()->role == "Dosen") {
                 $view->with('dataUser', json_decode(Auth::user()->dosen, true)[0]);
             } else if (Auth::check() && Auth::user()->role == "Mahasiswa") {

@@ -30,7 +30,8 @@
                             <div class="col-md-6 mb-2">
                                 <label for="kode-dosen" class="mb-1">Kode dosen</label>
                                 <input type="text" class="form form-control @error('kode_dosen') is-invalid @enderror"
-                                    name="kode_dosen" id="kode-dosen" placeholder="" value="{{ old('kode_dosen') }}" required>
+                                    name="kode_dosen" id="kode-dosen" placeholder="" value="{{ old('kode_dosen') }}"
+                                    required>
                                 @error('kode_dosen')
                                     <div id="validationServer03Feedback" class="invalid-feedback">
                                         {{ $message }}
@@ -83,17 +84,8 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="d-flex align-items-center mt-2">
-                                <input type="checkbox" class="form-check-input cursor-pointer me-2" name=""
-                                    id="" required>
-                                <span>Saya yakin data diatas sudah benar</span>
-                            </div>
-                            <div class="d-flex justify-content-end mt-4 gap-2">
-                                <button type="reset" class="btn btn-danger"><i class="fas fa-power-off"></i> Reset
-                                    form</button>
-                                <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Simpan
-                                    data</button>
-                            </div>
+                            <!-- confirmation input, reset and submit button-->
+                            @include('e-learning.template.confirm-submit')
                         </div>
                     </form>
                 </div>
