@@ -6,7 +6,7 @@
                 @csrf
                 <div class="row">
                     <!-- image preview -->
-                    @include('e-learning.template.image-preview', ['image' => ''])
+                    @include('e-learning.template.component.image-preview', ['image' => ''])
                     <!-- end image preview --> 
                     
                     <div class="col-md-8">
@@ -50,9 +50,7 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <!-- confirmation input, reset and submit button-->
-                        @include('e-learning.template.confirm-submit')
+                        @include('e-learning.template.component.button-form-group')
                     </div>
                 </div>
             </form>

@@ -2,11 +2,7 @@
 @section('card-content')
     <div class="card">
         <div class="card-body">
-            <div class="d-flex justify-content-end mb-3">
-                <a href="{{ route('data-kelas.create') }}">
-                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Tambah kelas</button>
-                </a>
-            </div>
+            @include('e-learning.template.component.download-create-button', ['link_create' => 'data-kelas.create'])
             <table id="datatable" class="table table-striped table-hover">
                 <thead>
                     <tr>

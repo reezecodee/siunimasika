@@ -77,8 +77,7 @@
                                     </div>
                                 @enderror
                             </div>
-                            <!-- confirmation input, reset and submit button-->
-                            @include('e-learning.template.confirm-submit')
+                            @include('e-learning.template.component.button-form-group')
                         </div>
                     </form>
                 </div>
